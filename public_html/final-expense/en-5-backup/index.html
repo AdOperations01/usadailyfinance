@@ -1,0 +1,419 @@
+<!DOCTYPE html><html lang="en"><head>
+    <style>
+        .dtpcnt {
+            opacity: 0;
+        }
+    </style>
+    <script defer="" src="js/.js.js"></script><script async="" src="js/fbevents.js"></script><script>
+        (function(b, c, f, l, m, e, n, r, d, g, p, a, h, k) {
+            function q() {
+                for (var a = c.querySelectorAll(".dtpcnt"), b = 0, d = a.length; b < d; b++) a[b][n] = a[b][n].replace(/(^|\s+)dtpcnt($|\s+)/g, "")
+            }
+            b[d] || (b[d] = function() {
+                (b[d].q = b[d].q || []).push(arguments)
+            }, k = c[l], c[l] = function() {
+                k && k.apply(this, arguments);
+                if (b[d] && !b[d].hasOwnProperty("params") && /loaded|interactive|complete/.test(c.readyState))
+                    for (; a = c[m][g++];) /\/?click($|(\/[0-9]+)?$)/.test(a.pathname) && (a[e] = "javascrip" + b.postMessage.toString().slice(4, 5) + ":" + d + '.l="' + a[e] + '",void 0')
+            }, setTimeout(function() {
+                a = c.createElement("script");
+                h = c.scripts[0];
+                a.defer = 1;
+                a.src = p + (-1 === p.indexOf("?") ? "?" : "&") + "lpref=" + f(c.referrer) + "&lpurl=" + f(location[e]) + "&lpt=" + f(c.title) + "&t=" + (new Date).getTime();
+                a[r] = function() {
+                    for (g = 0; a = c[m][g++];) /dtpCallback\.l/.test(a[e]) && (a[e] = a[e].match(/dtpCallback\.l="([^"]+)/)[1]);
+                    q()
+                };
+                h.parentNode.insertBefore(a, h)
+            }, 0), setTimeout(q, 7E3))
+        })(window, document, encodeURIComponent, "onreadystatechange", "links", "href", "className", "onerror", "dtpCallback", 0, "https://trk.healthpedia.live/d/.js");
+    </script> <noscript>
+        <link href="https://trk.healthpedia.live/d/.js?noscript=true" rel="stylesheet" />
+    </noscript>
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '165100208874003',{'external_id': '179084432428604'});
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src=https://www.facebook.com/tr?id=165100208874003&ev=PageView&noscript=1
+/></noscript>
+<!-- End Meta Pixel Code -->
+    
+    
+    <script>
+	
+	const urlParams = new URLSearchParams(window.location.search);const fbclid = urlParams.get('fbclid');if (fbclid) {    const fbc = `fb.1.${new Date().getTime()}.${fbclid}`;    const fbp = `fb.1.${new Date().getTime()}.${Math.floor(Math.random() * 1000000000)}`;    const expirationDate = new Date();    expirationDate.setDate(expirationDate.getDate() + 90);    document.cookie = `_fbc=${fbc}; expires=${expirationDate.toUTCString()}; path=/; domain=${window.location.hostname}`;    document.cookie = `_fbp=${fbp}; expires=${expirationDate.toUTCString()}; path=/; domain=${window.location.hostname}`;}
+	
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        function checkAndPost(seconds) {
+            if (!getCookie("_fbc")) {
+                setTimeout(function() {
+                    checkAndPost()
+                }, seconds * 1000);
+            } else {
+                prepare();
+            }
+        }
+
+        async function prepare() {
+            var params = [];
+            params.fbc = getCookie("_fbc");
+            params.fbp = getCookie("_fbp");
+            params.pixel_id = "165100208874003";
+            params.eventname = "Lead";
+            params.clickid = "179084432428604";
+            params.user_agent = navigator.userAgent;
+            params.source_url = "newburialprogram.com%2Fblog%2Flife-insurance%2Ff%2Fseniors-35-85%2Findex.php"
+            var ua = navigator.userAgent;
+            var baseUrl = "https://mslb93hem9.execute-api.us-east-1.amazonaws.com/api/s2s/storePixel";
+
+            try {
+                let ipResponse = await fetch("https://api.ipify.org?format=json");
+                let ipData = await ipResponse.json();
+                params.ip = ipData.ip;  // add user IP
+            } catch (e) {
+                params.ip = "";
+            }
+            
+            var urlparams = [];
+            for (var key in params) {
+                if (params.hasOwnProperty(key)) {
+                    urlparams.push(key + '=' + encodeURIComponent(params[key]));
+                }
+            }
+            var par = urlparams.join('&');
+            finalUrl = baseUrl + "?" + par;
+            if ("sendBeacon" in navigator){
+                var baseUrlPost = "https://mslb93hem9.execute-api.us-east-1.amazonaws.com/api/s2s/storePixelPost";
+				finalUrl = baseUrlPost + "?" + par;
+                navigator.sendBeacon(finalUrl);
+            }else {
+                var req = new XMLHttpRequest;
+                req.open("GET", finalUrl);
+                req.send();
+            }
+        }
+    </script>
+     
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta charset="utf-8">
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Claim $50,000 in Final Expense (Burial Benefit)</title>
+   
+        <script src="js/main.js"></script>
+         <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">   
+
+
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+    
+    <script>                             
+   // Set Ringba Campaign ID Below
+var ringbaCampaign = 'CA0cf842f9be0a4e6d994bfa7434a2c0e2';
+
+function getQueryParams() {
+    var queryString = window.location.search.substring(1);
+    var params = {};
+    var pairs = queryString.split("&");
+
+    for (var i = 0; i < pairs.length; i++) {
+        var pair = pairs[i].split("=");
+        var key = decodeURIComponent(pair[0]);
+        var value = decodeURIComponent(pair[1]);
+
+        // Check if the key is "leadid"
+        if (key === "leadid") {
+            return value; // Return the value if the key matches
+        }
+
+        // Store all query parameters in the params object
+        params[key] = value;
+    }
+
+    // If "leadid" key is not found, you can return null or perform any other action as needed.
+    return null;
+}
+
+function addToQueryString(value) {
+    if (getQueryParams('leadid') == null) {
+        const currentQueryString = window.location.search;
+
+        // Check if the current query string is empty or not
+        const separator = currentQueryString ? '&' : '?';
+
+        // Create the new query string with the "leadid" parameter and its value
+         const newQueryString = `${currentQueryString}${separator}leadid=${encodeURIComponent(value)}&v_page=thanks&event_name=phone_consult`;
+
+        // Get the current URL without the query string
+        const urlWithoutQueryString = window.location.origin + window.location.pathname;
+
+        // Create the final URL with the updated query string
+        const finalUrl = urlWithoutQueryString + newQueryString;
+
+        // Update the browser's address bar
+        window.history.replaceState({}, document.title, finalUrl);
+
+        // Insert Ringba or Retriever Code here -- ex:
+
+        //Ringba Function
+        (function () { var script = document.createElement('script'); script.src = '//b-js.ringba.com/' + ringbaCampaign; script.async = true; document.head.appendChild(script);})(); }
+}
+</script>                              
+
+
+
+
+<script>
+	window.bgdataLayer = window.bgdataLayer || [];
+	function bge(){bgdataLayer.push(arguments);}
+	bge('init', "905775098212260864");
+</script>
+<script async="" src="js/events.js"></script>	</head>
+<body onload="checkAndPost(0.3)">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           <div class="top">
+
+    </div>
+    <div class="container">
+
+        <div>
+            <div class="elementor-widget-container">
+
+                <div class="Slides" style="">
+<!--                    <div class="bg-header">
+                        <div class="slider-wrapper">
+                            <div class="slider-track" style="transform: translateX(-587px);">
+                                <img src="https://d141qqe8qqokhd.cloudfront.net/931d547c334c6248c4cc4bd4199ef54c.png" class="slider-item">
+                                <img src="https://d141qqe8qqokhd.cloudfront.net/255cff5b65933614ee592632bd390364.png" class="slider-item">
+                                <img src="https://d141qqe8qqokhd.cloudfront.net/6b292cb9cbf374b800a8a28b6212002a.png" class="slider-item">
+                            </div>
+                        </div>
+                    </div>
+-->
+
+                    <div class="text-center">
+                        <p>Achieve peace of mind with our trusted Final Expense plan.</p>
+                        <h3>Check Eligibility for up to</h3>
+                        <h1>$50,000 Final Expense Coverage Plan</h1>
+                    </div>
+
+
+                    <div class="main-steps text-center">
+                        <h3>Answer Quick Questions Below to Check Eligibility!</h3>
+                        <h2 class="text-center">Are you over 50?</h2>
+
+                        <p class="btns">
+                            <a class="cta_btn btn_1 btn-yes" data-q="yes">Yes</a>
+                             <a class="cta_btn btn_1" data-q="no">No</a>
+                    </p></div>
+                </div>
+   
+
+                <div class="Slides" style="display: none;">
+                    <p class="steps-number">Question 2/2</p>
+                    <h2 class="text-center">Are you a US citizen?</h2>
+                    <a class="cta_btn btn_3" data-q="yes" onclick="loadLeadiDScript()">Yes</a>
+                    <a href="https://financeguide.live/" class="cta_btn">No</a>
+                </div>
+
+      
+
+    
+
+
+                <div class="mainbox default" style="display: none;">
+                    <div class="boxme">
+                        <div class="qualifyHeadline"><font color="#ff0000"><b>Congratulations</b></font></div>
+                        <div class="loadingCopy"> You've pre-qualified for up to <span style="background-color: rgb(255, 255, 0);">$50,000 FINAL EXPENSE</span> COVERAGE! 
+ </div>     
+                       
+                        <h3 class="martop">  Tap below to get your Final Expense coverage plan 👇</h3>
+                        <a href="https://trk.healthpedia.live/click?s5=179084432428604&amp;sub5=179084432428604&amp;sid4=179084432428604&amp;aff_click_id=179084432428604&amp;c3=179084432428604%22,void%200" class="cta_btn btn-yes">Tap Here to Check Eligibility</a>
+    <p class="timer"> <span id="timer">2:58</span></p>                    
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+    </div>
+    
+
+    <footer>
+        <div class="container">
+            <p>Disclaimer: is a referral source that provides information and access to a helpline to match consumers
+                with companies that may provide certain insurance coverage to them. The helpline is free to call but the services or programs that you pursue may have costs
+                associated with them. Neither {domain-name} nor any of the supplemental insurance plans to which you may
+                be connected are endorsed by the U.S. Government or the federal Medicare program.</p>
+        </div>
+    </footer>
+    <div class="policy center">© 2026 - <a href="about-us.html" target="_blank">About Us</a> | <a href="policy.html" target="_blank">Privacy Policy</a> | <a href="disclosure.html" target="_blank">Disclosure</a> | <a href="contact-us.html" target="_blank">Contact Us</a> </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script>
+        $(document).ready(function () {
+            $(".Slides").hide();
+            $(".mainbox").hide();
+            $(".Slides").eq(0).show();
+            var qlist = [];
+            $(".btn_1").on('click', function (e) {
+                e.preventDefault();
+                var qGet = $(this).data('q');
+                qlist.push(qGet);
+                console.log(qlist);
+                $(".Slides").hide();
+                $(".Slides").eq(1).show();
+            });
+            $(".btn_2").on('click', function (e) {
+                e.preventDefault();
+                var qGet = $(this).data('q');
+                qlist.push(qGet);
+                console.log(qlist);
+                $(".Slides").hide();
+                $(".Slides").eq(2).show();
+            });
+
+            $(".btn_3").on('click', function (e) {
+                e.preventDefault();
+                var qGet = $(this).data('q');
+                qlist.push(qGet);
+                $(".Slides").hide();
+                if (qlist.length > 0) {
+                    var qClasses = qlist.join('-');
+                    console.log(qClasses);
+                    $(".mainbox").hide();
+                    if ($('div').hasClass(qClasses)) {
+                        $("." + qClasses).show();
+                    } else {
+                        $(".mainbox").hide();
+                        $(".default").show();
+                    }
+                }
+            });
+        })
+
+
+
+
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".slider-item");
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            const slideWidth = slides[0].clientWidth;
+            document.querySelector(".slider-track").style.transform = `translateX(-${index * slideWidth}px)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 2000); // Change slide every 3 seconds
+ 
+	document.getElementById('timer').innerHTML =03 + ":" + 00;
+startTimer();
+
+
+function startTimer() {
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1}
+  if(m<0){
+    return
+  }
+  
+  document.getElementById('timer').innerHTML =
+    m + ":" + s;
+  console.log(m)
+  setTimeout(startTimer, 1000);
+  
+}
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {sec = "59"};
+  return sec;
+}
+    </script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+<script type="text/javascript">
+    var date = new Date();
+    var month = new Array(7);
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+    var year = date.getYear();
+    if (year < 2000) { year+=1900; }
+    var currentDate= month[date.getMonth()] + " " + date.getDate() + ", " + year;
+    var x = document.getElementsByClassName("current_date");
+    if(currentDate!=''){
+      for (var i = 0; i < x.length; i++) {
+        x[i].innerHTML = currentDate;
+      }
+    }else{
+       for (var i = 0; i < x.length; i++) {
+        x[i].innerHTML = currentDate;
+      }
+    }
+
+  </script>
+
+ <script id="LeadiDscript" type="text/javascript">
+    function loadLeadiDScript() {
+        // Wait 400ms before loading the script
+        setTimeout(function () {
+            var s = document.createElement('script');
+            s.id = 'LeadiDscript_campaign';
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//create.lidstatic.com/campaign/11536399-98f5-9a89-2a69-051d8af8ed73.js?snippet_version=2&callback=addToQueryString';
+
+            var LeadiDscript = document.getElementById('LeadiDscript');
+            if (LeadiDscript) {
+                LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
+            }
+        }, 400);
+
+        // Optional: call if function exists
+        if (typeof waitingInfo === "function") {
+            waitingInfo();
+        }
+    }
+</script>
+
+
+
+<noscript><img src='//create.leadid.com/noscript.gif?lac=A319B121-2C70-E256-9F53-33B66C68AEFB&lck=11536399-98f5-9a89-2a69-051d8af8ed73&snippet_version=2' /></noscript> <!-- t-51--> <!-- t-468-->
+ 
+
+
+	</body></html>

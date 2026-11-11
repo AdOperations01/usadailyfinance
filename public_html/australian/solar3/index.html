@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Australian Homeowners Are Taking a Closer Look at Solar</title>
+<meta name="description" content="Check whether your home may be suitable for solar with a quick eligibility check.">
+<style>
+  :root{
+    --ink:#1d2a33;
+    --muted:#5b6b75;
+    --bg:#fbfaf6;
+    --panel:#ffffff;
+    --line:#e3e0d6;
+    --sun:#f2a900;
+    --sun-dark:#c98a00;
+    --sky:#1f5f7a;
+    --sky-soft:#e8f1f4;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:19px;line-height:1.7;
+  }
+  .topbar{
+    background:var(--sky);color:#fff;
+    font-family:Arial,Helvetica,sans-serif;font-size:13px;
+    padding:8px 16px;text-align:center;
+  }
+  .topbar strong{font-weight:700}
+  header.site{
+    background:var(--panel);border-bottom:1px solid var(--line);
+    font-family:Arial,Helvetica,sans-serif;
+  }
+  header.site .inner{
+    max-width:760px;margin:0 auto;padding:14px 20px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .brand{font-weight:700;font-size:18px;color:var(--sky)}
+  .brand span{color:var(--sun-dark)}
+  .tag{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:3px 8px;border-radius:3px}
+  main{max-width:760px;margin:0 auto;padding:36px 20px 60px}
+  h1{
+    font-size:clamp(28px,5vw,40px);line-height:1.2;margin:0 0 16px;
+    letter-spacing:-.01em;
+  }
+  .byline{
+    font-family:Arial,Helvetica,sans-serif;font-size:13px;color:var(--muted);
+    margin-bottom:26px;padding-bottom:16px;border-bottom:1px solid var(--line);
+  }
+  .hero{
+    margin:0 0 28px;border-radius:6px;overflow:hidden;
+    background:linear-gradient(180deg,#bfe0ee 0%,#e9f3f6 55%,#dcd6c4 55%,#c9c2ac 100%);
+    aspect-ratio:16/8;position:relative;
+  }
+  .hero svg{width:100%;height:100%;display:block}
+  figcaption{
+    font-family:Arial,Helvetica,sans-serif;font-size:12px;color:var(--muted);
+    margin-top:-18px;margin-bottom:28px;
+  }
+  h2{font-size:26px;line-height:1.3;margin:40px 0 12px}
+  p{margin:0 0 18px}
+  .question{
+    background:var(--sky-soft);border-left:5px solid var(--sky);
+    padding:16px 20px;margin:26px 0;border-radius:0 6px 6px 0;
+    font-style:italic;
+  }
+  .criteria{
+    background:var(--panel);border:1px solid var(--line);border-radius:8px;
+    padding:22px 24px;margin:24px 0;
+  }
+  .criteria h3{
+    font-family:Arial,Helvetica,sans-serif;font-size:18px;margin:0 0 14px;
+  }
+  .criteria ul{list-style:none;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5}
+  .criteria li{
+    display:flex;gap:12px;padding:11px 0;border-top:1px solid var(--line);
+  }
+  .criteria li:first-child{border-top:0}
+  .criteria li::before{
+    content:"✓";flex:none;width:24px;height:24px;border-radius:50%;
+    background:var(--sky);color:#fff;font-size:14px;
+    display:grid;place-items:center;margin-top:1px;
+  }
+  .criteria b{color:var(--sky)}
+  .cta-box{
+    text-align:center;margin:40px 0 20px;padding:32px 22px;
+    background:#e9f7ee;border:2px solid #1fa34a;border-radius:10px;
+    font-family:Arial,Helvetica,sans-serif;
+  }
+  .cta-box h2{margin:0 0 8px;font-family:Georgia,serif;font-size:26px}
+  .cta-box p{color:var(--muted);font-size:16px}
+  .btn{
+    display:inline-block;background:#1fa34a;color:#fff;
+    font-weight:700;font-size:18px;text-decoration:none;
+    padding:16px 30px;border-radius:6px;margin-top:6px;
+    box-shadow:0 3px 0 #157a36;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:hover{background:#22b052;transform:translateY(2px);box-shadow:0 1px 0 #157a36}
+  .btn:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+  .disclaimer{
+    font-family:Arial,Helvetica,sans-serif;font-size:12px;color:var(--muted);
+    line-height:1.5;margin-top:22px;
+  }
+  footer{
+    border-top:1px solid var(--line);background:var(--panel);
+    font-family:Arial,Helvetica,sans-serif;font-size:12px;color:var(--muted);
+    text-align:center;padding:24px 20px;line-height:1.6;
+  }
+  footer a{color:var(--muted);margin:0 8px}
+  .sticky{
+    display:none;position:fixed;left:0;right:0;bottom:0;z-index:10;
+    background:#fff;border-top:1px solid var(--line);padding:10px 14px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    text-align:center;font-family:Arial,Helvetica,sans-serif;
+  }
+  .sticky .btn{display:block;padding:13px 16px;font-size:16px;margin:0}
+  @media (max-width:640px){
+    body{font-size:18px}
+    .sticky{display:block}
+    footer{padding-bottom:90px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+  
+  .hero img{width:100%;height:100%;display:block;object-fit:cover}
+  .brand img{display:block;height:36px;width:auto;max-width:200px}
+</style>
+
+ <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1590984399156195');
+fbq('track', 'page view');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1590984399156195&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+
+
+
+<header class="site">
+  <div class="inner">
+    <div class="brand"><img src="logo-optimal-transnational2.svg" alt="Solar Australia" height="36"></div>
+    <div class="tag">Advertorial</div>
+  </div>
+</header>
+
+<main>
+  <h1>Australian Homeowners Are Taking a Closer Look at Solar as Electricity Bills Put Pressure on Household Budgets</h1>
+  
+
+  <figure style="margin:0">
+  <div class="hero">
+    <img src="Imagesolar.png?1" alt="Australian home with rooftop solar panels" width="800" height="400">
+  </div>
+</figure>
+  <figcaption>Rooftop solar is something many homeowners are now weighing up.</figcaption>
+
+  <p>For many Australian homeowners, electricity bills have become an important part of managing monthly household expenses. And with a rooftop of their own, some homeowners are beginning to explore whether solar energy could be a practical option for their property.</p>
+
+  <div class="question">But before investing in a solar system, there is one important question to consider: Is your home suitable for solar, and what options might be available to you?</div>
+
+  <h2>Why Are More Homeowners Exploring Solar?</h2>
+  <p>When a large portion of the household budget goes toward electricity, it makes sense to explore alternatives. A suitable solar system may help some households reduce their reliance on electricity from the grid, depending on their energy usage, property, system costs, and local conditions.</p>
+  <p>However, not every property is the same. Roof condition, shading, electricity consumption, and installation requirements can all affect whether solar is a suitable option.</p>
+  <p>That is why checking your home's eligibility is a sensible place to start.</p>
+
+  <h2>A Simple First Step: Check Your Solar Eligibility</h2>
+  <p>Rather than making assumptions, homeowners can begin by providing a few basic details about their property and electricity usage. This information can help determine whether their home may be suitable for solar and whether any relevant installation or financing options are available.</p>
+  <p>The process starts with a quick eligibility check.</p>
+
+  <h2>Before You Continue, Make Sure You're a Good Fit</h2>
+  <p>This eligibility check is intended for homeowners who meet the following criteria:</p>
+
+  <div class="criteria">
+    <h3>Eligibility criteria</h3>
+    <ul>
+      <li><span><b>Age:</b> You are 45 years old or above.</span></li>
+      <li><span><b>Homeownership:</b> You own the property where you are considering installing solar.</span></li>
+      <li><span><b>Installation timeframe:</b> You are seriously considering buying or installing solar within the next 20 days.</span></li>
+      <li><span><b>Electricity bill and property details:</b> You are willing to provide your monthly electricity bill and other basic information required for the eligibility check.</span></li>
+    </ul>
+  </div>
+
+  <p>If all these criteria apply to your situation, you can take the next step.</p>
+
+ 
+  <p>Completing the eligibility check may help you explore available installation, financing, and government rebate options, as the government provides rebates to eligible homeowners for installing solar systems.</p>
+  <p>Ready to find out whether your home could be suitable?</p>
+
+  <section class="cta-box" id="cta">
+    <h2>Check Your Solar Eligibility Today</h2>
+    <p>Start your eligibility check and explore the options that may be available for your home.</p>
+    <a class="btn" href="https://globalvisitclub.com/cf/click/1" rel="sponsored noopener">CHECK MY SOLAR ELIGIBILITY →</a>
+  </section>
+
+  <p class="disclaimer">Eligibility and available offers are subject to provider requirements. Any potential savings depend on individual circumstances and system suitability.</p>
+</main>
+
+<div class="sticky">
+  <a class="btn" href="https://globalvisitclub.com/cf/click/1" rel="sponsored noopener">CHECK MY SOLAR ELIGIBILITY →</a>
+</div>
+
+<footer>
+  <p>This page is an advertisement and does not constitute financial, legal or energy advice.<br>
+  Results vary by property and provider. © 2026 Optimal Transnational. All rights reserved.</p>
+  <p><a href="https://globalvisitclub.com/cf/click/1">Privacy Policy</a><a href="https://globalvisitclub.com/cf/click/1">Terms &amp; Conditions</a><a href="https://globalvisitclub.com/cf/click/1">Contact</a></p>
+</footer>
+
+</body>
+</html>

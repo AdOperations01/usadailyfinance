@@ -1,0 +1,1784 @@
+@charset "UTF-8";
+
+/*---------------------------------------- UNIVERSAL STYLES ----------------------------------------*/
+
+html,body {
+    background-color: #fff;
+    color: #23292f;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: #116696;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: -0.025rem;
+    text-transform: capitalize;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+.textLarge {
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.41;
+}
+.textLarge small{
+    color:#fff
+}
+
+a {
+    color: #7dc049;
+    cursor: pointer;
+}
+a:focus,
+a:hover {
+    color: #116696;
+    text-decoration: none;
+}
+
+hr {
+    margin: 10px 0;
+}
+
+.ourPartner {
+    color: #9B9B9B;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.trustPilot:after {
+    clear: both;
+}
+
+.trustPilotScore {
+    color: #9B9B9B;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.trustPilotMobile {
+    color: #9B9B9B;
+    font-size: 14px;
+    margin: 0 5px 15px;
+}
+
+#sortByDiv, #sortByDivMobile {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    text-align: right;
+}
+
+#sortByDiv select, #sortByDivMobile select {
+    color: #9B9B9B;
+    font-size: 14px;
+    line-height: 1.25;
+    padding: 3px 5px;
+}
+
+/*----- Extra Small -----*/
+@media (max-width: 767px) {
+    .brandLogo {
+        max-width: 150px;
+        width: 100%;
+    }
+
+    .tableReviews button {
+        max-width: 180px;
+        width: 100%;
+    }
+
+    table.brand {
+        border-radius: 10px;
+        width: calc(100% - 30px);
+    }
+
+    table.brand tr td.listingExpansion {
+        border-top: none;
+        color: #7C92A7;
+        padding: 0;
+    }
+
+    table.brand tr td.listingExpansion ul {
+        margin-top: 10px;
+    }
+
+    .listingExpansionButton {
+        background-color: #F0F5F9;
+        border-radius: 0 0 10px 10px;
+        font-size: 14px;
+        padding: 3px;
+    }
+
+}
+
+blockquote {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    border-left: 5px solid #116696;
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    color: #000;
+    margin-bottom: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 25px;
+}
+
+.contentContainer p a {
+    font-weight: 700;
+}
+
+.photoHome {
+    float: left;
+    height: auto;
+    margin: 0 20px 5px 0;
+    width: 265px;
+}
+
+.rowQuote {
+    color: #116696;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.sectionContent {
+    padding: 25px 0;
+}
+
+.sectionSiteInfoMobile {
+    position: relative;
+}
+
+.sectionContent h1,
+.sectionContent h2,
+.sectionContent h3,
+.sectionSiteInfo h1,
+.sectionSiteInfo h2,
+.sectionSiteInfo h3 {
+    margin-top: 0;
+}
+
+.sectionSiteInfoImage {
+    /* BG image specified in theme */
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    min-height: 200px;
+}
+
+.sectionSiteInfoImage h1 {
+    color: #fff;
+}
+
+.sectionSiteInfoImage .modalLinks{
+    color: #fff;
+}
+
+.sectionSiteInfoImage .modalLinks a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}
+.sectionSiteInfoImage .modalLinks a:hover {
+    color: #eee;
+}
+
+div.modalLinksRightCol {
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+div.modalLinksRightCol a {
+    color: #23292f;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+div.modalLinksRightCol .referralText {
+    font-size: 11px;
+}
+
+.sectionSiteInfoImage .referralText {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.displayOverflow {
+    overflow: visible;
+}
+
+.textGray {
+    color: #999;
+}
+
+/*----- Extra Small -----*/
+@media(max-width: 767px){
+
+    html,body {
+        background-image: none;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .photoHome {
+        margin: 0 0 10px;
+        width: 100%;
+    }
+    .textLarge {
+        font-size: 17px;
+    }
+}
+
+/*----- Small -----*/
+@media(min-width: 768px) and (max-width: 991px){
+
+    html,body {
+        background-image: none;
+    }
+
+}
+
+/*----- Medium -----*/
+@media(min-width: 992px) and (max-width: 1199px){
+
+    html,body {
+        background-image: none;
+    }
+
+}
+
+/*----- Large -----*/
+@media(min-width: 1200px){
+
+    html,body {
+        background-attachment: fixed;
+        background-position: top center;
+        background-repeat: no-repeat;
+    }
+
+}
+
+/*---------------------------------------- BUTTONS ----------------------------------------*/
+
+button {
+    border: none;
+    outline: none;
+}
+
+button.close {
+    outline: none;
+}
+
+.podium button,
+.tableReviews button,
+.sectionContent button,
+.reviewContent button {
+    background-color: #006699;
+    border-radius: 25px;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    outline: none;
+    margin: 5px 0;
+    padding: 8px 25px;
+}
+.podium button:focus,
+.podium button:hover,
+.tableReviews button:focus,
+.tableReviews button:hover,
+.sectionContent button:focus,
+.sectionContent button:hover,
+.reviewContent button:focus,
+.reviewContent button:hover {
+    background-color: #004c72;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7dc049', endColorstr='#9bd96b',GradientType=0 ); /* IE6-9 */
+}
+
+.tableReviews button {
+    min-width: 200px;
+}
+
+.podium button {
+    font-size: 13px;
+    margin: 7px 0 0;
+    padding: 3px 15px;
+}
+
+.podium .ribbon {
+    font-size: 12px;
+    left: -13px;
+    padding: 0 15px;
+    top: 2px;
+    transform: scale(0.85);
+}
+
+.glyphButton {
+    float: left;
+}
+
+.btnPhone {
+    background-color: #116696;
+    border: none;
+    border-radius: 5px;
+    color: #fff !important;
+    display: block;
+    margin: 5px 0;
+    max-width: 400px;
+    padding: 8px 10px;
+    text-align: center;
+    width: 100%;
+}
+.btnPhone:focus,
+.btnPhone:hover {
+    background: #7dc049;
+    color: #fff !important;
+}
+
+.multiBrandAdvertorial button {
+    font-size: 24px;
+    padding: 12px 25px;
+    width: 100%;
+}
+
+.multiBrandAdvertorial button.advertorialBtnLg {
+    background-color: #E92C2C;
+}
+.multiBrandAdvertorial button.advertorialBtnLg:hover {
+    background-color: #BC1F1F;
+}
+
+.tableReviews .brandsFlag,
+.tableReviews .brandsFlag:hover,
+.tableReviews .brandsFlag:focus {
+    background-repeat: no-repeat;
+    border-radius: 0;
+    box-shadow: none;
+    height: 30px;
+    left: -6px;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+.topRatingOnlyBorderBox .brandsFlag {
+    left: -10px;
+}
+
+.tableReviews .topChoice,
+.tableReviews .topChoice:hover,
+.tableReviews .topChoice:focus {
+    background-image: url('../images/topChoice.png');
+    width: 136px;
+}
+
+.tableReviews .numberOneChoice,
+.tableReviews .numberOneChoice:hover,
+.tableReviews .numberOneChoice:focus {
+    display: none;
+}
+
+.tableReviews .mostPopular,
+.tableReviews .mostPopular:hover,
+.tableReviews .mostPopular:focus {
+    background-image: url('../images/mostPopular.png');
+    width: 163px;
+}
+
+/*----- Extra Small -----*/
+@media(max-width: 767px) {
+
+    .tableReviews button {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .btnPhone {
+        font-size: 13px;
+    }
+
+}
+
+/*----- Small -----*/
+@media(min-width: 768px) and (max-width: 991px){
+
+    .tableReviews button {
+        min-width: 150px;
+    }
+
+}
+
+/*---------------------------------------- NAV BAR ----------------------------------------*/
+
+.mfHeader {
+    max-width: 1230px;
+}
+
+.mfNavbar {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.mfNavbarHeader {
+    width: 100%;
+}
+
+.logo {
+    background-image: url('../images/logo.png');
+    background-size: 250px 46px;
+    height: 46px;
+    margin-top: -12px;
+    width: 250px;
+}
+
+header .mfNavbar li .navLink {
+    color: #116696;
+    font-size: 15px;
+    margin: 28px 0 0 20px;
+    padding: 0;
+}
+header .mfNavbar li .navLink:hover,
+header .mfNavbar li .navLinkOff,
+header .mfNavbar li .navLinkOff:hover {
+    color: #7dc049;
+}
+
+.mfNavCollapse {
+    border: none;
+    width: 100%;
+}
+
+.mfNavBarRight {
+    margin: 0 -15px;
+}
+
+.mfBtnNavbar {
+    background-color: #fff !important;
+}
+.mfBtnNavbar:hover {
+    background-color: #eee !important;
+}
+
+/*----- Extra Small -----*/
+@media(max-width: 767px){
+
+    .logo {
+        background-size: 180px 34px;
+        height: 34px;
+        margin-top: -7px;
+        width: 180px;
+    }
+
+    header .mfNavbar li .navLink {
+        margin: 0;
+        padding: 10px 15px;
+    }
+
+    .mfNavbarHeader {
+        width: auto;
+    }
+
+    .mfNavBarRight {
+        margin: 15px -15px;
+    }
+
+}
+
+/*----- Large -----*/
+@media(min-width: 1200px){
+
+    .logo {
+        margin-left: 30px;
+    }
+
+    .mfNavBarRight {
+        margin-right: 30px;
+    }
+
+}
+
+/*---------------------------------------- SITE INFO ----------------------------------------*/
+
+.sectionSiteInfo {
+    padding: 0 0 110px;
+}
+
+.sectionSiteInfoContent {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.sectionSiteInfo h1,
+.sectionSiteInfo h2,
+.sectionSiteInfo h3 {
+    margin-top: 0;
+}
+
+.modalLinks a {
+    font-size: 12px;
+}
+
+.mfModal {
+    outline: none;
+}
+.mfModal:active,
+.mfModal:focus,
+.mfModal:hover {
+    outline: none;
+    text-decoration: none;
+}
+
+.mfModalCopy {
+    font-size: 0.75rem;
+}
+
+.lastUpdate {
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+.trusted {
+    max-width: 600px;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.textLargeImageInstead img {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+.podiumRow {
+    margin: 30px 0 10px;
+}
+
+.podiumRow div {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+table.podium {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.2);
+    color: #23292f;
+    cursor: pointer;
+    padding: 15px;
+    position: relative;
+    width: 100%;
+}
+table.podium:hover {
+    transform: scale(1.05);
+}
+
+table.podium img.brandLogo_size1 {
+    width: 175px
+}
+
+#podiumNumberOne {
+    background-color: #7dc049;
+    color: #fff;
+    font-size: 12px;
+    left: calc(50% - 60px);
+    padding: 1px 5px 3px;
+    position: absolute;
+    text-align: center;
+    top: -7px;
+    width: 120px;
+    z-index: 200;
+}
+
+#podium1 {
+    order: 1;
+    position: relative;
+    transform: scale(1.15);
+    z-index: 100;
+}
+#podium1:hover {
+    transform: scale(1.20);
+}
+
+#podium2 {
+    order: 2;
+    padding-right: 13px;
+}
+
+#podium3 {
+    order: 3;
+    padding-left: 13px;
+}
+
+table.podium tr td {
+    padding: 15px;
+}
+
+.tdSite #rankingNumber {
+    background-color: #fff;
+    border: 2px solid #7dc049;
+    border-radius: 30px;
+    color: #7dc049;
+    height: 30px;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    width: 30px;
+}
+
+/*----- Extra Small -----*/
+@media(max-width: 767px){
+
+    .sectionSiteInfo {
+        padding: 20px 0 25px;
+    }
+
+    .modalLinks {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .lastUpdate {
+        font-size: 12px;
+    }
+}
+
+/*---------------------------------------- TOP 5 & REVIEWS ----------------------------------------*/
+
+.tableReviews {
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px;
+    position: relative;
+}
+
+.tableReviewsHome {
+    max-width: 1200px;
+}
+.tableReviewsHome {
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.2);
+}
+
+.tableReviewsHome:hover {
+    transform: scale(1.025);
+}
+
+.tableReviews thead tr th {
+    background-color: #006699;
+    border-bottom: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.tableReviews .rowTop th {
+    border: none;
+    font-weight: normal;
+    text-align: center;
+}
+
+.tableReviews tbody tr td {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tableReviews tbody tr td li{
+    font-size: 17px;
+    text-align: left;
+}
+
+.tableReviews .rowTop {
+    background-color: #116696;
+    color: #fff;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.125rem;
+    padding: 10px 0;
+}
+
+.tdReview {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+    width: 55%;
+}
+
+.linkReadMore {
+    text-align: left;
+}
+
+.tdReview p {
+    text-align: left;
+}
+
+.tdSite {
+    position: relative;
+    width: 25%;
+}
+
+.tdHighlights {
+    width: 40%;
+}
+
+.tdScore {
+    width: 15%;
+}
+
+.tdScore .reviewLink {
+    margin-top: 8px;
+}
+
+.tdScore .reviewLink a {
+    color: #bbb;
+    font-size: 16px;
+}
+
+.tableReviews .tdVisit {
+    padding-left: 10px;
+    padding-right: 20px;
+    width: 20%;
+}
+
+.tdBonusLink,
+.tdStarRank {
+    display: none;
+}
+
+.tableReviews a {
+    color: #116696;
+}
+
+.tableReviews a:focus,
+.tableReviews a:hover {
+    color: #7dc049;
+}
+
+.tableReviews .smallLink {
+    color: #999;
+    font-size: .75rem;
+    text-decoration: underline;
+}
+.tableReviews .smallLink:hover {
+    color: #666;
+}
+
+.tableReviews .phoneLink {
+    margin-bottom: 5px;
+}
+
+.tableReviews .phoneLink a {
+    font-family: 'Fjalla One', sans-serif;
+}
+
+#reviewsColumn {
+    max-width: 500px;
+}
+
+#reviewsColumn .tdSite {
+    width: 50%;
+}
+
+#reviewsColumn .tdSite img.brandLogo {
+    max-width: 125px;
+}
+
+#reviewsColumn .tdVisit {
+    width: 50%;
+}
+
+#reviewsColumn .btnReviewWidget {
+    font-size: 15px;
+}
+
+.phoneLink .glyphicon {
+    color: #7dc049;
+    font-size: 0.75rem;
+    margin-right: 5px;
+}
+
+.reviewLogo {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.podium .scoreText,
+.tableReviews .scoreText {
+    color: #7dc049;
+    cursor: pointer;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 55px;
+    line-height: 3.5rem;
+    text-decoration: none;
+}
+.podium .scoreText:hover,
+.tableReviews .scoreText:hover {
+    color: #2c9321;
+    text-decoration: none;
+}
+
+.podium .scoreText {
+    font-size: 32px;
+    line-height: 1.75rem;
+}
+
+.tableReviews .mobileStarRank {
+    display: none;
+}
+
+.ranking {
+    color: #666;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 20px;
+}
+
+.ourScore {
+    color: #999;
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+}
+
+.ctaPhone a {
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.brandLogo_size0 {
+    display: none;
+}
+
+#reviewsColumn .tableReviews .colReviewsHeader {
+    background-color: #116696;
+    color: #fff;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.125rem;
+    padding: 10px 8px;
+    text-align: left;
+}
+
+.topRatingOnlyBorderBox{
+    display:block;
+    margin-bottom:50px;
+}
+
+/*----- Extra Small -----*/
+@media(max-width: 767px) {
+
+
+    #reviewsMobileDefault {
+        display: none !important;
+    }
+
+    #reviewsMobileCondensed {
+        border: none;
+        margin-top: -25px;
+    }
+
+    .topRatingOnlyBorderBox {
+        border: none;
+        border-top: none;
+        border-bottom: none;
+    }
+
+    #reviewsMobileCondensed .tableReviewsHome {
+        border-radius: unset;
+        margin-bottom: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        width: calc(100% - 30px);
+    }
+
+    .tableReviews .rowTop th {
+        width: 33.33%; /* Fallback for older browsers */
+        width: calc(100% / 3);
+    }
+
+    .tableReviews tbody tr td {
+        padding-bottom: 25px;
+        padding-top: 25px;
+        white-space: normal !important;
+        width: 33.33%; /* Fallback for older browsers */
+        width: calc(100% / 3);
+    }
+
+    .tdMobileLeft {
+        position: relative;
+    }
+
+    .mobileInfo .mobileOurScore {
+        color: #999;
+        font-size: 0.75rem;
+        margin-top: 15px;
+    }
+
+    .mobileInfo .mobileScore {
+        color: #7dc049;
+        font-family: 'Fjalla One', sans-serif;
+        font-size: 35px;
+    }
+
+    .mobileInfo .mobileReviewLink a {
+        color: #999;
+        font-size: 0.75rem;
+        text-decoration: underline;
+    }
+    .mobileInfo .mobileReviewLink a:hover {
+        color: #666;
+    }
+
+    .tableReviews .phoneLink {
+        font-size: 20px;
+    }
+
+    .ctaPhone a {
+        font-size: 20px;
+    }
+
+}
+
+/*----- Small -----*/
+@media(min-width: 768px) and (max-width: 991px){
+
+    .tableReviewsHome {
+        margin-left: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        width: calc(100% - 30px);
+    }
+
+    .tableReviews .phoneLink {
+        font-size: 22px;
+    }
+
+    .ctaPhone a {
+        font-size: 22px;
+    }
+
+}
+
+/*----- Medium -----*/
+@media(min-width: 992px) and (max-width: 1199px){
+
+    .tableReviewsHome {
+        margin-left: 15px;
+        margin-right: 15px;
+        width: calc(100% - 30px);
+    }
+
+    .tableReviews .phoneLink {
+        font-size: 28px;
+    }
+
+    .ctaPhone a {
+        font-size: 28px;
+    }
+}
+
+/*----- Large -----*/
+@media(min-width: 1200px){
+
+    .tableReviews .phoneLink {
+        font-size: 32px;
+    }
+
+    .ctaPhone a {
+        font-size: 32px;
+    }
+
+}
+
+/*---------------------------------------- ARTICLE MENU ----------------------------------------*/
+
+.tableArticles {
+    border: none;
+    margin: 0;
+}
+
+.tdArticles {
+    margin: 10px 0 5px;
+}
+
+.tdArticles a {
+    margin-top: 0;
+}
+
+.tdArticles h1,
+.tdArticles h2,
+.tdArticles h3 {
+    margin-top: 0;
+}
+
+.articleDate,
+.articleAuthor {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.mfArticleThumb {
+    border: none;
+    float: left;
+    height: 70px;
+    margin-right: 15px;
+    width: 134px;
+}
+
+/*----- Extra Small -----*/
+@media(max-width: 767px){
+
+    .table-responsive {
+        margin-bottom: 0;
+    }
+
+    .tableArticles .tdArticles {
+        white-space: normal;
+    }
+}
+
+/*---------------------------------------- ARTICLE ----------------------------------------*/
+
+#rightColumn {
+    padding-top: 20px;
+}
+
+.articleContent {
+    margin: 20px 0 80px;
+}
+
+.articleContent h1 {
+    margin-top: 0;
+}
+
+.reviewContent {
+    margin: 20px 0 80px;
+}
+
+.advertorialContent {
+    margin-bottom: 80px;
+}
+
+.reviewContent h1 {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.tableFactBox {
+    font-size: 14px;
+    max-width: 500px;
+}
+
+.tableFactBox th {
+    padding: 10px 15px 2px;
+}
+
+.tableFactBox td {
+    padding: 2px 15px;
+}
+
+.tableFactBox .rowTop {
+    background-color: #aaf273;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.125rem;
+    padding: 10px 0;
+}
+
+.tableFactBox ul {
+    white-space: normal;
+}
+
+/*----- Extra Small -----*/
+@media(max-width: 767px){
+
+    .tableFactBox {
+        margin-bottom: 20px;
+    }
+}
+
+.factBoxMargin {
+    margin-top: 20px;
+}
+
+.mfArticlePhoto {
+    height: auto;
+    margin: 10px 0 25px;
+    max-width: 750px;
+    width: 100%;
+}
+
+/*---------------------------------------- ADVERTORIAL ----------------------------------------*/
+
+.headerMessage {
+    color: #777;
+    font-size: 15px;
+    float: right;
+    padding: 20px 0 0;
+}
+
+/*---------------------------------------- TOP COUNTER ----------------------------------------*/
+
+#topCounter {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 5px;
+    bottom: 0;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 15px 40px 10px 15px;
+    position: fixed;
+    width: calc(100% - 20px);
+    z-index: 200;
+}
+
+#topCounter .glyphCounter {
+    font-size: 2rem;
+    float: left;
+    padding-right: 15px;
+    margin-top: 4px;
+}
+
+#topCounter .glyphClose {
+    background: none;
+    color: #999;
+    font-size: 1.25rem;
+    padding: 0;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    z-index: 300;
+
+}
+#topCounter .glyphClose:hover {
+    color: #ccc;
+}
+
+/*----- Small -----*/
+@media(min-width: 768px) and (max-width: 991px){
+
+    #topCounter {
+        display: none;
+    }
+
+}
+
+/*----- Medium -----*/
+@media(min-width: 992px) and (max-width: 1199px){
+
+    #topCounter {
+        display: none;
+    }
+
+}
+
+/*----- Large -----*/
+@media(min-width: 1200px){
+
+    #topCounter {
+        display: none;
+    }
+
+}
+
+/*---------------------------------------- DISCLAIMER ----------------------------------------*/
+
+.sectionDisclaimer {
+    background-color: #eee;
+    color: #999;
+    font-size: 0.85rem;
+    font-style: italic;
+    padding: 20px 0 25px;
+}
+
+/*----- Extra Small -----*/
+@media(max-width: 767px){
+
+    .sectionDisclaimer {
+        font-size: 0.75rem;
+    }
+}
+
+/*---------------------------------------- FOOTER ----------------------------------------*/
+
+.footer {
+    background-color: #eee;
+    font-size: 10px;
+    height: auto;
+    padding-bottom: 50px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.footerNav {
+    margin-top: 50px;
+}
+
+.footer a {
+    color: #116696;
+    font-size: 14px;
+    letter-spacing: -0.025rem;
+    text-decoration: none;
+}
+.footer a:hover {
+    color: #7dc049;
+    text-decoration: none;
+}
+
+#footerDisclaimer {
+    display: none;
+    padding: 10px 0 15px;
+}
+
+.footer .referralText {
+    margin-bottom: 10px;
+}
+
+.footer ul.copyright {
+    margin-top: 10px;
+}
+
+.copyright a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+}
+
+/*---------------------------------------- VISITOR COUNT BADGE ----------------------------------------*/
+
+.peopleChose {
+    background: #ffffcc;
+    border: 1px solid #666;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+    padding: 5px;
+    position: relative;
+}
+
+.peopleChose:after, .peopleChose:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.peopleChose:after {
+    border-color: rgba(255, 255, 204, 0);
+    border-top-color: #ffffcc;
+    border-width: 7px;
+    margin-left: -7px;
+}
+.peopleChose:before {
+    border-color: rgba(51, 51, 51, 0);
+    border-top-color: #333;
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+/*---------------------------------------- VISITOR COUNT OVERLAY ----------------------------------------*/
+
+#visitorCountOverlayContainer {
+    width: 100%;
+}
+
+.visitorCountOverlay {
+    animation: 1.25s ease-out 0s 1 slideInFromBottom;
+    background-color: #222;
+    border-radius: 5px;
+    bottom: 20px;
+    color: #ccc;
+    cursor: pointer;
+    line-height: 1.2rem;
+    padding: 15px;
+    position: fixed;
+    z-index: 200;
+}
+
+.visitorCountOverlay strong {
+    color: #fff;
+}
+
+.visitorCountOverlay table span {
+    color: #7dc049;
+    font-size: 30px;
+}
+
+.visitorCountClose {
+    background: url('../images/icon_x.png') #777 no-repeat center;
+    border-radius: 15px;
+    color: #fff;
+    height: 24px;
+    position: absolute;
+    right: -7px;
+    text-align: center;
+    top: -7px;
+    width: 24px;
+    z-index: 201;
+}
+
+@keyframes slideInFromBottom {
+    0%   { bottom: -200px }
+    75%   { bottom: -200px }
+    100%   { bottom: 20px }
+}
+
+/*----- Extra Small -----*/
+@media(max-width: 767px){
+
+    .visitorCountOverlay {
+        margin-left: 15px;
+        width: -moz-calc(100% - 30px);
+        width: -webkit-calc(100% - 30px);
+        width: -o-calc(100% - 30px);
+        width: calc(100% - 30px);
+    }
+
+}
+
+/*---------------------------------------- EXPANDABLE LISTINGS ----------------------------------------*/
+
+div.listingSeparator {
+    background-color: #eee;
+    height: 10px;
+}
+
+.rankingTableHeadRow {
+    display: none;
+}
+
+.expandableListings {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -97px;
+    max-width: 1200px;
+}
+
+.expandableListings .tdSite {
+    position: relative;
+}
+
+.expandableListings .listingExpansion .listingExpansionLink {
+    margin-top: 10px;
+}
+
+.expandableListings .listingExpansion p {
+    font-size: 1em;
+}
+
+.expandableListings .listingExpansion a {
+    color: #7dc049;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.expandableListings .listingExpansion a:hover {
+    color: #9bd96b;
+    text-decoration: none;
+}
+
+.expandableListings .tdSite,
+.expandableListings .tdHighlights,
+.expandableListings .tdScore,
+.expandableListings .tdVisit {
+    padding-bottom: 10px;
+}
+
+.expandableListings .brandLogo {
+    margin-top: 0;
+}
+
+.expandableListings .brandLogo_wRibbon {
+    margin-top: 15px;
+}
+
+.expandableListings .tableReviews .scoreText {
+    font-size: 45px;
+    line-height: 3rem;
+}
+
+.expandableListings .bbb img {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    max-width: 90px;
+}
+
+.expandableListings a.smallLink {
+    text-decoration: none;
+}
+
+.expandableListings .tdHighlights ul {
+    font-size: 17px;
+    font-weight:normal;
+    list-style-image: url('../images/bullet_check.png');
+}
+
+.expandableListings .listingSeparator {
+    background-color: #eee;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.expandableListings .listingExpansion  {
+    padding: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.expandableListings .listingExpansionContent {
+    display: none;
+}
+
+.expandableListings .listingExpansionContainer {
+    margin: 20px 5px 10px;
+}
+
+.expandableListings .listingExpansionContainer h4 {
+    color: #23292f;
+    margin-top: 0;
+    text-align: left;
+}
+
+.expandableListings .listingExpansionContainer .listingExpansionPhoto {
+    margin-left: auto;
+    max-width: 400px;
+    width: 100%;
+}
+
+.expandableListings .listingExpansionButton span.glyphicon {
+    color: #999;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.expandableListings .listingExpansionButton {
+    cursor: pointer;
+    position: relative;
+}
+.expandableListings .listingExpansionButton:hover {
+    background-color: #f5f5f5;
+}
+
+.expandableListings > .table > tbody > tr > td {
+    border-top: none;
+}
+
+.expandableListings .moreInfo {
+    background: #666;
+    border: 1px solid #666;
+    border-radius: 5px;
+    bottom: 28px;
+    color: #fff;
+    display: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    left: calc(50% - 40px);
+    padding: 5px;
+    position: absolute;
+    width: 80px;
+}
+
+.expandableListings .moreInfo:after, .moreInfo:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.expandableListings .moreInfo:after {
+    border-color: rgba(255, 255, 204, 0);
+    border-top-color: #666;
+    border-width: 7px;
+    margin-left: -7px;
+}
+.expandableListings .moreInfo:before {
+    border-color: rgba(51, 51, 51, 0);
+    border-top-color: #333;
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+.ribbon {
+    background-color: #116696;
+    border-color: #116696;
+    box-sizing: content-box;
+    color: #fff;
+    display: inline-block;
+    font-size:14px;
+    height: 25px;
+    left: -7px;
+    line-height: 25px;
+    margin: 0;
+    padding: 0 1.2em;
+    position: absolute;
+    text-align: left;
+    top: 5px;
+    white-space: nowrap;
+    z-index: 100;
+}
+
+.ribbon::after {
+    border-color: inherit;
+    border-left-width: 0;
+    border-right-color: transparent;
+    border-style: solid;
+    border-width: 12px;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 25px;
+    position: absolute;
+    right: -12px;
+    width: 0;
+    z-index: 200;
+}
+
+.ribbon-corner {
+    border-style: solid;
+    border-color: #000 transparent transparent;
+    border-width: 0.5em 0 0 0.5em;
+    bottom: -0.5em;
+    display: block;
+    left: 0;
+    position: absolute;
+    z-index: 200;
+}
+
+
+/*----- Tab Switcher -----*/
+.tab-switcher {
+    margin-top: 20px;
+    margin-bottom: 13px;
+}
+
+.tab-switcher .top-tabs,
+.tab-switcher .top-tabs li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.tab-switcher .top-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.tab-switcher .top-tabs li {
+    display: inline-block;
+}
+
+.tab-switcher .top-tabs li a {
+    border: 1px dashed white;
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.tab-switcher .top-tabs li a img {
+    max-width: 24px;
+    height: auto;
+}
+
+.tab-switcher .top-tabs li a:hover {
+    background-color: #00CED1;
+    color: #00008B;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.tab-switcher .top-tabs li a.active {
+    background-color: #D3D3D3;
+    color: #00008B;
+    border-color: #00008B;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/*----- Extra Small -----*/
+@media(max-width: 767px){
+
+    .expandableListingsMobile table .tdMobileLeft,
+    .expandableListingsMobile table .tdMobileRight {
+        width: 50%;
+    }
+
+    .expandableListingsMobile table .tdMobileLeft {
+        padding: 20px 0 15px;
+    }
+
+    .expandableListingsMobile table .tdMobileRight {
+        padding: 10px 10px 15px;
+    }
+
+    .expandableListingsMobile table .rankingContainerMobile {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        max-width: 150px;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .expandableListingsMobile table .starsContainerMobile {
+        float: left;
+        font-size: 14px;
+        color: darkgray;
+        margin-top: 0;
+    }
+
+    .expandableListingsMobile table .scoreContainerMobile {
+        background-color: #fff;
+        float: right;
+    }
+
+    .expandableListingsMobile table .scoreContainerMobile .scoreText {
+        color: #7dc049;
+        font-size: 30px;
+    }
+
+    .expandableListingsMobile table .tdMobileRight .availableIn {
+        margin-top: 5px;
+    }
+
+    .ribbon {
+        font-size:11px;
+        height: 18px;
+        line-height: 18px;
+    }
+
+    .ribbon::after {
+        border-width: 9px;
+        height: 18px;
+        right: -12px;
+    }
+
+    .expandableListings .brandLogo,
+    .expandableListings .brandLogo_wRibbon {
+        margin-top: 0;
+    }
+
+    /*----- Tab Switcher -----*/
+    .tab-switcher .top-tabs li a {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+
+    .tab-switcher .top-tabs li a img {
+        max-width: 16px;
+    }
+
+    .tab-switcher .top-tabs {
+        gap: 10px;
+    }
+
+}
+
+/*----- Mobile -----*/
+@media (max-width: 480px) {
+    .tab-switcher .top-tabs {
+        flex-direction: column;
+    }
+
+    .tab-switcher .top-tabs li a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/*----- Small -----*/
+@media(min-width: 768px) and (max-width: 991px){
+
+}
+
+/*----- Medium -----*/
+@media(min-width: 992px) and (max-width: 1199px){
+
+}
+
+/*----- Large -----*/
+@media(min-width: 1200px){
+
+    .expandableListings .listingExpansionContainer {
+        margin: 20px 5px 10px 20px;
+    }
+
+}
+
+
+/*---------------------------------------- TRANSITIONS ----------------------------------------*/
+
+.transColor {
+    -webkit-transition: color 200ms ease-in-out;
+    -moz-transition: color 200ms ease-in-out;
+    -o-transition: color 200ms ease-in-out;
+    transition: color 200ms ease-in-out;
+}
+
+.transBGColor {
+    -webkit-transition: background-color 200ms ease-in-out;
+    -moz-transition: background-color 200ms ease-in-out;
+    -o-transition: background-color 200ms ease-in-out;
+    transition: background-color 200ms ease-in-out;
+}
+
+.transScale {
+    -webkit-transition: transform 200ms ease;
+    -moz-transition: transform 200ms ease;
+    -o-transition: transform 200ms ease;
+    transition: transform 200ms ease;
+}

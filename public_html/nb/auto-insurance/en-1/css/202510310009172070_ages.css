@@ -1,0 +1,54 @@
+ .BoxuiGrid-justify-content-xs-center {
+     justify-content: center;
+ }
+
+ .BoxuiGrid-align-content-xs-center {
+     align-content: center;
+ }
+
+ .BoxuiGrid-container {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     box-sizing: border-box;
+ }
+
+ .hover-card {
+     display: block;
+     float: left;
+     flex-wrap: wrap;
+     margin: 10px 7px;
+     padding: 24px 12px;
+     width: 17%;
+     border: 3px solid #036;
+     border-radius: 6px;
+     cursor: pointer;
+ }
+
+ .hover-card-text {
+     width: 100%;
+     color: #174460;
+     font-size: 22px !important;
+     font-weight: 700 !important;
+     text-align: center !important;
+     line-height: 21px;
+     margin-bottom: 14px;
+     margin-top: 14px;
+     padding: 0px;
+ }
+
+ .hover-card:hover {
+     background-color: #174460;
+     color: #fff;
+ }
+
+ .hover-card:hover>.hover-card-text {
+     color: #fff;
+ }
+
+ /* MEDIA QUERIES */
+ @media only screen and (max-width: 767px) and (min-width: 320px) and (orientation: portrait) {
+     .hover-card {
+         width: 29%;
+     }
+ }

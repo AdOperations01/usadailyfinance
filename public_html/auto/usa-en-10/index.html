@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cut My Coverage &ndash; Compare Auto Insurance Rates</title>
+<meta name="description" content="Tap your coverage tier to compare auto insurance rates. Takes a few minutes. Free quote, no obligation.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- =====================================================
+     CONFIG
+     OFFER_URL : every coverage card links here. Incoming query
+                 parameters (fbclid, utm_*, click ids) pass through,
+                 plus tier=<liability|collision|full>.
+     ===================================================== -->
+<script>
+  var OFFER_URL = "https://globalvisitclub.com/cf/click/1";
+  var PASS_TIER = true;   // set false for bare links
+</script>
+
+<style>
+  :root{
+    --ink:#1f2430;
+    --blue:#1a73e8;
+    --blue-dark:#1557b0;
+    --muted:#6b7684;
+    --grey:#9aa3ae;
+    --band:#eaf1fb;
+    --trust:#f4f6f9;
+    --card:#ffffff;
+    --maxw:1180px;
+    --sans:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:#fff;
+    line-height:1.35;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:44px 0 0;text-align:center}
+  h1{
+    font-size:clamp(32px,5.2vw,62px);
+    font-weight:400;
+    line-height:1.14;
+    letter-spacing:-.015em;
+  }
+  h1 .was{color:var(--grey);text-decoration:line-through;text-decoration-thickness:3px}
+  h1 .now{color:var(--blue)}
+  .tap{
+    margin:22px auto 0;
+    max-width:900px;
+    color:var(--blue);
+    font-size:clamp(15px,1.7vw,21px);
+    font-weight:700;
+  }
+  .car{margin:30px auto 0;max-width:640px}
+  .car img{display:block;width:100%;height:auto}
+
+  /* ---------- coverage band ---------- */
+  .pick{background:var(--band);padding:34px 0 36px;margin-top:34px}
+  .eyebrow{
+    text-align:center;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:22px;
+  }
+  .tiers{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:22px;
+    max-width:860px;
+    margin:0 auto;
+  }
+  .tier{
+    display:block;
+    background:var(--card);
+    border-radius:10px;
+    padding:26px 18px 28px;
+    text-align:center;
+    text-decoration:none;
+    color:inherit;
+    box-shadow:0 1px 3px rgba(31,36,48,.10),0 6px 18px rgba(31,36,48,.06);
+    transition:transform .14s ease,box-shadow .14s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .tier:hover{transform:translateY(-3px);box-shadow:0 2px 6px rgba(31,36,48,.14),0 14px 30px rgba(31,36,48,.12)}
+  .tier:active{transform:translateY(0)}
+  .tier:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  .tier-name{
+    font-size:clamp(15px,1.5vw,19px);
+    font-weight:700;
+    line-height:1.3;
+    margin-bottom:14px;
+  }
+  .as-low{
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--grey);
+    margin-bottom:4px;
+  }
+  .price{color:var(--blue);font-weight:400;white-space:nowrap}
+  .price .big{font-size:clamp(30px,3.6vw,44px);letter-spacing:-.02em}
+  .price .cents{font-size:clamp(13px,1.3vw,17px)}
+  .vary{
+    text-align:center;
+    margin-top:22px;
+    font-size:13px;
+    font-weight:500;
+    color:var(--muted);
+  }
+
+  /* ---------- trust row ---------- */
+  .trust{background:var(--trust);padding:28px 0 30px}
+  .badges{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:20px;
+    max-width:1000px;
+    margin:0 auto;
+    align-items:end;
+  }
+  .badge{text-align:center}
+  .badge img{display:block;margin:0 auto 12px;height:38px;width:auto;max-width:100%}
+  .badge span{font-size:13px;font-weight:700;color:var(--muted)}
+
+  /* ---------- footer ---------- */
+  footer{padding:34px 0 46px;text-align:center}
+  .privacy{
+    display:inline-block;
+    color:var(--blue);
+    font-size:15px;
+    font-weight:700;
+    text-decoration:none;
+    margin-bottom:22px;
+  }
+  .privacy:hover{text-decoration:underline}
+  .fine{
+    color:var(--grey);
+    font-size:14px;
+    line-height:1.55;
+    max-width:1000px;
+    margin:0 auto 18px;
+  }
+  .fine:last-child{margin-bottom:0}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:860px){
+    .hero{padding-top:30px}
+    h1{font-size:clamp(27px,6.4vw,40px)}
+    .car{max-width:430px;margin-top:22px}
+    .pick{margin-top:24px;padding:28px 0 30px}
+    .tiers{grid-template-columns:1fr;gap:14px;max-width:460px}
+    .tier{display:flex;align-items:center;justify-content:space-between;text-align:left;padding:18px 20px;gap:14px}
+    .tier-name{margin-bottom:0;flex:1 1 auto}
+    .tier-price{flex:0 0 auto;text-align:right}
+    .as-low{margin-bottom:2px}
+    .badges{gap:14px}
+    .badge img{height:28px}
+    .badge span{font-size:11.5px;display:block;line-height:1.35}
+    .fine{font-size:13px;text-align:left}
+  }
+  @media (max-width:400px){
+    .wrap{padding:0 14px}
+    .badges{grid-template-columns:1fr;gap:20px}
+    .badge img{height:32px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .tier{transition:none}
+  }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s);
+}(window, document, 'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '4336928033302962');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+    content_name: 'Auto Insurance Pre-Lander',
+    content_category: 'Auto Insurance',
+    content_type: 'landing_page'
+});
+</script>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscript=1" alt=""/>
+</noscript>
+
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Cut My Coverage<br>From <span class="was">$159</span> to <span class="now">$39/mo</span></h1>
+    <p class="tap">Tap your coverage tier below. Takes a few minutes. Free quote, no obligation.</p>
+    <figure class="car">
+      <img src="images/car.png" alt="Red sports coupe" width="356" height="212">
+    </figure>
+  </div>
+</section>
+
+<section class="pick">
+  <div class="wrap">
+    <p class="eyebrow">Pick Your Coverage</p>
+
+    <div class="tiers">
+      <a class="tier" href="https://globalvisitclub.com/cf/click/1" data-tier="liability">
+        <span class="tier-name">Liability<br>Only</span>
+        <span class="tier-price">
+          <span class="as-low">As low as</span>
+          <span class="price"><span class="big">$39</span><span class="cents">.54/mo</span></span>
+        </span>
+      </a>
+
+      <a class="tier" href="https://globalvisitclub.com/cf/click/1" data-tier="collision">
+        <span class="tier-name">Liability<br>+ Collision</span>
+        <span class="tier-price">
+          <span class="as-low">As low as</span>
+          <span class="price"><span class="big">$49</span><span class="cents">.99/mo</span></span>
+        </span>
+      </a>
+
+      <a class="tier" href="https://globalvisitclub.com/cf/click/1" data-tier="full">
+        <span class="tier-name">Full<br>Coverage</span>
+        <span class="tier-price">
+          <span class="as-low">As low as</span>
+          <span class="price"><span class="big">$69</span><span class="cents">/mo</span></span>
+        </span>
+      </a>
+    </div>
+
+    <p class="vary">* results may vary</p>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <div class="badges">
+      <div class="badge">
+        <img src="images/trust-google.png" alt="Google" width="219" height="72">
+        <span>Based On 22,000+ Reviews</span>
+      </div>
+      <div class="badge">
+        <img src="images/trust-bbb.png" alt="ConsumerAffairs" width="414" height="72">
+        <span>Based On 46,000+ Reviews</span>
+      </div>
+      <div class="badge">
+        <img src="images/trust-tp.png" alt="Trustpilot" width="270" height="72">
+        <span>Based On 31,000+ Reviews</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="privacy" href="#">Privacy Policy</a>
+
+    <p class="fine">This site is not a part of the Facebook website or Facebook Inc. This site is
+      not endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+
+    
+  </div>
+</footer>
+
+
+</body>
+</html>

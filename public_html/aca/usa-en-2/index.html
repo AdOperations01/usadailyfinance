@@ -1,0 +1,422 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good News!</title>
+    <link rel="shortcut icon" href="images/image.jpg" type="image/x-icon">    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+   
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+        .hero-section {
+            padding: 2rem 0;
+            margin: 0 20%;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+        }
+        .hero-section h1 {
+            margin-top: 1rem;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .hero-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .multi-step-form {
+            margin-bottom: 150px;
+        }
+        .step {
+            display: none;
+        }
+        .step-active {
+            display: block;
+        }
+        .progress {
+            height: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .progress-bar {
+            width: 70%;
+            transition: width 0.5s ease-out;
+            background: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-size: 50px 50px;
+    -webkit-animation: animation-uhzp3a 2.5s linear infinite;
+    animation: animation-uhzp3a 2.5s linear infinite;
+    animation: progress-bar-stripes 8s linear infinite;
+    background-color: #4F60FB !important;
+        }
+        @keyframes progress-bar-stripes {
+            0% {
+                background-position: 100% 0;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+        .btn-custom {
+            font-weight: 700;
+            font-size: 30px;
+            border-color: rgb(28, 122, 188);
+            background: rgb(28, 122, 188);
+            color: rgba(255, 255, 255, 1);
+            width: 80%;
+
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            min-height: 60px;
+            /* min-width: 120px; */
+            padding: 20px 32px;
+            font-family: "Open Sans", sans-serif;
+            border-radius: 12px;
+        }
+
+        .btn-custom2{
+            font-weight: 700;
+            font-size: 30px;
+            border-color: rgb(28, 122, 188);
+            background: rgba(255, 255, 255, 1);
+            color: rgb(28, 122, 188);
+            width: 80%;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            min-height: 60px;
+            /* min-width: 120px; */
+            padding: 20px 32px;
+            font-family: "Open Sans", sans-serif;
+            border-radius: 12px;
+        }
+
+        .btn-custom2:hover{
+            border-color: rgb(28, 122, 188);
+            background: rgb(28, 122, 188);
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .btn-custom:hover{
+            background-color: rgb(20, 89, 137);
+            border-color: rgb(20, 89, 137);
+            color: rgba(255, 255, 255, 1);
+        }
+        .btn-success-custom {
+            font-weight: 700;
+            font-size: 30px;
+            background: linear-gradient(rgb(72, 170, 48), rgb(55, 130, 37));            
+            color: rgba(255, 255, 255, 1);
+            /* width: 100%; */
+            /* border-radius: 5px; */
+            margin-bottom: 1rem;
+            width: 70%;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            min-height: 60px;
+            /* min-width: 120px; */
+            padding: 20px 32px;
+            font-family: "Open Sans", sans-serif;
+            border-radius: 12px;
+        }
+        .footer {
+            background-color: #1C7ABC;
+            padding: 2% 15%;
+            color: white;
+            font-size: 1.15rem;
+            line-height: 1.125;
+        }
+        .footer a {
+            margin: 0 0.5rem;
+            color: white;
+            font-weight: 700;
+            font-family: "Roboto", sans-serif;
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        section {
+            position: relative;
+            transition: opacity .5s ease-in, min-height .5s ease-in, height .5s ease-in;
+        }
+
+        .extra-margin{
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .multi-step-form h1{
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .flex-set{
+            display: flex;
+            justify-content: left;
+            align-items: flex-end;
+        }
+
+        /* State selection buttons */
+        .state-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 10%;
+        }
+        
+        .state-btn {
+            font-weight: 600;
+            font-size: 20px;
+            border-color: rgb(28, 122, 188);
+            background: rgba(255, 255, 255, 1);
+            color: rgb(28, 122, 188);
+            padding: 12px 15px;
+            min-width: 80px;
+            border-radius: 8px;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .state-btn:hover, .state-btn.selected {
+            border-color: rgb(28, 122, 188);
+            background: rgb(28, 122, 188);
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .state-next-btn {
+            font-weight: 700;
+            font-size: 26px;
+            border-color: rgb(28, 122, 188);
+            background: rgb(28, 122, 188);
+            color: rgba(255, 255, 255, 1);
+            width: 60%;
+            border-radius: 12px;
+            margin: 20px auto;
+            padding: 15px 25px;
+            display: block;
+        }
+        
+        .state-next-btn:disabled {
+            background-color: #ccc;
+            border-color: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .hero-section h1{
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-section {
+                margin: 0;
+            }
+            .hero-section h1 {
+                font-size: 16px;
+                margin: 3% 5%;
+            }
+            .multi-step-form h1{
+                font-size: 16px;
+                margin: 3% 5%;
+            }
+            .multi-step-form p{
+                margin: 3% 5%;
+            }
+            .btn-custom{
+                font-size: 18px;
+                width: 90%;
+                padding: 10px 16px;
+
+            }
+            .btn-custom2{
+                font-size: 18px;
+                width: 90%;
+                padding: 10px 16px;
+            }
+            .footer{
+                padding: 5%;
+                font-size: 1rem;
+            }
+            .extra-margin{
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            .btn-success-custom{
+                font-size: 18px;
+                width: 90%;
+                padding: 10px 16px;
+            }
+            .state-buttons {
+                margin: 0 5%;
+            }
+            .state-btn {
+                font-size: 16px;
+                padding: 8px 10px;
+                min-width: 60px;
+            }
+            .state-next-btn {
+                font-size: 18px;
+                width: 90%;
+                padding: 10px 16px;
+            }
+        }
+    </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s);
+}(window, document, 'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '923010920632477');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+    content_name: 'Auto Insurance Pre-Lander',
+    content_category: 'Auto Insurance',
+    content_type: 'landing_page'
+});
+</script>
+<!-- End Meta Pixel Code -->
+
+<script src=//b-js.ringba.com/CAfeececc350f44e949d7a03bb5cff3fae async></script> 
+
+</head>
+<body>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscript=1" alt=""/>
+</noscript>
+
+
+<!-- Section 1: Navbar -->
+<nav class="navbar">
+<img src="images/Add_a_subheading-removebg-preview.png" width="250px">
+</nav>
+
+<!-- Section 2: Hero Section -->
+<section class="hero-section">
+    <p>Last updated: <span id="today-date">11/04/2026</span></p>
+    <h1><span style="color: #1C7ABC;">Good News!</span> All Americans Will Receive <span style="color: #1C7ABC;">$1,200 - $1,400</span> in Monthly Subsidies to spend on <span style="color: #1C7ABC;">Rent</span>, <span style="color: #1C7ABC;">Gas</span>, <span style="color: #1C7ABC;">Groceries</span>, <span style="color: #1C7ABC;">or anything else</span>.</h1>
+    <img src="images/image.jpg" alt="Hero Image" class="img-fluid" style="max-width: 300px;">
+</section>
+
+<!-- Section 3: Multi-Step Form -->
+<section class="multi-step-form container">
+    <div class="step step1 step-active">
+        <h1>Secure a <span style="color: #1C7ABC;">$1,200 - $ 1,400</span> Monthly Subsidy by registering Now.</h1> <br>
+        <a href="tel:+18335610968" class="btn btn-primary btn-custom btn1">Call Now</a>
+        <p style="font-family: Open Sans, sans-serif;">Keep more in your pocket - have more money to spend on anything.</p>
+    </div>
+    <div class="step step2">
+        <p class="extra-margin extra-margin flex-set"><span style="font-size: 1.5rem;padding-right: 10px;">25%</span> COMPLETE</p>
+        <div class="progress extra-margin">
+            <div class="progress-bar bg-info bar-completed" style="width: 25%;"></div>
+        </div>
+        <h1 class="extra-margin extra-margin flex-set">What is your current monthly income?</h1>
+        <br>
+        <button class="btn btn-primary btn-custom btn2">Less than $5,000</button>
+        <button class="btn btn-primary btn-custom2 btn2">More than $5,000</button>
+        <p>Keep more in your pocket - have more money to spend on anything.</p>
+    </div>
+    <!-- New Step for State Selection -->
+    <div class="step step2a">
+        <p class="extra-margin extra-margin flex-set"><span style="font-size: 1.5rem;padding-right: 10px;">50%</span> COMPLETE</p>
+        <div class="progress extra-margin">
+            <div class="progress-bar bg-info bar-completed" style="width: 50%;"></div>
+        </div>
+        <h1 class="extra-margin extra-margin flex-set">Please select your state:</h1>
+        <div class="state-buttons">
+            <button class="state-btn" data-state="AL">AL</button>
+            <button class="state-btn" data-state="FL">FL</button>
+            <button class="state-btn" data-state="GA">GA</button>
+            <button class="state-btn" data-state="IN">IN</button>
+            <button class="state-btn" data-state="MI">MI</button>
+            <button class="state-btn" data-state="MO">MO</button>
+            <button class="state-btn" data-state="MS">MS</button>
+            <button class="state-btn" data-state="NE">NE</button>
+            <button class="state-btn" data-state="OH">OH</button>
+            <button class="state-btn" data-state="OK">OK</button>
+            <button class="state-btn" data-state="SC">SC</button>
+            <button class="state-btn" data-state="TN">TN</button>
+            <button class="state-btn" data-state="TX">TX</button>
+        </div>
+        <button class="state-next-btn" id="stateNextBtn" disabled="">Continue</button>
+        <p>Keep more in your pocket - have more money to spend on anything.</p>
+    </div>
+    <div class="step step3">
+        <p class="extra-margin extra-margin flex-set"><span style="font-size: 1.5rem;padding-right: 10px;">75%</span> COMPLETE</p>
+        <div class="progress extra-margin">
+            <div class="progress-bar bg-info bar-completed" style="width: 75%;"></div>
+        </div>
+        <h1 class="extra-margin extra-margin flex-set">Do you have Medicaid, Medicare, VA, or Tricare Coverage?</h1>
+        <button class="btn btn-primary btn-custom btn3">No</button>
+        <button class="btn btn-primary btn-custom2 btnyes">Yes</button>
+        <p>Keep more in your pocket - have more money to spend on anything.</p>
+    </div>
+    <div class="step step4">
+        <p class="extra-margin extra-margin flex-set"><span style="font-size: 1.5rem;padding-right: 10px;">100%</span> COMPLETE</p>
+        <div class="progress extra-margin">
+            <div class="progress-bar bg-info bar-completed" style="width: 100%;"></div>
+        </div>
+        <h1 class="text-success" style=" font-size: 36px;">Congratulations!</h1> <br>
+        <h1>You're <span style="color: #1C7ABC;">Pre-Qualified</span> for a <span style="color: #1C7ABC;">$1,200 - $1,400</span> Monthly Subsidy!</h1>
+        <a href="tel:+18335610968" id="callno" class="btn btn-success btn-success-custom btn4" role="button">CALL NOW</a>
+        <p style="font-weight: 600;">Your Subsidy Advisor is Waiting.</p>
+        <p style="font-weight: 600;">Claim Your Subsidy Now!</p>
+        <p class="extra-margin" style="font-weight: 600; line-height: 1.25em;">Our goal is to provide exceptional service. One of our agents may reach out to you to discuss your order, ask for feedback, and/or see if you need any assistance with your products, services, or plans, at the phone number you provided regardless of your do-not-call list status. You may opt-out of further contact at any time by simply telling our customer service team that you would no longer like to be contacted. In the event that our team is unable to reach you by phone, they may send you a text message letting you know that we called. Both our text messages and phone calls may be sent or connected utilizing automated software. Carrier charges may apply. You may opt-out of any future contact via text message by replying anytime with "STOP".</p>
+    </div>
+    <div class="step step45">
+        <p class="extra-margin extra-margin flex-set"><span style="font-size: 1.5rem;padding-right: 10px;">100%</span> COMPLETE</p>
+        <div class="progress extra-margin">
+            <div class="progress-bar bg-info bar-completed" style="width: 100%;"></div>
+        </div>
+        <h1 class="text-success" style=" font-size: 36px;">Congratulations!</h1> <br>
+        <h1>You're <span style="color: #1C7ABC;">Pre-Qualified</span> for a <span style="color: #1C7ABC;">$1,200 - $1,400</span> Monthly Subsidy!</h1>
+        <a href="tel:+18335610968" id="callyes" class="btn btn-success btn-success-custom btn4" role="button">CALL NOW</a>
+        <p style="font-weight: 600;">Your Subsidy Advisor is Waiting.</p>
+        <p style="font-weight: 600;">Claim Your Subsidy Now!</p>
+        <p class="extra-margin" style="font-weight: 600; line-height: 1.25em;">Our goal is to provide exceptional service. One of our agents may reach out to you to discuss your order, ask for feedback, and/or see if you need any assistance with your products, services, or plans, at the phone number you provided regardless of your do-not-call list status. You may opt-out of further contact at any time by simply telling our customer service team that you would no longer like to be contacted. In the event that our team is unable to reach you by phone, they may send you a text message letting you know that we called. Both our text messages and phone calls may be sent or connected utilizing automated software. Carrier charges may apply. You may opt-out of any future contact via text message by replying anytime with "STOP".</p>
+    </div>
+</section>
+
+<!-- Section 4: Footer -->
+<footer class="footer">
+    <p>IMPORTANT DISCLOSURES: This page is an advertorial, and not an actual news article, blog or consumer protection update.</p>
+    <p>Disclaimer: This website is not affiliated with the Affordable Cares Act program or any other government entity. The information provided on this website is for informational purposes only. It is not intended to, nor does it constitute any kind of financial advice. Please seek advice from a qualified professional prior to making any financial decisions based on the information provided. This website acts as an independent digital media &amp; advertising publisher. This website is formatted as an advertorial and individual advertisement that is written in an editorial format. PLEASE BE AWARE THAT THIS IS AN ADVERTISEMENT AND NOT AN ACTUAL NEWS ARTICLE, BLOG, OR CONSUMER PROTECTION UPDATE. This website MAY RECEIVE MONETARY COMPENSATION FOR CLICKS AND SALES PRODUCED FROM THE CONTENT FOUND ON THIS WEBSITE. This compensation may affect which companies are displayed. The placement of information on the chart or order of appearance. Any information, discounts, or price quotations listed may not be applicable in your location or based on your individual needs. Additionally, our advertisers may have additional qualification requirements.</p>
+    <p>© <span id="year">2026</span> All Rights Reserved.</p>
+    <strong><a href="#">Privacy Policy</a>|<a href="#">Terms Of Service</a></strong>
+</footer>
+
+<script>
+  document.getElementById('today-date').textContent =
+    new Date().toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    });
+</script>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body></html>

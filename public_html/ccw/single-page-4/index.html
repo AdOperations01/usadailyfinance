@@ -1,0 +1,422 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concealed Carry Eligibility Quiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
+<style>
+  :root {
+    --primary: #0000ee;
+    --off-black: #0A0908;
+    --off-white: #fafafb;
+    --light-grey: #eaeaeb;
+    --grey: #bababb;
+    --red: #d0011b;
+    --green: #30AB66;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    color: var(--off-black);
+    background: #fff;
+  }
+
+  .top-bar {
+    background: var(--off-black);
+    height: 18px;
+  }
+
+  .masthead {
+    background: #fff;
+    padding: 14px 14px 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--light-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .masthead-logo {
+    width: 22px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .masthead .brand {
+    color: var(--grey);
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  .progress {
+    background: #fff;
+    color: var(--primary);
+    padding: 10px 12px 8px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: var(--light-grey);
+    margin: 0 20px 4px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: width .3s ease;
+  }
+
+  .content {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 22px 20px;
+  }
+
+  .step { display: none; }
+  .step.current { display: block; }
+
+  h1 {
+    margin: 0 0 10px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.2;
+    color: var(--off-black);
+    text-align: center;
+  }
+
+  .subhead {
+    margin: 0 0 16px;
+    color: var(--off-black);
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .subhead u { text-decoration: underline; }
+  .subhead strong { font-weight: 700; }
+
+  .proof-line {
+    margin: 16px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .rich-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 24px 0 4px;
+    text-align: center;
+  }
+
+  .rich-list svg {
+    width: 32px;
+    height: 32px;
+    color: var(--primary);
+    margin: 0 auto 8px;
+    display: block;
+  }
+
+  .rich-list .label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--off-black);
+    margin: 0 0 4px;
+  }
+
+  .rich-list .text {
+    font-size: 12px;
+    color: var(--grey);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .benefits {
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .benefits li {
+    padding: 8px 0 8px 26px;
+    position: relative;
+    font-size: 15px;
+    border-bottom: 1px solid var(--light-grey);
+  }
+
+  .benefits li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  .question {
+    margin: 0 0 16px;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+  }
+
+  .options {
+    display: grid;
+    gap: 10px;
+  }
+
+  .step-option {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    background: var(--off-white);
+    color: var(--off-black);
+    border: 2px solid var(--light-grey);
+    border-radius: 8px;
+    font: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .step-option:hover { border-color: var(--primary); color: var(--primary); }
+
+  .step-option.primary {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+
+  .step-option.primary:hover { opacity: .88; color: #fff; }
+
+  .checking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+  }
+
+  .spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid var(--light-grey);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    margin-bottom: 20px;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .checking-message {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .note {
+    margin: 13px 0 0;
+    color: var(--grey);
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .countdown {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 14px;
+  }
+
+  .rating-footer {
+    background: var(--off-white);
+    border-top: 1px solid var(--light-grey);
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .rating-footer img { height: 16px; width: auto; }
+  .rating-footer .divider { color: var(--light-grey); }
+  .rating-footer .rating-text { font-size: 12px; color: var(--off-black); font-weight: 600; }
+
+  .hero-banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 0 18px;
+    border-radius: 8px;
+  }
+
+  .trust-stars {
+    display: block;
+    width: 160px;
+    max-width: 50%;
+    height: auto;
+    margin: 0 auto 16px;
+  }
+
+  .fineprint {
+    padding: 10px 14px 14px;
+    color: var(--grey);
+    font-size: 11px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .fineprint a { color: var(--grey); }
+</style>
+
+<style id="cf-cta-anim">
+@keyframes cfPulse{
+  0%,100%{ transform:scale(1);    box-shadow:0 0 0 0 var(--cf-glow,rgba(200,30,30,.55)); }
+  50%    { transform:scale(1.045);box-shadow:0 0 0 16px rgba(0,0,0,0); }
+}
+.cf-pulse{
+  animation:cfPulse 1.5s ease-in-out infinite;
+  will-change:transform; transform-origin:50% 50%;
+}
+.cf-pulse:hover{ animation-play-state:paused; transform:scale(1.05); }
+.cf-pulse:active{ transform:scale(.99); }
+.cf-pulse:focus-visible{ outline:3px solid #111; outline-offset:3px; }
+@media (prefers-reduced-motion:reduce){ .cf-pulse{ animation:none; } }
+.cf-pulse{--cf-glow:rgba(196,33,38,.5);}
+</style>
+</head>
+<body>
+
+<script async="" src="js/fbevents.js"></script><script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '314221524325662');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=314221524325662&ev=PageView&noscript=1"></noscript>
+
+<div class="top-bar"></div>
+<div class="masthead">
+  <img class="masthead-logo" src="images/logo.svg" alt="">
+  <div class="brand">Americans for Support</div>
+</div>
+</div>
+
+<div class="content">
+
+  <div class="step current">
+    <img class="hero-banner" src="images/manbadge.jpg" alt="Concealed weapons permit badge">
+    <h1>Carrying Without A Permit Is A Felony In Most States. See If You Qualify For One In 60 Seconds.</h1>
+    <img class="trust-stars" src="images/rating-stars.png" alt="Rated 4.9 out of 5 stars by thousands of applicants">
+    <p class="subhead"><u><strong>The Difference Between A Felony And A Minor Offense Could Be This One Document.</strong></u></p>
+    <p class="subhead">In most states, carrying a concealed firearm without a valid permit is treated as a felony. With a valid permit, the same stop is often treated as a minor, non-criminal issue instead, and you can check your eligibility in just 60 seconds.</p>
+    <p class="subhead"><u>With your permit, you can:</u></p>
+    <ul class="benefits">
+      <li>Legally carry your firearm in 70% of U.S. states</li>
+      <li>Purchase firearms without background checks</li>
+      <li>Avoid a felony charge for unlicensed carry</li>
+    </ul>
+    <p class="proof-line">Over 10,000 Permit Holders Have Already Secured Their Permits.</p>
+    <div class="options">
+      <a href="https://globalvisitclub.com/cf/click/1" class="step-option primary survey-link cf-pulse" rel="nofollow noopener">Check If You Qualify &rarr;</a>
+    </div>
+
+    <div class="rich-list">
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="3.375" r="2.625"></circle><path d="M.978,20.955,4.5,15.32V9.75A1.5,1.5,0,0,1,6.961,8.6l2.616,2.181a1.507,1.507,0,0,0,1.9.019l1.836-1.469a1.5,1.5,0,1,1,1.875,2.344l-1.836,1.469A4.525,4.525,0,0,1,7.5,12.952v2.367l3.521,5.636a1.5,1.5,0,1,1-2.543,1.59L6,18.58,3.521,22.545a1.5,1.5,0,0,1-1.273.7,1.48,1.48,0,0,1-.793-.229A1.5,1.5,0,0,1,.978,20.955Z"></path><path d="M23.25,3.75v1.5H13.11a3,3,0,0,0-1.953.722l-3.621,3.1"></path><line x1="16.5" y1="3" x2="12" y2="3"></line><path d="M19.5,5.25v1.5A1.5,1.5,0,0,1,18,8.25h-.75"></path></svg>
+        <p class="label">Get Your Approved Permit</p>
+        <p class="text">In Under 20 Mins</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="13.608" y1="8.717" x2="23.25" y2="1.5"></line><line x1="21.643" y1="2.703" x2="20.185" y2="0.755"></line><path d="M6.939,14.923.951,19.445a.5.5,0,0,0-.1.7L3,23.015a.586.586,0,0,0,.946-.01l4.392-6.119,6.631-4.964a.749.749,0,0,0,.151-1.049L13.608,8.717,6.376,14.13Z"></path><line x1="5.213" y1="12.494" x2="8.335" y2="16.886"></line><line x1="9.668" y1="8.479" x2="11.197" y2="10.522"></line><line x1="8.208" y1="9.572" x2="11.128" y2="7.386"></line></svg>
+        <p class="label">Join Thousands</p>
+        <p class="text">Of Applicants Who've Already Secured Their Permits</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.759,12.374,9.123,6.909,4.182,9.292A6.067,6.067,0,0,0,.8,15.529l.747,6.99a.758.758,0,0,0,1.081.586L5.4,21.77A1.516,1.516,0,0,0,6.222,20.1l-.611-4.757,6.148-2.965"></path><path d="M9.067,3.628h13.9a.507.507,0,0,1,.507.507V6.154a.507.507,0,0,1-.507.507H9.067a0,0,0,0,1,0,0V3.628a0,0,0,0,1,0,0Z" transform="translate(-0.62 7.58) rotate(-25.749)"></path><path d="M10.724,7.843h7.584a0,0,0,0,1,0,0V9.862a1.015,1.015,0,0,1-1.015,1.015H10.724a0,0,0,0,1,0,0V7.843A0,0,0,0,1,10.724,7.843Z" transform="translate(-2.625 7.235) rotate(-25.749)"></path><line x1="5.611" y1="15.339" x2="1.016" y2="17.555"></line><path d="M6.059,18.631,8.9,17.5a1.517,1.517,0,0,0,.954-1.408V13.294"></path></svg>
+        <p class="label">Secure and private</p>
+        <p class="text">Your data is protected</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="rating-footer">
+  <img src="images/rating-stars.png" alt="5 star rating">
+  <span class="divider">|</span>
+  <span class="rating-text">Rated 4.9/5 by 91k Permit Holders</span>
+</div>
+<div class="fineprint">
+  <a href="https://americansforsupport.com/privacy-policy" target="_blank">Privacy Policy</a>
+  &nbsp;|&nbsp;
+  <a href="https://americansforsupport.com/terms" target="_blank">Terms and Conditions</a><br>
+  © 2026 Americans for Support. All rights reserved.<br><br>
+  This is an eligibility starting point only. Concealed carry laws and certification requirements vary by state.<br><br>
+  This site and the content and services offered on this site is in no way sponsored, affiliated, endorsed or administered by, or associated with, Facebook. Nor have they been reviewed, tested, or certified by Facebook. Facebook is a registered trademark of Facebook, Inc.
+</div>
+
+<script>
+  (function () {
+    var base = "https://globalvisitclub.com/cf/click/1";
+    var params = new URLSearchParams(window.location.search);
+
+    document.querySelectorAll(".survey-link").forEach(function (link) {
+      var url = new URL(base);
+
+      params.forEach(function (value, key) {
+        if (!url.searchParams.has(key)) {
+          url.searchParams.set(key, value);
+        }
+      });
+
+      link.href = url.toString();
+
+      link.addEventListener("click", function (event) {
+        var targetUrl = link.href;
+        event.preventDefault();
+
+        if (typeof fbq === "function") {
+          fbq("track", "AddToCart");
+        }
+
+        window.setTimeout(function () {
+          window.location.href = targetUrl;
+        }, 220);
+      });
+    });
+  })();
+</script>
+
+
+
+</body></html>

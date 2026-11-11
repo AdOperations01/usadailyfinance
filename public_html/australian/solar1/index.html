@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solar Australia | Free Solar Eligibility Check</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#10243d;background:#fff}
+.header{height:78px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 6%;border-bottom:1px solid #e7edef}
+.logo{width:290px;max-width:48vw;height:auto}
+.flag{width:220px;max-width:35vw;height:auto}
+.hero{position:relative;min-height:720px;overflow:hidden}
+
+.wrap{position:relative;z-index:2;max-width:1200px;margin:auto;padding:60px 30px 75px;display:grid;grid-template-columns:46% 54%;align-items:center;gap:20px}
+.copy{padding-top:10px}
+.kicker{font-size:14px;font-weight:800;color:#168238;letter-spacing:.4px;text-transform:uppercase;margin-bottom:17px}
+h1{font-size:50px;line-height:1.06;letter-spacing:-1.8px;margin:0 0 22px;font-weight:800}
+h1 span{color:#238d3d}
+.intro{font-size:19px;line-height:1.45;max-width:510px;color:#263b4e;margin:0}
+.points{margin-top:27px;display:grid;gap:15px}
+.point{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:700}
+.circle{width:43px;height:43px;border-radius:50%;background:#edf9ef;color:#24943d;display:grid;place-items:center;font-size:21px;flex:none}
+.card{background:#fff;border-radius:20px;padding:36px 34px 29px;width:100%;max-width:600px;margin-left:auto;box-shadow:0 20px 55px rgba(18,46,65,.20);border:1px solid rgba(18,46,65,.08)}
+.progress{height:6px;background:#e3e9ed;border-radius:8px;max-width:285px;margin:0 auto 22px}
+.progress span{display:block;height:100%;width:50%;background:#24963d;border-radius:8px;transition:.2s}
+.screen{display:none}
+.screen.active{display:block}
+.step{text-align:center;color:#238d3d;font-weight:800;font-size:13px;margin-bottom:13px}
+.question{font-size:28px;line-height:1.2;margin:0 0 22px;font-weight:800}
+.options{display:grid;gap:11px}
+.option{width:100%;padding:17px 18px;border:1px solid #d8e1e6;border-radius:11px;background:#fff;display:flex;align-items:center;gap:12px;font-size:17px;font-weight:700;color:#10243d;text-align:left;cursor:pointer;transition:.15s}
+.option:hover,.option.selected{border-color:#24963d;background:#f1faf3}
+.ico{width:28px;text-align:center;font-size:22px}
+.arr{margin-left:auto;font-size:24px;color:#687985}
+.continue{width:100%;margin-top:17px;padding:17px;border:0;border-radius:10px;background:#24963d;color:#fff;font-size:18px;font-weight:800;cursor:pointer}
+.continue:disabled{opacity:.45;cursor:not-allowed}
+.note{text-align:center;color:#697983;font-size:13px;margin:13px 0 0}
+.back{border:0;background:none;color:#60717d;font-weight:700;cursor:pointer;padding:0;margin:0 0 10px;font-size:14px}
+.benefits{padding:55px 20px;text-align:center;background:#fff}
+.benefits h2{font-size:32px;margin:0 0 10px}
+.benefits p{font-size:17px;color:#5c6d77;margin:0}
+.grid{max-width:900px;margin:30px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.bicon{width:58px;height:58px;border-radius:50%;background:#edf9ef;color:#24963d;display:grid;place-items:center;margin:0 auto 10px;font-size:25px}
+.footer{background:#eaf8eb;text-align:center;padding:22px;font-weight:800}
+.footer small{display:block;font-weight:400;color:#53655b;margin-top:5px}
+@media(max-width:900px){
+ 
+ .wrap{grid-template-columns:1fr;padding:42px 16px 55px}
+ .copy{text-align:center}
+ h1{font-size:42px}
+ .intro{margin:auto;font-size:18px}
+ .points{display:none}
+ .card{margin:20px auto 0}
+ .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){
+ .header{height:67px;padding:7px 14px}
+ .logo{width:205px}
+ .flag{width:125px}
+ h1{font-size:34px}
+ .card{padding:27px 17px 23px}
+ .question{font-size:24px}
+ .option{font-size:15.5px;padding:16px 13px}
+}
+</style>
+
+<style id="ui-fix">
+/* header: constrain by HEIGHT - artwork is ~3:1, width-only sizing overflowed
+   the 78px header and clipped the logo on the right */
+.header{height:78px;box-sizing:border-box;align-items:center;gap:16px;}
+.logo{width:auto !important;height:46px !important;max-width:46vw;object-fit:contain;display:block;}
+.flag{width:auto !important;height:42px !important;max-width:34vw;object-fit:contain;display:block;}
+
+/* hero: the old background was a screenshot of this very page. Until a real
+   photo is dropped in at images/hero.jpg, use a clean brand gradient. */
+.hero {
+    background: radial-gradient(1200px 520px at 78% 12%, rgba(120,190,255,.38) 0%, rgba(120,190,255,0) 60%),
+    linear-gradient(170deg,#eaf4ff 0%,#f4faff 42%,#ffffff 100%);
+    background-image: url("images/australian_homeowners_flag.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+/* Drop a real photo in as images/hero.jpg and un-comment this block.
+   (Left commented so the page doesn't request a file that isn't there yet.)
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.80) 38%,rgba(255,255,255,.10) 70%),
+    url("images/hero.jpg");
+  background-size:cover;background-position:center right;
+}
+*/
+.wrap{position:relative;z-index:2;}
+
+@media (max-width:900px){
+  .header{height:64px;padding:6px 14px;}
+  .logo{height:36px !important;}
+  .flag{height:32px !important;}
+}
+@media (max-width:420px){
+  .logo{height:30px !important;}
+  .flag{height:26px !important;}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <img class="logo" src="images/logo.png" alt="Solar Australia">
+  <img class="flag" src="images/badge.png" alt="Proudly Helping Australian Homeowners">
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="copy">
+      <div class="kicker">Australian Homeowners</div>
+      <h1>Stop Letting High Power Bills Drain Your Wallet — <span>Install Solar Panels on Your Roof</span></h1>
+      <p class="intro">Answer quick questions to see if solar could be a good option for your home.</p>
+      <div class="points">
+        <div class="point"><span class="circle">⚡</span>Lower Electricity Bills</div>
+        <div class="point"><span class="circle">♧</span>Clean, Renewable Energy</div>
+        <div class="point"><span class="circle">⌂</span>A Brighter Future for Your Home</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="progress"><span id="bar"></span></div>
+
+      <div id="q1" class="screen active">
+        <div class="step">QUESTION 1 OF 2</div>
+        <h2 class="question">Are you an Australian homeowner?</h2>
+        <div class="options">
+          <button class="option" data-home="yes"><span class="ico">⌂</span><span>Yes, I own my home</span><span class="arr">›</span></button>
+          <button class="option" data-home="no"><span class="ico">⌂</span><span>No, I don't own my home</span><span class="arr">›</span></button>
+        </div>
+        <button id="next" class="continue" disabled>CONTINUE →</button>
+        <p class="note">Takes less than 10 seconds • No obligation</p>
+      </div>
+
+      <div id="q2" class="screen">
+        <button id="back" class="back">← Back</button>
+        <div class="step">QUESTION 2 OF 2</div>
+        <h2 class="question">What is your approximate monthly household income?</h2>
+        <div class="options">
+          <button class="option" data-income="under-1000"><span class="ico">$</span><span>Under $1,000</span><span class="arr">›</span></button>
+          <button class="option" data-income="1000-1500"><span class="ico">$</span><span>$1,000 – $1,500</span><span class="arr">›</span></button>
+          <button class="option" data-income="1500-2000"><span class="ico">$</span><span>$1,500 – $2,000</span><span class="arr">›</span></button>
+          <button class="option" data-income="2000-plus"><span class="ico">$</span><span>$2,000+</span><span class="arr">›</span></button>
+        </div>
+        <button id="submit" class="continue" disabled>CHECK MY SOLAR OPTIONS →</button>
+        <p class="note">Your answers are used for this eligibility check.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <h2>Why Australian Homeowners Choose Solar</h2>
+  <p>A simple first step before completing your solar eligibility check.</p>
+  <div class="grid">
+    <div><div class="bicon">⚡</div>Lower Power Bills</div>
+    <div><div class="bicon">♧</div>Clean Energy</div>
+    <div><div class="bicon">⌂</div>Home Solar</div>
+    <div><div class="bicon">☀</div>Solar Savings</div>
+  </div>
+</section>
+
+<footer class="footer">
+  100% Free Eligibility Check
+  <small>Find out if solar could be a good option for your home.</small>
+</footer>
+
+<script>
+let homeowner = "";
+let income = "";
+
+document.querySelectorAll("[data-home]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-home]").forEach(x => x.classList.remove("selected"));
+    btn.classList.add("selected");
+    homeowner = btn.dataset.home;
+    document.getElementById("next").disabled = false;
+  });
+});
+
+document.getElementById("next").addEventListener("click", () => {
+  if (homeowner !== "yes") {
+    alert("This eligibility check is intended for Australian homeowners.");
+    return;
+  }
+  document.getElementById("q1").classList.remove("active");
+  document.getElementById("q2").classList.add("active");
+  document.getElementById("bar").style.width = "100%";
+});
+
+document.getElementById("back").addEventListener("click", () => {
+  document.getElementById("q2").classList.remove("active");
+  document.getElementById("q1").classList.add("active");
+  document.getElementById("bar").style.width = "50%";
+});
+
+document.querySelectorAll("[data-income]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-income]").forEach(x => x.classList.remove("selected"));
+    btn.classList.add("selected");
+    income = btn.dataset.income;
+    document.getElementById("submit").disabled = false;
+  });
+});
+
+document.getElementById("submit").addEventListener("click", () => {
+  if (!homeowner || !income) return;
+
+  const url = new URL("https://globalvisitclub.com/cf/click/1");
+
+  // Preserve Meta/UTM tracking parameters.
+  new URLSearchParams(window.location.search).forEach((value, key) => {
+    url.searchParams.set(key, value);
+  });
+
+  // Pass pre-lander qualification answers to the offer page.
+  url.searchParams.set("pre_homeowner", homeowner);
+  url.searchParams.set("pre_income", income);
+
+  window.location.href = url.toString();
+});
+</script>
+</body>
+</html>

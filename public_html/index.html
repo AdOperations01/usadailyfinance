@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>USA Daily Finance</title>
+<meta name="description" content="USA Daily Finance — plain-English money guidance for American households.">
+<link rel="canonical" href="https://usadailyfinance.com/">
+<meta property="og:title" content="USA Daily Finance">
+<meta property="og:description" content="Plain-English money guidance for American households.">
+<meta property="og:url" content="https://usadailyfinance.com/">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#14202E;
+  --ink-2:#44566B;
+  --ink-3:#7A8A9B;
+  --rule:#D6DEE6;
+  --flag:#B4262B;
+  --go:#0E7C61;
+}
+*,*::before,*::after{box-sizing:border-box}
+
+html,body{height:100%;margin:0;overflow:hidden}
+body{
+  background:#fff;
+  color:var(--ink);
+  font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  display:grid;
+  grid-template-rows:1fr auto;
+  height:100dvh;
+}
+:focus-visible{outline:3px solid var(--go);outline-offset:3px}
+
+/* ---- centre block ---- */
+main{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:24px 22px;
+  min-height:0;
+}
+.rule-top{
+  width:44px;height:3px;background:var(--flag);
+  margin-bottom:clamp(18px,3.4vh,30px);
+}
+h1{
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-weight:700;
+  font-size:clamp(2.1rem,8.4vw,4.6rem);
+  line-height:1.05;
+  letter-spacing:-.028em;
+  margin:0;
+}
+h1 .usa{color:var(--flag)}
+.tag{
+  margin:clamp(12px,2.2vh,20px) 0 0;
+  font-size:clamp(.95rem,2.2vw,1.12rem);
+  color:var(--ink-2);
+  max-width:46ch;
+}
+.meta{
+  margin:clamp(14px,2.4vh,22px) 0 0;
+  font-size:.82rem;
+  color:var(--ink-3);
+}
+.meta a{color:var(--go);font-weight:600;text-decoration:none}
+.meta a:hover{text-decoration:underline}
+
+/* ---- footer ---- */
+footer{
+  border-top:1px solid var(--rule);
+  padding:14px 22px calc(14px + env(safe-area-inset-bottom));
+  display:flex;
+  gap:10px 22px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  font-size:.78rem;
+  color:var(--ink-3);
+}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer a{color:var(--ink-2);text-decoration:none;cursor:pointer}
+footer a:hover{color:var(--ink);text-decoration:underline}
+
+/* ---- overlays (scroll inside the box only) ---- */
+.panel[hidden]{display:none}
+.panel{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:16px}
+.panel .veil{position:absolute;inset:0;background:rgba(20,32,46,.6)}
+.panel .box{
+  position:relative;background:#fff;border-radius:10px;width:100%;max-width:620px;
+  max-height:84dvh;overflow:auto;padding:26px 26px 30px;
+  -webkit-overflow-scrolling:touch;
+}
+.panel h2{font-family:"Source Serif 4",Georgia,serif;font-size:1.3rem;margin:0 0 .6rem}
+.panel p{font-size:.9rem;color:var(--ink-2);margin:0 0 .8rem}
+.panel .close{
+  position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--rule);background:#fff;color:var(--ink-2);font-size:1.15rem;line-height:1;cursor:pointer;
+}
+.panel .close:hover{background:#EDF1F5;color:var(--ink)}
+
+@media (max-height:420px){
+  .rule-top{margin-bottom:12px}
+  .tag{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<main>
+  <div class="rule-top" aria-hidden="true"></div>
+  <h1><span class="usa">USA</span> Daily Finance</h1>
+  <p class="tag">Plain-English guidance on debt, insurance, loans and credit for American households.</p>
+  <p class="meta">Questions? <a href="mailto:support@usadailyfinance.com">support@usadailyfinance.com</a></p>
+</main>
+
+<footer>
+  <span>&copy; <span id="yr">2026</span> USA Daily Finance</span>
+  <nav aria-label="Legal">
+    <a href="#" data-panel="p-about">About</a>
+    <a href="#" data-panel="p-privacy">Privacy</a>
+    <a href="#" data-panel="p-terms">Terms</a>
+    <a href="mailto:support@usadailyfinance.com">Contact</a>
+  </nav>
+</footer>
+
+<div class="panel" id="p-about" hidden role="dialog" aria-modal="true" aria-labelledby="h-about">
+  <div class="veil" data-close></div>
+  <div class="box">
+    <button class="close" type="button" data-close aria-label="Close">&times;</button>
+    <h2 id="h-about">About</h2>
+    <p>USA Daily Finance publishes plain-English guidance on everyday money decisions: insurance renewals, card debt, home cover and borrowing.</p>
+    <p>We are a publisher, not a lender, insurer or financial adviser, and nothing on this site is financial, legal or tax advice. Some links go to partner companies and we may be compensated when you use them; that never changes the price you pay.</p>
+  </div>
+</div>
+
+<div class="panel" id="p-privacy" hidden role="dialog" aria-modal="true" aria-labelledby="h-privacy">
+  <div class="veil" data-close></div>
+  <div class="box">
+    <button class="close" type="button" data-close aria-label="Close">&times;</button>
+    <h2 id="h-privacy">Privacy policy</h2>
+    <p>Last updated <span class="rev-date"></span>.</p>
+    <p><strong>What we collect.</strong> Information you send us by email, and information collected automatically such as IP address, approximate location, device and browser details, and referring source.</p>
+    <p><strong>How we use it.</strong> To operate the site, answer enquiries and measure traffic. We use analytics and advertising providers who may set cookies or similar technologies.</p>
+    <p><strong>Your choices.</strong> Depending on your state you may have the right to access, correct, delete or opt out of the sale or sharing of your personal information. Email us to make a request and we will reply within 10 business days.</p>
+    <p>This site is intended for adults aged 18 and over. Replace this text with your reviewed policy before launch.</p>
+  </div>
+</div>
+
+<div class="panel" id="p-terms" hidden role="dialog" aria-modal="true" aria-labelledby="h-terms">
+  <div class="veil" data-close></div>
+  <div class="box">
+    <button class="close" type="button" data-close aria-label="Close">&times;</button>
+    <h2 id="h-terms">Terms of use</h2>
+    <p>Last updated <span class="rev-date"></span>.</p>
+    <p>By using this site you agree to these terms. Content here is general information for US residents aged 18 and over and is not financial, insurance, legal or tax advice.</p>
+    <p>Links to third parties are provided for convenience. We are not responsible for their content, products, services or privacy practices, and availability and pricing are set by those providers.</p>
+    <p>To the extent permitted by law the site is provided as is, without warranties. Replace this text with your reviewed terms before launch.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var now = new Date();
+  document.getElementById("yr").textContent = now.getFullYear();
+  var d = now.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  document.querySelectorAll(".rev-date").forEach(function (el) { el.textContent = d; });
+
+  var last = null;
+  function closeAll() {
+    document.querySelectorAll(".panel").forEach(function (p) { p.hidden = true; });
+    if (last && last.focus) last.focus();
+  }
+  document.addEventListener("click", function (e) {
+    var open = e.target.closest("[data-panel]");
+    if (open) {
+      e.preventDefault();
+      last = document.activeElement;
+      var p = document.getElementById(open.getAttribute("data-panel"));
+      if (p) { p.hidden = false; var c = p.querySelector(".close"); if (c) c.focus(); }
+      return;
+    }
+    if (e.target.closest("[data-close]")) { e.preventDefault(); closeAll(); }
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAll(); });
+})();
+</script>
+</body>
+</html>

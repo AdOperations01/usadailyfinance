@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Check available auto insurance options in your area." />
+  <title>Auto Insurance Rate Check</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="image" href="assets/bg1.webp" type="image/webp" />
+  <link rel="stylesheet" href="styles.css?v=1234" />
+</head>
+<body>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="shield-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64">
+            <path d="M32 4 52 11v17c0 14-8.3 25.1-20 32C20.3 53.1 12 42 12 28V11z"/>
+            <path d="M21 31h22M24 31l2-7h12l2 7M25 38h14M25 31v7M39 31v7M23 38h-3M41 38h3"/>
+          </svg>
+        </div>
+
+        <h1>Your Auto Insurance Rate<br><span>Deserves a Second Look</span></h1>
+        <p class="hero-sub">Your current rate may not be the only option available to you.</p>
+
+        <div class="rate-card">
+          <h2>📍 LET'S CHECK YOUR AREA</h2>
+          <p>Where is your vehicle primarily located?</p>
+
+          <form id="zipForm" novalidate>
+            <label class="sr-only" for="zip">ZIP Code</label>
+            <input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code"
+                   maxlength="5" pattern="[0-9]{5}" placeholder="Enter ZIP Code" required />
+            <button type="submit">CHECK MY OPTIONS <span>→</span></button>
+          </form>
+
+          <div class="trust-row">
+            <span>✓ Free to check</span>
+            <span>◷ No obligation</span>
+            <span>🔒 Secure process</span>
+          </div>
+          <p class="error" id="zipError" role="alert"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process section">
+      <div class="container">
+        <p class="eyebrow">QUICK RATE CHECK</p>
+        <h2>The Simple Way to Explore Your Options</h2>
+        <p class="section-lead">A straightforward process to see what may be available in your area.</p>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <div class="step-icon">📍</div>
+            <h3>Your Location</h3>
+            <p>Enter your ZIP code so available options can be determined for your area.</p>
+          </article>
+
+          <div class="arrow" aria-hidden="true">→</div>
+
+          <article class="step">
+            <div class="step-number">2</div>
+            <div class="step-icon">🚙</div>
+            <h3>Your Vehicle</h3>
+            <p>Answer a few questions about your vehicle and driving situation.</p>
+          </article>
+
+          <div class="arrow" aria-hidden="true">→</div>
+
+          <article class="step">
+            <div class="step-number">3</div>
+            <div class="step-icon">🔎</div>
+            <h3>Your Options</h3>
+            <p>Continue through the process to see available insurance options.</p>
+          </article>
+        </div>
+
+        <a class="btn secondary-cta" href="#zip-check">START MY RATE CHECK <span>→</span></a>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" id="zip-check">
+      <div class="final-bg" aria-hidden="true"></div>
+      <div class="container final-content">
+        <div class="car-mark" aria-hidden="true">🚘</div>
+        <h2>Take a Second Look<br>At Your Rate</h2>
+        <p>You might already have the right policy.<br>
+           Or you might discover another option worth considering.</p>
+
+        <form id="finalForm" class="final-form" novalidate>
+          <label class="sr-only" for="zip2">ZIP Code</label>
+          <input id="zip2" name="zip2" inputmode="numeric" autocomplete="postal-code"
+                 maxlength="5" pattern="[0-9]{5}" placeholder="Enter ZIP Code" required />
+          <button type="submit">START MY RATE CHECK <span>→</span></button>
+        </form>
+
+        <p class="mini-trust">✓ Free to check &nbsp;&nbsp; | &nbsp;&nbsp; ◷ No obligation</p>
+        <p class="fine-print">
+          Availability, eligibility, coverage and pricing vary by state and individual circumstances.
+          This page is not an insurance policy or a guarantee of savings. You may be connected with
+          insurance providers, agents or partners. Review applicable privacy, consent and terms before
+          submitting information.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

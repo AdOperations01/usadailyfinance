@@ -1,0 +1,189 @@
+/* ============================================================
+   Quote form — replaces the Yes/No buttons in the banner card.
+   Loaded after blnKr11Uha6A.css; selectors are scoped to .banner
+   so they win on specificity without !important.
+   ============================================================ */
+
+:root{
+  --qf-blue:#2d60c2;
+  --qf-green:#5dca8f;
+  --qf-green-dark:#4cb87e;
+  --qf-grey:#dddddd;
+  --qf-line:#d3d3d3;
+  --qf-ink:#222529;
+  --qf-input-ink:#4b5057;
+  --qf-input-border:#cfd4da;
+}
+
+/* card shell — flush edges so the blue bar reaches the corners */
+.banner .banner__box_bottom{
+  padding:0;
+  overflow:hidden;
+  }
+
+.qform{
+  float:left;
+  width:100%;
+  }
+
+/* ---------- blue header bar ---------- */
+.qform__bar{
+  float:left;
+  width:100%;
+  margin:0;
+  padding:18px 20px;
+  background:var(--qf-blue);
+  color:#fff;
+  font-size:26px;
+  line-height:34px;
+  font-weight:700;
+  letter-spacing:0.2px;
+  text-align:center;
+  }
+
+/* ---------- step indicator ---------- */
+.qform__steps{
+  float:left;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:nowrap;
+  margin:0;
+  padding:18px 20px 0;
+  list-style:none;
+  }
+.qform__step{
+  display:flex;
+  align-items:center;
+  color:var(--qf-grey);
+  font-size:14px;
+  line-height:20px;
+  font-weight:500;
+  white-space:nowrap;
+  }
+.qform__step.is-active{
+  color:#000;
+  }
+.qform__step:not(:last-child):after{
+  content:'';
+  width:30px;
+  height:2px;
+  margin:0 10px;
+  background:var(--qf-line);
+  flex:0 0 auto;
+  }
+.qform__num{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  margin-right:8px;
+  border-radius:50%;
+  background:var(--qf-grey);
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  flex:0 0 auto;
+  }
+.qform__step.is-active .qform__num{
+  background:var(--qf-blue);
+  }
+
+/* ---------- body ---------- */
+.qform__body{
+  float:left;
+  width:100%;
+  padding:26px 20px 32px;
+  text-align:center;
+  }
+.qform__label{
+  display:block;
+  margin-bottom:18px;
+  color:var(--qf-ink);
+  font-size:20px;
+  line-height:26px;
+  font-weight:700;
+  }
+.qform__input{
+  display:block;
+  width:100%;
+  max-width:320px;
+  height:60px;
+  margin:0 auto;
+  padding:0 14px;
+  outline:none;
+  border:1px solid var(--qf-input-border);
+  border-radius:6px;
+  background:#fff;
+  color:var(--qf-input-ink);
+  font-family:inherit;
+  font-size:26px;
+  line-height:60px;
+  font-weight:700;
+  text-align:center;
+  letter-spacing:1px;
+  -moz-appearance:textfield;
+  }
+.qform__input::-webkit-outer-spin-button,
+.qform__input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+.qform__input::placeholder{color:#a9b0b8;font-weight:500;letter-spacing:0.5px;}
+.qform__input:focus{border-color:var(--qf-blue);box-shadow:0 0 0 3px rgba(45,96,194,0.15);}
+.qform__input[aria-invalid="true"]{border-color:#d93a3a;}
+
+.qform__error{
+  max-width:320px;
+  margin:8px auto 0;
+  color:#d93a3a;
+  font-size:13px;
+  line-height:18px;
+  font-weight:500;
+  }
+.qform__error[hidden]{display:none;}
+
+.qform__btn{
+  display:block;
+  width:100%;
+  max-width:320px;
+  height:60px;
+  margin:22px auto 0;
+  outline:none;
+  border:none;
+  border-radius:6px;
+  background:var(--qf-green);
+  color:#fff;
+  font-family:inherit;
+  font-size:24px;
+  line-height:24px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background 0.2s linear;
+  }
+.qform__btn:hover,
+.qform__btn:focus-visible{background:var(--qf-green-dark);}
+.qform__btn span{margin-left:6px;font-weight:400;}
+.qform__btn[disabled]{opacity:0.6;cursor:default;}
+
+/* ---------- responsive (matches the lander's own breakpoints) ---------- */
+@media only screen and (max-width:1023px){
+  .qform__bar{font-size:22px;line-height:30px;padding:16px 18px;}
+  .qform__step{font-size:13px;}
+  .qform__step:not(:last-child):after{width:22px;margin:0 8px;}
+}
+
+@media only screen and (max-width:767px){
+  .banner .banner__box_bottom{padding:0;}
+  .qform__bar{font-size:19px;line-height:26px;padding:14px 15px;}
+  .qform__steps{padding:14px 15px 0;justify-content:space-between;}
+  .qform__step{font-size:10px;line-height:14px;}
+  .qform__step:not(:last-child):after{display:none;}
+  .qform__num{width:20px;height:20px;margin-right:5px;font-size:10px;}
+  .qform__body{padding:20px 15px 24px;}
+  .qform__label{font-size:18px;line-height:24px;margin-bottom:14px;}
+  .qform__input{height:55px;line-height:55px;font-size:22px;max-width:100%;}
+  .qform__btn{height:55px;font-size:21px;max-width:100%;margin-top:18px;}
+  .qform__error{max-width:100%;}
+}

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>My Insurance Went From $179 to $39</title>
+<meta name="description" content="Answer a few simple questions and you could slash your car insurance rate. Takes less than 60 seconds and it's free to check.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://get.geojs.io" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<!-- =====================================================
+     CONFIG
+     OFFER_URL : every age button links here. Incoming query
+                 parameters (fbclid, utm_*, click ids) pass through,
+                 plus age=<band>.
+     ===================================================== -->
+<script>
+  var OFFER_URL = "https://globalvisitclub.com/cf/click/1";
+  var PASS_AGE  = true;   // set false for bare links
+</script>
+
+<style>
+  :root{
+    --ink:#111;
+    --band:#f1f2f2;
+    --btn:#e0233f;
+    --btn-dark:#ad1830;
+    --muted:#3a3a3a;
+    --fine:#444;
+    --maxw:1060px;
+    --col:520px;
+    --sans:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:#fff;
+    line-height:1.35;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* ---------- headline band ---------- */
+  .band{background:var(--band);padding:30px 0 32px}
+  h1{
+    text-align:center;
+    font-size:clamp(25px,3.9vw,48px);
+    font-weight:400;
+    line-height:1.2;
+    letter-spacing:-.01em;
+  }
+  h1 b{font-weight:700}
+  #geoLine{white-space:nowrap}
+
+  /* ---------- hero graphic ---------- */
+  .hero{padding:26px 0 0;text-align:center}
+  .hero picture,.hero img{display:block;margin:0 auto;width:100%;height:auto;max-width:640px}
+
+  /* ---------- sub copy ---------- */
+  .sub{
+    text-align:center;
+    font-size:clamp(17px,2.1vw,27px);
+    font-weight:400;
+    line-height:1.35;
+    margin:26px auto 0;
+    max-width:880px;
+  }
+
+  /* ---------- age picker ---------- */
+  .ask{
+    text-align:center;
+    font-size:clamp(22px,2.9vw,34px);
+    font-weight:900;
+    margin:30px 0 20px;
+    color:#2b2f36;
+  }
+  .ages{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    max-width:var(--col);
+    margin:0 auto;
+  }
+  .age{
+    display:block;
+    padding:18px 16px;
+    background:var(--btn);
+    color:#fff;
+    font-size:clamp(17px,1.6vw,21px);
+    font-weight:700;
+    text-align:center;
+    text-decoration:none;
+    border-radius:6px;
+    box-shadow:0 5px 0 var(--btn-dark);
+    transition:transform .12s ease,box-shadow .12s ease,background .12s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .age:hover{background:#ea2f4b}
+  .age:active{transform:translateY(4px);box-shadow:0 1px 0 var(--btn-dark)}
+  .age:focus-visible{outline:3px solid #111;outline-offset:3px}
+
+  .must{
+    text-align:center;
+    margin:40px auto 0;
+    font-size:clamp(15px,1.6vw,20px);
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+
+  /* ---------- footer ---------- */
+  footer{padding:46px 0 40px}
+  .fine{
+    text-align:center;
+    color:var(--fine);
+    font-size:13px;
+    line-height:1.5;
+    max-width:960px;
+    margin:0 auto 34px;
+  }
+  .legal{
+    display:flex;
+    justify-content:center;
+    gap:120px;
+    flex-wrap:wrap;
+  }
+  .legal a{
+    color:var(--ink);
+    font-size:13px;
+    font-weight:700;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:860px){
+    .band{padding:22px 0 24px}
+    h1{font-size:clamp(22px,5.6vw,32px)}
+    .hero{padding-top:18px}
+    .hero img{max-width:420px}
+    .sub{font-size:clamp(16px,4.2vw,21px);margin-top:20px}
+    .ask{font-size:clamp(21px,5.6vw,28px);margin:24px 0 16px}
+    .ages{gap:12px;max-width:420px}
+    .age{padding:17px 14px}
+    .must{margin-top:30px;font-size:clamp(14px,3.9vw,17px)}
+    .fine{font-size:12px;text-align:center}
+    .legal{gap:48px;justify-content:space-around}
+  }
+  @media (max-width:400px){
+    .wrap{padding:0 14px}
+    .legal{gap:28px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .age{transition:none}
+  }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s);
+}(window, document, 'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '4336928033302962');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+    content_name: 'Auto Insurance Pre-Lander',
+    content_category: 'Auto Insurance',
+    content_type: 'landing_page'
+});
+</script>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscript=1" alt=""/>
+</noscript>
+
+
+<header class="band">
+  <div class="wrap">
+    <h1><span id="geoLine">Living in America?</span> My Insurance Went
+      From <b>$179 to $39</b> Thanks To This Website!</h1>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <picture>
+        <source media="(max-width:860px)"
+                srcset="images/bg-mobile.png 1x, images/bg-mobile-highres.png 2x">
+        <source media="(min-width:861px)"
+                srcset="images/1.png 1x, images/bg-desktop.png 2x">
+        <img src="images/1.png"
+             srcset="images/1.png 1x, images/bg-desktop.png 2x"
+             alt="$39.99 per month &ndash; blue sports coupe"
+             width="636" height="212">
+      </picture>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <p class="sub">Answer A Few Simple Questions And You Could Slash Your Car Insurance Rate
+      As Much As $710 &mdash; Takes Less Than 60 Seconds And It's Free To Check!</p>
+
+    <h2 class="ask">Tap your age group</h2>
+
+    <nav class="ages" aria-label="Select your age group">
+      <a class="age" href="https://globalvisitclub.com/cf/click/1" data-age="up-to-20">up to 20</a>
+      <a class="age" href="https://globalvisitclub.com/cf/click/1" data-age="20-40">20-40</a>
+      <a class="age" href="https://globalvisitclub.com/cf/click/1" data-age="40-60">40-60</a>
+      <a class="age" href="https://globalvisitclub.com/cf/click/1" data-age="60-plus">60+</a>
+    </nav>
+
+    <p class="must">*YOU MUST ALREADY BE INSURED TO APPLY!</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="fine">This site is not a part of the Facebook website or Facebook Inc. This site is
+      not endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+    <p class="legal">
+      <a href="#">Terms of Use</a>
+      <a href="#">Privacy Policy</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+/* ---------------------------------------------------------------
+   1. Geo headline.  "Living in America?" is the default in the markup,
+      so the line reads correctly before the lookup lands and if it
+      never does.  Text-for-text swap; nothing below it moves.
+      QA:  ?geostate=Texas    debug:  ?geodebug=1
+   --------------------------------------------------------------- */
+(function () {
+  "use strict";
+  var KEY = "lp_geo_place", WAIT = 3000;
+  var DEBUG = /[?&]geodebug=1/.test(location.search);
+  var US = {AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",
+    CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",
+    ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",
+    ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",
+    MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",
+    NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",
+    OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
+    TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",
+    WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"};
+
+  function unknown(v){ v = String(v||"").trim().toLowerCase();
+    return !v || v==="unknown" || v==="n/a" || v==="na" || v==="null" || v==="undefined"; }
+
+  /* only expand a 2-letter code for US visitors - an Indian "TN" is Tamil Nadu */
+  function place(city, region, code, country){
+    city = String(city||"").trim();
+    if (!unknown(city)) return city;            /* prefer the city: Gurgaon, Mohali */
+    region = String(region||"").trim();
+    code = String(code||"").trim().toUpperCase().replace(/^US-/,"");
+    country = String(country||"").trim().toUpperCase();
+    var isUS = country === "US" || country === "USA";
+    /* only expand a 2-letter code for US visitors - an Indian "TN" is Tamil Nadu */
+    if ((unknown(region) || region.toUpperCase() === code) && code)
+      region = (isUS || (!country && US[code])) ? (US[code] || code) : code;
+    return unknown(region) ? "" : region;       /* region only if no city */
+  }
+
+
+  var forced = "", cached = "";
+  try { forced = new URLSearchParams(location.search).get("geostate") || ""; } catch(e){}
+  try { cached = sessionStorage.getItem(KEY) || ""; } catch(e){}
+
+  if (forced) { apply(forced); }
+  else { if (cached) apply(cached); hit(0); }
+})();
+
+/* ---------------------------------------------------------------
+   2. Age links.  Real hrefs with the offer baked in, so they work
+      with JS off.  This only appends the incoming query string and
+      the chosen band, keeping fbclid / utm_* / click ids intact.
+   --------------------------------------------------------------- */
+(function () {
+  "use strict";
+  var links = document.querySelectorAll(".age");
+  if (!links.length) return;
+
+  function build(age){
+    var incoming;
+    try { incoming = new URLSearchParams(location.search); }
+    catch (e) { return OFFER_URL; }
+    try {
+      var url = new URL(OFFER_URL);
+      incoming.forEach(function (v, k) { url.searchParams.append(k, v); });
+      if (PASS_AGE && age) url.searchParams.set("age", age);
+      return url.toString();
+    } catch (e) {
+      var qs = incoming.toString();
+      if (PASS_AGE && age) qs += (qs ? "&" : "") + "age=" + encodeURIComponent(age);
+      return OFFER_URL + (qs ? (OFFER_URL.indexOf("?") === -1 ? "?" : "&") + qs : "");
+    }
+  }
+
+  for (var i = 0; i < links.length; i++) {
+    links[i].setAttribute("href", build(links[i].getAttribute("data-age")));
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solar Australia | Eligibility</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#10243d;background:#f5f9f6}
+.header{height:78px;background:#fff;border-bottom:1px solid #e4ebee;display:flex;align-items:center;justify-content:space-between;padding:8px 6%}
+.logo{width:285px;max-width:50vw}.flag{width:215px;max-width:35vw}
+.main {
+    min-height: calc(100vh - 78px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 45px 18px;
+    background: url("images/australian_homeowners_flag.png") no-repeat center center/cover;
+}
+.card{width:min(620px,100%);background:#fff;border-radius:22px;padding:48px 42px;text-align:center;box-shadow:0 15px 45px rgba(18,48,65,.12);border:1px solid #e4ebee}
+.icon{width:76px;height:76px;margin:0 auto 22px;border-radius:50%;background:#fff4e8;display:grid;place-items:center;color:#d77916;font-size:37px;font-weight:800}
+h1{font-size:34px;line-height:1.15;margin:0 0 15px;letter-spacing:-.6px}
+p{font-size:18px;line-height:1.5;color:#5c6c76;margin:0 auto 28px;max-width:510px}
+.info{background:#f3f8f4;border-radius:12px;padding:16px 18px;margin-bottom:25px;font-size:15px;color:#53655c}
+.button{display:inline-block;background:#24963d;color:#fff;text-decoration:none;font-size:17px;font-weight:800;padding:16px 30px;border-radius:10px}
+.small{font-size:13px;color:#77858d;margin-top:18px}
+@media(max-width:520px){
+.header{height:68px;padding:7px 14px}.logo{width:205px}.flag{width:125px}
+.main{padding:25px 14px}.card{padding:35px 22px}h1{font-size:29px}p{font-size:16px}
+}
+</style>
+
+<style id="ui-fix">
+/* artwork is wide (≈6.8:1 trimmed); width-only sizing overflowed the 78px
+   header and clipped the logo, so constrain by height instead */
+.header{box-sizing:border-box;gap:16px;}
+.logo{width:auto !important;height:46px !important;max-width:46vw;object-fit:contain;display:block;}
+.flag{width:auto !important;height:42px !important;max-width:34vw;object-fit:contain;display:block;}
+.icon{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:40px;line-height:1;}
+@media(max-width:520px){
+  .logo{height:34px !important;}
+  .flag{height:30px !important;}
+}
+@media(max-width:380px){
+  .logo{height:28px !important;}
+  .flag{height:24px !important;}
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <img class="logo" src="images/logo.png" alt="Solar Australia">
+  <img class="flag" src="images/badge.png" alt="Proudly Helping Australian Homeowners">
+</header>
+
+<main class="main">
+  <section class="card">
+    <div class="icon" aria-hidden="true">i</div>
+    <h1>Thanks for Checking Your Eligibility</h1>
+    <p>
+      Based on the answers you provided, you may not meet the current
+      criteria for this solar program.
+    </p>
+    <div class="info">
+      Eligibility requirements can vary depending on your home and
+      individual circumstances.
+    </div>
+    <a class="button" href="https://australian.usadailyfinance.com/solar1/">Return to Solar Check</a>
+    <div class="small">Thank you for your interest in Solar Australia.</div>
+  </section>
+</main>
+</body>
+</html>

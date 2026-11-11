@@ -1,0 +1,142 @@
+/*---------------------------------------- UNIVERSAL STYLES ----------------------------------------*/
+
+.availableIn {
+    font-size: 0.75rem;
+    height: 25px;
+    line-height: 1.25em;
+    margin-top: 10px;
+    overflow: visible;
+    position: relative;
+    width: auto;
+    z-index: 200;
+}
+
+/*---------------------------------------- MOBILE UPDATES ----------------------------------------*/
+
+/*----- Modals -----*/
+
+.rvwsModal {
+    font-size: 14px;
+    text-align: center;
+}
+
+.rvwsModal a {
+    color: #999;
+}
+
+.rvwsModal .modal-header {
+    border-bottom: none;
+}
+
+.rvwsModal .modal-footer {
+    border-top: none;
+}
+
+.rvwsModal .brandLogo {
+    max-width: 125px;
+}
+
+.rvwsModal ul {
+    list-style-position: outside;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.rvwsModal button.btnSimple { /* Add this style name to already existing button styles in base.css */
+    background: #7dc049; /* Old browsers */
+    background: -moz-linear-gradient(top, #9bd96b 0%, #7dc049 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #9bd96b 0%,#7dc049 100%); /* Chrome10- 25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #9bd96b 0%,#7dc049 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9bd96b', endColorstr='#7dc049',GradientType=0 ); /* IE6-9 */
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    outline: none;
+    margin: 5px 0;
+    padding: 8px 25px;
+}
+.rvwsModal button.btnSimple:focus,
+.rvwsModal button.btnSimple:hover {
+    background: #9bd96b; /* Old browsers */
+    background: -moz-linear-gradient(top, #7dc049 0%, #9bd96b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #7dc049 0%,#9bd96b 100%); /* Chrome10- 25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #7dc049 0%,#9bd96b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7dc049', endColorstr='#9bd96b',GradientType=0 ); /* IE6-9 */
+}
+
+/*----- Extra Small -----*/
+@media(max-width: 767px){
+
+    .mfNavbar {
+        padding: 0;
+    }
+
+    .sectionSiteInfoImage {
+        min-height: fit-content;
+    }
+
+    .tableReviews tbody tr td {
+        padding-bottom: 10px;
+        padding-top: 10px;
+        width: auto;
+    }
+
+    .tableReviews tbody tr td.tdMobileRight {
+        padding-right: 10px;
+    }
+
+    .tableReviews tbody tr td.tdSite {
+        width: 40%;
+    }
+
+    .tableReviews tbody tr td.tdReview {
+        width: 60%;
+    }
+
+    a.siteLogo img {
+        max-width: 125px;
+    }
+
+    .mobileInfo .mobileReviewLink {
+        color: #aaa;
+    }
+
+    .mobileInfo .mobileReviewLink a {
+        color: #aaa;
+        text-decoration: none;
+    }
+
+    .mobileRanking {
+        background-color: #7dc049;
+        border: none;
+        border-radius: 50%;
+        color: #fff;
+        display: inline-block;
+        font-weight: 700;
+        height: 25px;
+        width: 25px;
+    }
+
+    .tableReviews button {
+        font-size: 15px;
+    }
+
+    .tableReviews .scoreContainerMobile {
+        background-color: #999;
+        color: #fff;
+        font-size: 9px;
+        margin-top: 5px;
+        padding: 3px;
+    }
+
+    .tableReviews .scoreText {
+        color: #fff;
+        font-size: 20px;
+        line-height: 1.5rem;
+    }
+
+}

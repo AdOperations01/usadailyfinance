@@ -1,0 +1,441 @@
+.quiz {
+  font-family: "Hurme Geometric Sans No.3", Sans-serif !important;
+}
+.quiz > * {
+  transition: all 0.3s ease;
+  max-width: 750px;
+  margin-inline: auto;
+  color: #000;
+}
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.progress p {
+  margin-bottom: 0;
+}
+.bar,
+.bar-fill {
+  position: relative;
+  background-color: #efefef;
+  width: 100%;
+  max-width: 450px;
+  margin-inline: auto;
+  height: 10px;
+  border-radius: 10px;
+}
+.bar-fill {
+  position: absolute;
+  height: 10px;
+  z-index: 1;
+  background-color: #d4af37;
+}
+.step {
+  margin: 15px 0 0;
+}
+.step h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+}
+.btn button,
+.form button,
+.final-box a {
+  text-align: center;
+  border-radius: 3px;
+  padding: 11px 0px;
+  margin: 10px 0 0;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  max-width: 356px;
+  margin-inline: auto;
+  background: #d4af37;
+  border-color: #fff;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 4px 8px;
+}
+.btn button:hover,
+.form button:hover,
+.final-box a:hover,
+.btn button:active,
+.final-box a:active {
+  background: #b3932d;
+  color: #fff;
+}
+.box {
+  text-align: center;
+  padding: 40px 34px;
+  background-color: #fff;
+  border-top: 5px solid #d4af37;
+  line-height: 1.75;
+  box-shadow: 0 0 7px 0 rgb(0 0 0 / 20%);
+  transition: all 0.2s ease;
+}
+.auto {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box p {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+.final-box h2 {
+  font-size: 48px;
+  line-height: 1.3;
+  font-weight: 700;
+  text-align: center;
+  color: #000;
+}
+.final-box .nice-headline {
+  font-size: 40px;
+}
+.final-box h3 {
+  font-size: 20px;
+  margin: 10px 0 20px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #000;
+}
+
+.thank-you-cntent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.thank-you-cntent a {
+  margin: 0;
+  max-width: 200px;
+  margin-inline: auto;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.thank-you p {
+  line-height: 1.3;
+}
+
+.thank-you-cntent ul {
+  list-style: none;
+  padding-left: 10px;
+}
+.thank-you-cntent ul li {
+  text-align: left;
+  position: relative;
+  padding: 2px;
+}
+.thank-you-cntent ul li:before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 9px;
+  width: 18px;
+  height: 18px;
+  background: url(https://usfinancerelieforg.site.strattic.io/wp-content/uploads/2024/05/check-green.svg) center/cover no-repeat;
+}
+.last-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+.last-time h5 {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#timer,
+.timer {
+  color: #ff0000;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .box {
+    padding: 10px;
+  }
+  .last-time {
+    flex-direction: column;
+    gap: 0;
+  }
+  .final-box h3 {
+    font-size: 18px;
+  }
+}
+
+.hide {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 767px) {
+  .step h2,
+  .final-box .nice-headline {
+    font-size: 1.3rem;
+  }
+  .step p {
+    font-size: 15px;
+  }
+  .thank-you {
+    padding: 10px;
+    gap: 3px;
+  }
+  .thank-you-cntent {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .last-time {
+    margin-top: 20px;
+  }
+  .thank-you {
+    margin-top: 0;
+  }
+}
+
+.go-back-btn {
+  float: right;
+  color: #000;
+  opacity: 0.7;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 20px;
+}
+.go-back-btn:hover {
+  opacity: 1;
+}
+.go-back-btn:before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: -17px;
+  font-size: 35px;
+}
+
+/*Form CSS*/
+form#user-info {
+  max-width: 400px;
+  margin: 0 auto;
+}
+form#user-info h3 {
+  text-align: center;
+}
+form#user-info input {
+  display: block;
+  width: 100%;
+  margin: 0 0 8px;
+}
+form#user-info button {
+  display: block;
+  width: 100%;
+  background: #d4af37;
+  border-color: #d4af37;
+  color: #fff;
+}
+form#user-info small {
+  display: block;
+  text-align: center;
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 16px;
+}
+form#user-info .form-sub a {
+  color: #000;
+  text-decoration: underline;
+}
+form#user-info input:focus,
+form#user-info button:focus {
+  outline: none;
+}
+
+#schedule {
+  background: #e2e4e6;
+  max-width: 380px;
+  margin: 16px auto 12px;
+  padding: 24px 8px;
+  border-radius: 3px;
+}
+#schedule h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+#schedule label {
+  display: inline-block;
+  position: relative;
+  margin: 0 2px 4px;
+  cursor: pointer;
+  min-width: 128px;
+}
+#schedule label input {
+  visibility: hidden;
+  position: absolute;
+}
+#schedule label span {
+  display: block;
+  background: #003b71;
+  padding: 12px 24px;
+  border-radius: 3px;
+  transition: 200ms;
+  color: #fff;
+}
+#schedule label input:checked + span {
+  background: #81d4fa;
+}
+
+#schedule:not(.active) + #userinfo {
+  display: none;
+}
+
+#userinfo {
+  max-width: 350px;
+  margin: 16px auto 0;
+}
+#userinfo label {
+  display: block;
+  width: 100%;
+  margin: 0 0 8px;
+}
+#userinfo input[type="text"],
+#userinfo input[type="email"],
+#userinfo input[type="tel"],
+#userinfo input[type="datetime-local"] {
+  display: block;
+  appearance: none;
+  width: 100%;
+  margin: 0 0 8px;
+  border: 1px solid #666;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+}
+
+#userinfo button {
+  display: block;
+  width: 100%;
+  background: #16ca92;
+  border-color: #16ca92;
+  color: #fff;
+}
+
+#userinfo small {
+  display: block;
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 12px 0 0;
+}
+#userinfo small a {
+  display: inline;
+  padding: 0;
+  background: none;
+  color: #16ca92;
+  font-size: inherit;
+  font-weight: 400;
+}
+
+#userinfo .air-datepicker.-inline- {
+  margin: 0 0 8px;
+  width: 100%;
+  max-width: none;
+}
+
+#userinfo .disclaimer {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+#userinfo .disclaimer button {
+  background: none;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  width: 32px;
+}
+#userinfo .disclaimer button img {
+  display: block;
+  transition: 300ms;
+}
+#userinfo .disclaimer.open button img {
+  transform: rotate(180deg);
+}
+#userinfo .disclaimer small {
+  display: none;
+  margin: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#userinfo {
+  position: relative;
+}
+#userinfo.loading:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75);
+  z-index: 10;
+}
+#userinfo.loading:after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 24px);
+  top: calc(50% - 24px);
+  width: 48px;
+  height: 48px;
+  border: 3px solid;
+  border-color: #003b71 transparent;
+  border-radius: 50%;
+  z-index: 11;
+  animation: 800ms spin infinite;
+  animation-timing-function: linear;
+}
+
+/* For Images in shortcode */
+.quiz .step {
+  text-align: center;
+}
+.quiz img {
+  width: 100%;
+  max-width: 600px !important;
+}
+@media (max-width: 767px) {
+  .quiz img.hide-mob {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .quiz img.hide-desktop {
+    display: none;
+  }
+}

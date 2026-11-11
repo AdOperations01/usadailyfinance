@@ -1,0 +1,137 @@
+/* Default settings for all devices
+ .portrait-img { 
+    display: none;     
+}
+
+ .landscape-img { 
+    display: block; 
+ } 
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    .portrait-img {
+        display: block;
+    }
+    .landscape-img {
+        display: none;
+    }
+}
+*/
+/* Mobile Portrait - Extra Small (0-359px) */
+@media screen and (min-width: 0px) and (max-width: 359px) and (orientation: portrait) {
+    .portrait-img {
+        display: block;
+        margin: 0px auto !important;
+    }
+
+    .landscape-img {
+        display: none;
+    }
+}
+
+/* Mobile Portrait - Small (360-389px) */
+@media screen and (min-width: 360px) and (max-width: 389px) and (orientation: portrait) {
+    .portrait-img {
+        display: block;
+        margin: 0px auto !important;
+    }
+
+    .landscape-img {
+        display: none;
+    }
+}
+
+/* Mobile Portrait - Medium (390-429px) */
+@media screen and (min-width: 390px) and (max-width: 429px) and (orientation: portrait) {
+    .portrait-img {
+        display: block;
+        margin: 0px auto !important;
+    }
+
+    .landscape-img {
+        display: none;
+    }
+}
+
+/* Mobile Portrait - Large (430-479px) */
+@media screen and (min-width: 430px) and (max-width: 479px) and (orientation: portrait) {
+    .portrait-img {
+        display: block;
+        margin: 0px auto !important;
+    }
+
+    .landscape-img {
+        display: none;
+    }
+}
+
+/* Tablet Portrait - Extra Small (480-768px) */
+@media screen and (min-width: 480px) and (max-width: 768px) and (orientation: portrait) {
+    .portrait-img {
+        display: block;
+        margin: 0px auto !important;
+    }
+
+    .landscape-img {
+        display: none;
+    }
+}
+
+/* Mobile Landscape - Extra Small (0-667px) */
+@media screen and (min-width: 0px) and (max-width: 667px) and (orientation: landscape) {
+    .portrait-img {
+        display: none;
+    }
+
+    .landscape-img {
+        display: block;
+        margin: 0px auto !important;
+    }
+}
+
+/* Mobile Landscape - Small (668-739px) */
+@media screen and (min-width: 668px) and (max-width: 739px) and (orientation: landscape) {
+    .portrait-img {
+        display: none;
+    }
+
+    .landscape-img {
+        display: block;
+        margin: 0px auto !important;
+    }
+}
+
+/* Mobile Landscape - Medium (740-851px) */
+@media screen and (min-width: 740px) and (max-width: 851px) and (orientation: landscape) {
+    .portrait-img {
+        display: none;
+    }
+
+    .landscape-img {
+        display: block;
+        margin: 0px auto !important;
+    }
+}
+
+/* Mobile Landscape - Large (852-931px) */
+@media screen and (min-width: 852px) and (max-width: 931px) and (orientation: landscape) {
+    .portrait-img {
+        display: none;
+    }
+
+    .landscape-img {
+        display: block;
+        margin: 0px auto !important;
+    }
+}
+
+/* Tablets and Desktop (768px+) - ALWAYS show landscape only */
+@media screen and (min-width: 768px) {
+    .portrait-img {
+        display: none;
+    }
+
+    .landscape-img {
+        display: block;
+        margin: 0px auto !important;
+    }
+}

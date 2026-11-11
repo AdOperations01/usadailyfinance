@@ -1,0 +1,38 @@
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#171717}
+.site{width:100%;max-width:760px;margin:0 auto;background:#fff;min-height:100vh;border-left:1px solid #ddd;border-right:1px solid #ddd}
+.topbar{height:72px;border-bottom:1px solid #e4e4e4;display:flex;align-items:center;justify-content:space-between;padding:0 38px;background:#fff}
+.brand{font-size:19px;color:#4a667d;font-weight:500}
+.phone-btn,.call-btn{display:inline-flex;align-items:center;justify-content:center;background:#48cf4e;color:#fff;text-decoration:none;font-weight:700;border-radius:5px}
+.phone-btn{min-width:215px;height:48px;font-size:18px}
+main{padding:0 30px 30px}
+.intro{padding:24px 0 18px}
+h1{font-size:21px;line-height:1.35;margin:0;font-weight:700}
+.hero-card{width:100%;overflow:hidden}
+.hero-card img{display:block;width:100%;height:auto}
+.copy{font-size:15px;line-height:1.55;padding:18px 0 4px}
+.copy p{margin:0 0 14px}
+.qualify{padding-top:20px}
+.qualify h2{text-align:center;font-size:34px;margin:0 0 20px}
+.qualification-box{border:1px solid #dedede;padding:28px 26px 25px;text-align:center}
+.qualification-box ul{list-style:none;padding:0;margin:0 auto 24px;max-width:600px}
+.qualification-box li{font-size:14px;line-height:1.65;margin:3px 0}
+.qualification-box li span{font-weight:700}
+.qualification-box h3{font-size:21px;margin:24px 0 17px}
+.call-btn{width:220px;height:52px;font-size:18px}
+.small{font-size:13px;color:#777;margin:18px 0 0}
+footer{border-top:1px solid #e4e4e4;padding:18px 30px 25px;color:#777;font-size:11px;line-height:1.5;background:#fafafa}
+@media(max-width:600px){
+  .topbar{padding:0 16px;height:64px}
+  .brand{font-size:16px}
+  .phone-btn{min-width:145px;height:42px;font-size:14px}
+  main{padding:0 16px 24px}
+  h1{font-size:18px}
+  .copy{font-size:14px}
+  .qualify h2{font-size:28px}
+  .qualification-box{padding:22px 14px}
+  .qualification-box h3{font-size:18px}
+  .call-btn{width:200px}
+  footer{padding:16px}
+}

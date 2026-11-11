@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "url": "https://strawanten.com/13/",
+  "host": "strawanten.com",
+  "capturedAt": "2026-10-27T08:04:09.189Z",
+  "options": {
+    "renameAssets": false,
+    "keepStructure": false,
+    "simplified": false,
+    "cleanCopy": false,
+    "prettify": false,
+    "device": "desktop",
+    "output": "zip"
+  },
+  "variants": [
+    "desktop"
+  ],
+  "filename": "strawanten.com.zip",
+  "pages": [
+    {
+      "url": "https://strawanten.com/13/",
+      "path": "index.html",
+      "title": "Get A Lower Rate",
+      "variant": "desktop"
+    }
+  ],
+  "files": [
+    {
+      "path": "index.html",
+      "url": "https://strawanten.com/13/",
+      "kind": "html",
+      "bytes": 6050,
+      "variant": "desktop"
+    },
+    {
+      "path": "js/anura-init.js",
+      "url": "https://strawanten.com/13/static/js/anura-init.js",
+      "kind": "js",
+      "bytes": 2508,
+      "variant": "desktop"
+    },
+    {
+      "path": "js/ua-parser.min.js",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/1.0.2/ua-parser.min.js",
+      "kind": "js",
+      "bytes": 15266,
+      "variant": "desktop"
+    },
+    {
+      "path": "js/fp.js",
+      "url": "https://fingerprints.holatask.com/js//fp.js",
+      "kind": "js",
+      "bytes": 26516,
+      "variant": "desktop"
+    },
+    {
+      "path": "js/vce701823e78c4301a35b7e07294d87301792088814092.js",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+      "kind": "js",
+      "bytes": 31853,
+      "variant": "desktop"
+    },
+    {
+      "path": "images/auto.jpg",
+      "url": "https://strawanten.com/13/static/picture/auto.jpg",
+      "kind": "image",
+      "bytes": 72675,
+      "variant": "desktop"
+    }
+  ],
+  "problems": [],
+  "problemCount": 0,
+  "removed": [],
+  "liveLinks": 1,
+  "score": 100,
+  "insights": {
+    "colors": [
+      {
+        "hex": "#2f9ee9",
+        "count": 2
+      },
+      {
+        "hex": "#267fbb",
+        "count": 1
+      }
+    ],
+    "neutrals": [
+      {
+        "hex": "#f3f4f4",
+        "count": 1
+      },
+      {
+        "hex": "#666666",
+        "count": 1
+      }
+    ],
+    "cssVariables": 0,
+    "fonts": [
+      {
+        "family": "Arial",
+        "license": "system"
+      }
+    ],
+    "weight": [
+      {
+        "kind": "js",
+        "bytes": 76143,
+        "files": 4
+      },
+      {
+        "kind": "image",
+        "bytes": 72675,
+        "files": 1
+      },
+      {
+        "kind": "html",
+        "bytes": 6050,
+        "files": 1
+      }
+    ],
+    "tech": [
+      {
+        "name": "Cloudflare",
+        "category": "library"
+      }
+    ],
+    "seo": {
+      "title": "Get A Lower Rate",
+      "description": "",
+      "canonical": "",
+      "lang": "en",
+      "h1": [],
+      "ogTitle": "",
+      "ogDescription": "",
+      "ogImage": "",
+      "twitterCard": "",
+      "robots": "",
+      "structuredData": [],
+      "imagesWithoutAlt": 0,
+      "images": 1
+    }
+  },
+  "limits": {
+    "assetBytes": 26214400,
+    "maxAssets": 400
+  }
+}

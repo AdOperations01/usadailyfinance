@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script src="https://www.googletagmanager.com/gtag/js?id=AW-17856750041" async=""></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date()), gtag("config", "AW-17856750041");
+        </script>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+        <!-- Meta Pixel Code -->
+        <script>
+            !(function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function () {
+                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = "2.0";
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s);
+            })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+            fbq("init", "1748568772839830");
+            fbq("track", "PageView");
+            fbq('track', 'ViewContent');
+        </script>
+        <noscript
+            ><img
+                height="1"
+                width="1"
+                style="display: none"
+                src="https://www.facebook.com/tr?id=1748568772839830&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Meta Pixel Code -->
+
+        <!-- Meta Pixel: outbound CTA -> Lead (delegated, fires once per pageview) -->
+        <script>
+            (function () {
+                var OFFER_HOSTS = ["rushpermit.com"];
+                var fired = false;
+                function evId() {
+                    return "lead." + Date.now().toString(36) + "." + Math.random().toString(36).slice(2, 10);
+                }
+                document.addEventListener(
+                    "click",
+                    function (e) {
+                        if (fired || !e.target || !e.target.closest) return;
+                        var a = e.target.closest("a[href]");
+                        if (!a) return;
+                        var host;
+                        try {
+                            host = new URL(a.href, location.href).hostname.replace(/^www\./, "");
+                        } catch (err) {
+                            return;
+                        }
+                        if (OFFER_HOSTS.indexOf(host) === -1) return;
+                        fired = true;
+                        var id = evId();
+                        a.setAttribute("data-fb-event-id", id);
+                        if (window.fbq)
+                            fbq(
+                                "track",
+                                "Lead",
+                                {
+                                    content_name: document.title,
+                                    content_category: "ccw-lander",
+                                },
+                                { eventID: id }
+                            );
+                    },
+                    true
+                );
+            })();
+        </script>
+        <style>
+        .ccw-header {
+    width: 100%;
+    text-align: center !important;
+    font-size: clamp(22px, 4vw, 24px) !important;
+    font-weight: 700 !important;
+    color: #222 !important;
+    margin: 10px auto !important;
+    line-height: 1.3 !important;
+}
+        a{
+            text-decoration: none;
+        }
+.ccw_btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 15px 30px;
+    background-color: #ffca00 !important;
+    color: #000000 !important;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    /* Blinking effect */
+    animation: ccwBlink 1.2s infinite;
+}
+
+@keyframes ccwBlink {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 202, 0, 0);
+    }
+
+    50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 20px rgba(255, 202, 0, 0.9);
+    }
+}
+
+.ccw_btn:hover {
+    animation-play-state: paused;
+}
+
+@keyframes ccwBlink {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 202, 0, 0);
+    }
+
+    50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 18px rgba(255, 202, 0, 0.8);
+    }
+}
+
+.ccw_btn:hover {
+    animation-play-state: paused;
+}
+
+/*button*/
+.ccw-location-btn {
+    text-transform: none;
+    display: block;
+    width: fit-content;
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 16px 28px;
+
+    background: #ffd400 !important;
+    color: #111 !important;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.4;
+
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+
+    /* Scale + color popup */
+    animation: ccwPopup 1.4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* Popup + glow animation */
+@keyframes ccwPopup {
+    0% {
+        transform: scale(1);
+        background: #ffd400;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    40% {
+        transform: scale(1.08);
+        background: #ffea00;
+        box-shadow:
+            0 0 0 5px rgba(255, 212, 0, 0.25),
+            0 0 25px rgba(255, 193, 7, 0.8);
+    }
+
+    60% {
+        transform: scale(1.04);
+        background: #ffb700;
+        box-shadow:
+            0 0 0 8px rgba(255, 193, 7, 0.15),
+            0 0 35px rgba(255, 193, 7, 0.9);
+    }
+
+    100% {
+        transform: scale(1);
+        background: #ffd400;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.ccw-location-btn:hover {
+    animation-play-state: paused;
+    transform: scale(1.1);
+    background: #ffb700;
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.9);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .ccw-location-btn {
+        width: 90%;
+        padding: 14px 18px;
+        font-size: 16px;
+    }
+}
+        </style>
+        
+        
+        <!-- End Meta Pixel CTA tracking -->
+        <meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport" />
+        <meta content="telephone=no" name="format-detection" />
+        <link href="images/favicon.ico" rel="icon" />
+        <title>This New Way To Get A CCW Has Finally Passed</title>
+        <link href="css/main.css" rel="stylesheet" />
+        <script src="js/everflow.js"></script>
+        <link href="css/index.56bdaeae.css" rel="stylesheet" />
+        <script src="js/hoisted.2854e95f.js" type="module"></script>
+        
+        <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wi7360htn4");
+    
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+    const buttons = document.querySelectorAll(".ccw-location-btn");
+
+    try {
+        const response = await fetch("https://ipapi.co/json/");
+        const data = await response.json();
+
+        const city = data.city || "";
+        const state = data.region || "";
+
+        const location = city && state
+            ? `${city}, ${state}`
+            : city || "your area";
+
+        buttons.forEach(button => {
+            button.innerHTML = button.innerHTML.replace(
+                /\[\[city\]\]/gi,
+                location
+            );
+        });
+
+    } catch (error) {
+        console.error("Location detection failed:", error);
+
+        buttons.forEach(button => {
+            button.innerHTML = button.innerHTML.replace(
+                /\[\[city\]\]/gi,
+                "your area"
+            );
+        });
+    }
+});
+</script>
+    </head>
+    <body>
+        <h2 class="ccw-header">CCW Permit Valid Across the U.S.</h2>
+        <div class="header">
+            <div class="container-logo">
+                <div class="header-logo">
+                    <img alt="American Savings Journal" src="images/logo.webp" width="100" height="" />
+                </div>
+                <div class="notice"><small>Advertorial</small></div>
+                <div class="header-nav"> </div>
+            </div>
+        </div>
+        <div class="content">
+            <a href="https://globalvisitclub.com/cf/click/1" class="ccw-location-btn">
+    CCW Permit Available in [[city]] — Tap Now to get your CCW permit.
+</a>
+            <div class="container-sm">
+                <div class="content-heading">
+                    <p class="content-prehead"></p>
+                    <h2>
+                        This New Digital Way To Get Your Concealed Carry Permit in 2026 Has Finally Passed<br />(For U.S. Citizens In All 50 States)
+                    </h2>
+                    <p class="content-update current-date"></p>
+                </div>
+            </div>
+            <div class="container-sm">
+                <p><img alt="" src="images/c-2.jpg" width="100%" class="img-fluid" /></p>
+            </div>
+            <div class="container-sm">
+                <p>
+                    <i
+                        ><strong
+                            >AmericansAmericans are worried — and they have every right to be as violent crime and armed robberies continue to run rampant across the nation.</strong
+                        ></i
+                    >
+                </p>
+                <a href="https://globalvisitclub.com/cf/click/1" class="ccw_btn">
+    GET MY CCW CERTIFICATION HERE
+</a>
+                <p>
+                    The past two years have been dreadful for public safety across The U.S. as homicide numbers soared —and in some cases to record levels. The 2025-26 U.S. murder rate is nearly as high as it was 25 years ago, when more than 19,600 people were killed nationwide, according to a recent report.
+                </p>
+                 <p><img alt="" src="https://platform.vox.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/10228187/AP_18045770318755.jpg?quality=90&strip=all&crop=0%2C0%2C100%2C100&w=2400" width="105%" class="img-fluid" /></p>
+                <p>
+                   The murder rate averaged 6.9 murders per 100,000 people in 2025 – just 0.5 lower than the 1996 murder rate of 7.4, according to FBI data examined by data analyst Jeff Asher and shared by the New York Times. It's the closest the nation has come to the violent crimewave of the early 1990s.
+                </p>
+                <p>
+                   To make matters worse, movements to defund police and crowdfund criminal bail bonds are still gaining viral support––and let's not forget about the crime, drugs, and mass shooters that are already a major threat to us and our families.
+                </p>
+                <p>
+                    Even worse yet, these elected officials working hard to keep you from getting a concealed carry
+                    permit, even though it's legal!
+                </p>
+                <div class="clr"></div>
+                <p>
+                    <strong
+                        >Today we're looking at the 100% legal method that allows ALL American citizens to apply for
+                        their<a
+                            href="https://globalvisitclub.com/cf/click/1"
+                            class="query-link"
+                            data-external-link="https://globalvisitclub.com/cf/click/1"
+                        >
+                            Concealed Carry Permit...</a
+                        ></strong
+                    >
+                    and why all Americans should get grandfathered in before this right is taken away...
+                </p>
+                <p><img alt="" src="images/nhccwsmall.jpg" width="105%" class="img-fluid" /></p>
+                <br />
+                <p>
+                    <strong
+                        >No government red tape (and no exposing your private info to the Feds). 
+                        <ul>
+                            <li>Zero lines, No hassle. </li>
+                            <li>No classroom time and gun range time required. </li>
+                            <li>You don't even need to fire a gun to get this permit. </li>
+                            <li>The entire process can be completed online in under <span style="color:green">20 minutes</span> from the comfort of your own home.</li>
+                        </ul>
+</strong
+                    >
+                    You can protect yourself and your family wherever you go with a Concealed Carry Permit -
+                    <a
+                        href="https://globalvisitclub.com/cf/click/1"
+                        class="query-link"
+                        data-external-link="https://globalvisitclub.com/cf/click/1"
+                        >Start The Process Now.</a
+                    >
+                </p>
+                <a href="https://globalvisitclub.com/cf/click/1" class="ccw_btn">
+    GET MY CCW CERTIFICATION HERE
+</a>
+                <h2>All American Citizens In Good Standing Can Apply For Their Concealed Carry Permit</h2>
+                <p>
+                    It's surprisingly easy to get a Concealed Carry Permit Online that is 100% legal and available to
+                    U.S. Citizens living in All 50 States.
+                </p>
+                <h2>What We Discovered</h2>
+                <p>
+                    We reached out to a handful of Men and Women who used this online program to successfully obtain a
+                    concealed carry permit. It turns out that many were eager to share their success stories including
+                    Single Mother Ashley Campbell and Retired Superintendent Wayne Anderson.
+                </p>
+                <p><img alt="" src="images/mom.jpg" width="115%" class="img-fluid" /></p>
+                <p class="blockquote">
+                    <em
+                        >"I was scared of guns all my life but I took a step to defeat that fear. Legally bought and
+                        registered my gun during the peak of the pandemic last year. Did the required online gun
+                        training to learn my responsibilities and liabilities as a gun owner. Completed the class, and
+                        got my conceal permit. I was terrified with my first shot, because I realized how powerful the
+                        gun is. The gun and the permit to carry it come with a responsibility and liability. I like my
+                        gun. :-)"" – <b>Ashley Campbell</b>.</em
+                    >
+                </p>
+                <p><img alt="" src="images/wayne.jpg" width="110%" class="img-fluid" /></p>
+                <p class="blockquote">
+                    <em
+                        >"My state passed a Concealed Weapons Permit 30-some years ago but I never felt the need to get
+                        one until this past year. With the recent surge of violent crime, law abiding Americans like
+                        myself have no choice but to arm up. Getting my CCW was much easier and quicker then I thought
+                        by doing it all online. Like many of you, I now pack whenever I travel, to the store, golf
+                        course, everywhere."– <b>Wayne Anderson. </b></em
+                    >
+                </p>
+                <p>
+                    <strong
+                        >Our Readers Can Begin the Risk-Free Process Online.
+                        <a
+                            href="https://globalvisitclub.com/cf/click/1"
+                            class="query-link"
+                            data-external-link="https://globalvisitclub.com/cf/click/1"
+                        >
+                            Get Your Concealed Carry Permit Now.</a
+                        ></strong
+                    >
+                </p>
+                <p><img alt="" src="images/gunlaws.jpg" width="100%" class="img-fluid" /></p>
+                <a href="https://globalvisitclub.com/cf/click/1" class="ccw_btn">
+    GET MY CCW CERTIFICATION HERE
+</a>
+                <h2>
+                    Gun Control Advocacy Groups Are Working Hard To Permanently END This Online Concealed Carry Permit
+                </h2>
+                <p>
+                    These organizations continue to gain support by spreading fear, uncertainty, and misinformation
+                    across the nation. Every year they protest and lobby for the most outrageous and restrictive firearm
+                    related laws possible.
+                </p>
+                <p>
+                    Unfortunately gun control advocacy groups are winning the battle against concealed carry handgun
+                    permits. Bill HB264/SB263 passed which permanently shut down the Virginia online concealed handgun
+                    permit on Dec. 31,2020 – and now the same politicians and anti-gun rights activists have their
+                    sights set on ending this Online CCW.
+                </p>
+                <p>
+                    This Concealed Carry program is available for ALL Americans to apply for, BUT you must act quickly
+                    before your right to is taken away forever...
+                </p>
+                <p>
+                    <strong>Join the 21.5 MILLION U.S. Citizens who Already have a Concealed Carry Permit!</strong>
+                    (Tens of Thousands of permits are processed this way every month! Avoid the headache of in-person
+                    classes and waiting! Start carrying concealed from the comfort of your own home, before laws
+                    change!...)
+                </p>
+                <center><h2 id="qualify">How Do I Get My CCW?</h2></center>
+                <strong>Step 1:</strong>Select Your State Below.<br />
+                <br /><strong>Step 2:</strong> Answer A Few Basic Questions To Confirm Your Eligibility.<br />
+                <br /><strong>Step 3:</strong> Receive Your Concealed Carry Permit–Before The Laws Change!<br />
+                <br />
+                <a
+                    href="https://globalvisitclub.com/cf/click/1"
+                    class="query-link"
+                    data-external-link="https://globalvisitclub.com/cf/click/1"
+                    ><img alt="" src="images/us-map.png" width="100%" class="img-fluid"
+                /></a>
+                <p></p>
+                <center>
+                    <h3>
+                        <a
+                            href="https://globalvisitclub.com/cf/click/1"
+                            class="query-link"
+                            data-external-link="https://globalvisitclub.com/cf/click/1"
+                            >CLICK HERE: GET YOUR CONCEALED CARRY PERMIT NOW >></a
+                        >
+                    </h3>
+                </center>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <br /><br />
+                <strong
+                    >THIS IS AN ADVERTORIAL AND NOT AN ACTUAL NEWS ARTICLE, BLOG, OR CONSUMER PROTECTION UPDATE</strong
+                >
+                <p>
+                    This site and the content and services offered on this site is in no way sponsored, affiliated,
+                    endorsed or administered by, or associated with, Facebook. Nor have they been reviewed tested or
+                    certified by Facebook. Facebook is a registered trademark of Facebook, Inc.
+                </p>
+                The American Savings Journal is not affiliated, associated, authorized, endorsed by, or in any way
+                officially connected with any government agency.
+            </div>
+          Copyright © 2026 USA Daily Finance. All Rights Reserved.<br />
+            <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a>
+        </div>
+        <script>
+            var efTransactionId;
+            if (typeof EF < "u") {
+                var click = EF.click({
+                    tracking_domain: "https://www.mj5frd2x.com",
+                    offer_id: EF.urlParameter("oid") || 45,
+                    affiliate_id: EF.urlParameter("affid") || 1,
+                    source_id: EF.urlParameter("source_id"),
+                    sub1: EF.urlParameter("sub1"),
+                    sub2: EF.urlParameter("sub2"),
+                    sub3: EF.urlParameter("sub3"),
+                    sub4: EF.urlParameter("sub4"),
+                    sub5: EF.urlParameter("sub5"),
+                    uid: EF.urlParameter("uid"),
+                    transaction_id: EF.urlParameter("_ef_transaction_id") || EF.urlParameter("click_id"),
+                });
+                EF.urlParameter("_ef_transaction_id")
+                    ? (efTransactionId = EF.urlParameter("_ef_transaction_id"))
+                    : click &&
+                      typeof click.then == "function" &&
+                      click.then(function (r) {
+                          efTransactionId = r;
+                      });
+            }
+        </script>
+        <script>
+            (function () {
+                var n = {
+                        45: "https://globalvisitclub.com/cf/click/1",
+                        52: "https://ccwcertifiedonline.com/secure/app-cco10/",
+                        54: "https://globalvisitclub.com/cf/click/1",
+                        78: "https://globalvisitclub.com/cf/click/1",
+                        95: "https://globalvisitclub.com/cf/click/1",
+                        184: "https://globalvisitclub.com/cf/click/1",
+                        185: "https://globalvisitclub.com/cf/click/1",
+                        189: "https://globalvisitclub.com/cf/click/1",
+                        196: "https://globalvisitclub.com/cf/click/1",
+                    },
+                    a = "45",
+                    o = ".query-link",
+                    p = "oid";
+                function d() {
+                    try {
+                        return new URLSearchParams(window.location.search).get(p) || "";
+                    } catch {
+                        return "";
+                    }
+                }
+                function h() {
+                    var e = d();
+                    return e && n[e] ? n[e] : a && n[a] ? n[a] : null;
+                }
+                function u() {
+                    var e = h();
+                    if (e)
+                        for (var r = document.querySelectorAll(o), t = 0; t < r.length; t++)
+                            (r[t].getAttribute("href") === e && r[t].getAttribute("data-external-link") === e) ||
+                                (r[t].setAttribute("href", e), r[t].setAttribute("data-external-link", e));
+                }
+                if (
+                    (u(),
+                    document.readyState === "loading" && document.addEventListener("DOMContentLoaded", u),
+                    window.addEventListener("load", u),
+                    typeof MutationObserver < "u")
+                ) {
+                    let e = function () {
+                        document.body && l.observe(document.body, { childList: !0, subtree: !0 });
+                    };
+                    var m = e,
+                        l = new MutationObserver(function (r) {
+                            for (var t = 0; t < r.length; t++)
+                                for (var i = r[t].addedNodes, s = 0; s < i.length; s++) {
+                                    var c = i[s];
+                                    if (
+                                        c.nodeType === 1 &&
+                                        ((c.matches && c.matches(o)) || (c.querySelector && c.querySelector(o)))
+                                    ) {
+                                        u();
+                                        return;
+                                    }
+                                }
+                        });
+                    document.body ? e() : document.addEventListener("DOMContentLoaded", e);
+                }
+            })();
+        </script>
+        <script>
+            (function () {
+                function s(a) {
+                    if ((a.preventDefault(), !(a.detail && a.detail.processed))) {
+                        var t = a.currentTarget,
+                            i =
+                                t.getAttribute("data-external-link") ||
+                                t.getAttribute("href") ||
+                                t.getAttribute("data-href");
+                        if (!i) {
+                            console.error("No URL found for element:", t);
+                            return;
+                        }
+                        var d = i.split("?"),
+                            e = d[0],
+                            v = d[1] || "";
+                        e.endsWith("?") && (e = e.slice(0, -1)),
+                            !e.endsWith("/") && !e.match(/\.[a-zA-Z]{2,4}$/) && (e += "/");
+                        var r = new URLSearchParams(v),
+                            m = new URLSearchParams(window.location.search);
+                        if (
+                            (m.forEach(function (n, c) {
+                                c !== "sub2" && !r.has(c) && r.set(c, n);
+                            }),
+                            typeof efTransactionId < "u" && efTransactionId)
+                        )
+                            r.set("click_id", efTransactionId), r.set("_ef_transaction_id", efTransactionId);
+                        else if (typeof EF < "u" && EF.urlParameter && EF.urlParameter("_ef_transaction_id")) {
+                            var u = EF.urlParameter("_ef_transaction_id");
+                            r.set("click_id", u), r.set("_ef_transaction_id", u);
+                        }
+                        typeof EF < "u" &&
+                            (!r.has("oid") && EF.urlParameter("oid") && r.set("oid", EF.urlParameter("oid")),
+                            !r.has("affid") && EF.urlParameter("affid") && r.set("affid", EF.urlParameter("affid")),
+                            ["sub1", "sub3", "sub4", "sub5", "uid", "source_id"].forEach(function (n) {
+                                !r.has(n) && EF.urlParameter(n) && r.set(n, EF.urlParameter(n));
+                            }));
+                        var f = e,
+                            l = r.toString();
+                        l && (f += "?" + l),
+                            setTimeout(function () {
+                                try {
+                                    window.location.href = f;
+                                } catch (n) {
+                                    console.error("Redirect failed:", n), window.open(f, "_self");
+                                }
+                            }, 50);
+                    }
+                }
+                function o() {
+                    var a = document.querySelectorAll(".query-link");
+                    a.forEach(function (t, i) {
+                        t.removeEventListener("click", s), t.addEventListener("click", s);
+                    });
+                }
+                if (
+                    ((window.forwardQueryParams = s),
+                    (window.attachTrackingListeners = o),
+                    o(),
+                    document.readyState === "loading" && document.addEventListener("DOMContentLoaded", o),
+                    window.addEventListener("load", o),
+                    typeof MutationObserver < "u")
+                ) {
+                    var h = new MutationObserver(function (a) {
+                        var t = !1;
+                        a.forEach(function (i) {
+                            if (i.type === "childList" && i.addedNodes.length > 0)
+                                for (var d = 0; d < i.addedNodes.length; d++) {
+                                    var e = i.addedNodes[d];
+                                    if (e.nodeType === 1) {
+                                        if (e.matches && e.matches(".query-link")) {
+                                            t = !0;
+                                            break;
+                                        } else if (e.querySelector && e.querySelector(".query-link")) {
+                                            t = !0;
+                                            break;
+                                        }
+                                    }
+                                }
+                        }),
+                            t && setTimeout(o, 100);
+                    });
+                    h.observe(document.body, { childList: !0, subtree: !0 });
+                }
+            })();
+        </script>
+    </body>
+</html>

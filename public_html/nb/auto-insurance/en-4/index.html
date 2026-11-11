@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Is Your Car Insurance Company Overcharging You?</title>
+  <meta name="description"
+    content="Your renewal notice tells you what you'll pay next. It doesn't tell you whether another insurer could offer a better rate.">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --ink: #1c1f23;
+      --muted: #6b7280;
+      --line: #e3e6ea;
+      --bg: #fff;
+      --soft: #f5f6f8;
+      --blue: #1a56c4;
+      --blue-d: #12408f;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, -apple-system, "Segoe UI", Arial, sans-serif
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 18px/1.7 var(--serif)
+    }
+
+    a {
+      color: var(--blue)
+    }
+
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      font-family: var(--sans)
+    }
+
+    .topbar .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      padding-bottom: 14px
+    }
+
+    .brand {
+      font: 700 18px var(--serif);
+      letter-spacing: -.01em
+    }
+
+    .sponsored {
+      font: 600 12px var(--sans);
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: var(--soft)
+    }
+
+    .cat {
+      font: 700 13px var(--sans);
+      color: var(--blue);
+      margin: 28px 0 8px;
+      letter-spacing: .04em
+    }
+
+    h1 {
+      font: 700 34px/1.15 var(--serif);
+      letter-spacing: -.02em;
+      margin: 0 0 14px
+    }
+
+    .sub {
+      font: 400 19px/1.5 var(--sans);
+      color: #3b4149;
+      margin: 0 0 18px
+    }
+
+    .meta {
+      font: 400 13px var(--sans);
+      color: var(--muted);
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 16px
+    }
+
+    figure {
+      margin: 24px 0
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: var(--soft);
+      border-radius: 4px
+    }
+
+    figcaption {
+      font: 400 12.5px/1.4 var(--sans);
+      color: var(--muted);
+      margin-top: 8px
+    }
+
+    p {
+      margin: 0 0 1.1em
+    }
+
+    h2 {
+      font: 700 26px/1.25 var(--serif);
+      letter-spacing: -.01em;
+      margin: 44px 0 14px
+    }
+
+    .pull {
+      border-left: 3px solid var(--blue);
+      padding: 2px 0 2px 16px;
+      font-style: italic;
+      color: #333;
+      margin: 1.4em 0
+    }
+
+    .story {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 22px 20px;
+      margin: 40px 0 0
+    }
+
+    .story .label {
+      font: 700 12px var(--sans);
+      letter-spacing: .06em;
+      color: var(--blue);
+      margin: 0 0 6px
+    }
+
+    .story h2 {
+      margin: 0 0 18px;
+      font-size: 25px
+    }
+
+    .story-grid {
+      display: grid;
+      gap: 20px
+    }
+
+    .story h3 {
+      font: 700 19px var(--sans);
+      margin: 0 0 12px
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-family: var(--sans);
+      overflow: hidden
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    .row b {
+      font-size: 18px;
+      color: var(--ink)
+    }
+
+    .row.big {
+      display: block;
+      background: #eef3fc;
+      padding: 16px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .row.big b {
+      display: block;
+      font: 700 46px/1.05 var(--serif);
+      color: var(--blue-d);
+      margin-top: 4px
+    }
+
+    .row:last-child {
+      border-bottom: 0
+    }
+
+    .disc {
+      font: 400 14.5px/1.55 var(--sans);
+      color: #3b4149;
+      border-left: 3px solid var(--line);
+      padding: 2px 0 2px 14px;
+      margin: 18px 0 0
+    }
+
+    ul.read {
+      padding-left: 20px;
+      margin: 0 0 1.2em
+    }
+
+    ul.read li {
+      margin-bottom: .5em
+    }
+
+    .cta-inline {
+      margin: 28px 0;
+      font-family: var(--sans)
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      font: 700 17px/1.2 var(--sans);
+      letter-spacing: .02em;
+      padding: 18px 20px;
+      border-radius: 6px;
+      transition: background .15s
+    }
+
+    .btn:hover {
+      background: var(--blue-d)
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid #7aa7f0;
+      outline-offset: 3px
+    }
+
+    .cta-note {
+      font: 400 14px/1.5 var(--sans);
+      color: var(--muted);
+      margin: 10px 0 0;
+      text-align: center
+    }
+
+    .cta-final {
+      border-top: 3px solid var(--blue);
+      background: var(--soft);
+      padding: 28px 20px;
+      margin: 44px 0 0;
+      border-radius: 0 0 6px 6px
+    }
+
+    .cta-final h2 {
+      margin-top: 0
+    }
+
+    .cta-final p {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6
+    }
+
+    footer {
+      margin-top: 56px;
+      border-top: 1px solid var(--line);
+      background: var(--soft);
+      font: 400 12.5px/1.6 var(--sans);
+      color: var(--muted);
+      padding: 28px 0 40px
+    }
+
+    footer p {
+      margin: 0 0 12px;
+      font-size: 12.5px
+    }
+
+    footer nav a {
+      margin-right: 16px
+    }
+
+    @media(min-width:720px) {
+      body {
+        font-size: 19px
+      }
+
+      h1 {
+        font-size: 44px
+      }
+
+      .wrap {
+        max-width: 720px
+      }
+
+      .story-grid {
+        grid-template-columns: auto;
+        align-items: start
+      }
+
+      .btn {
+        display: inline-block;
+        width: auto;
+        padding: 18px 40px
+      }
+
+      .cta-note {
+        text-align: left
+      }
+
+      .cta-final .btn {
+        margin-top: 4px
+      }
+    }
+
+    @media(max-width:380px) {
+      h1 {
+        font-size: 29px
+      }
+
+      .row.big b {
+        font-size: 40px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        transition: none !important
+      }
+    }
+
+    .callout-box {
+      margin: 30px 0;
+      padding: 22px 24px;
+      background: #eef3fc;
+      border: 1px solid #13408f;
+      border-radius: 8px
+    }
+
+    .callout-box p {
+      font-size: 17px !important;
+      line-height: 1.6 !important;
+      margin: 0 0 14px !important
+    }
+
+    .callout-box p:last-child {
+      margin-bottom: 0 !important
+    }
+
+    .callout-title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.3;
+      color: #13408f;
+      margin-bottom: 14px
+    }
+
+    article a.callout-btn {
+      display: inline-block;
+      background: #13408f;
+      color: #fff !important;
+      text-decoration: none !important;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.2;
+      padding: 13px 22px;
+      border-radius: 6px
+    }
+  </style>
+  <style id="pending-art">
+    /* hero.jpg and alex.jpg were never supplied - these two figures would render
+   as broken-image icons. Hidden until the art exists; delete this block (or the
+   matching rule) once the files are dropped into images/. */
+    figure:has(img[src="images/hero.jpg"]),
+    figure:has(img[src="images/alex.jpg"]) {
+      display: none
+    }
+
+    /* fallback for browsers without :has() */
+    .art-pending {
+      display: none
+    }
+
+    .compare-fig picture,
+    .compare-fig img {
+      display: block;
+      width: 100%;
+      height: auto
+    }
+     /* ================= age selector ================= */
+  .agebox{
+    --blue:#12408f;
+    --blue-hover:#0e3374;
+    --tint:#eef3fc;
+    --line:#13408f;
+ 
+    box-sizing:border-box;
+    width:min(100%,980px);
+    margin:0 auto;
+    padding:clamp(20px,3vw,34px) clamp(16px,3vw,34px);
+    background:var(--tint);
+    border:1px solid var(--line);
+    border-radius:14px;
+    font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  }
+  .agebox *{box-sizing:border-box}
+ 
+  .agebox__title{
+    margin:0 0 clamp(14px,2vw,22px);
+    text-align:center;
+    color:var(--blue);
+    font-size:clamp(18px,2.2vw,26px);
+    font-weight:900;
+    line-height:1.2;
+  }
+ 
+  .agebox__grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(10px,1.4vw,18px);
+  }
+  .agebox__btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:clamp(54px,5vw,74px);
+    padding:10px 12px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    color:var(--blue);
+    font-size:clamp(17px,1.8vw,22px);
+    font-weight:700;
+    text-align:center;
+    text-decoration:none;
+    box-shadow:0 2px 5px rgba(18,64,143,.10);
+    transition:transform .13s ease, box-shadow .13s ease, background .13s ease, color .13s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .agebox__btn:hover{
+    background:var(--blue);
+    color:#fff;
+    transform:translateY(-2px);
+    box-shadow:0 6px 14px rgba(18,64,143,.22);
+  }
+  .agebox__btn:active{transform:translateY(0);box-shadow:0 2px 5px rgba(18,64,143,.18)}
+  .agebox__btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+ 
+  .agebox__note{
+    margin:clamp(14px,2vw,22px) 0 clamp(14px,2vw,20px);
+    text-align:center;
+    color:#4a5568;
+    font-size:clamp(14px,1.5vw,18px);
+    font-style:italic;
+    line-height:1.4;
+  }
+ 
+  .agebox__cta{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    min-height:clamp(56px,5vw,76px);
+    padding:14px 18px;
+    background:var(--blue);
+    border-radius:10px;
+    color:#fff;
+    font-size:clamp(18px,2.1vw,26px);
+    font-weight:900;
+    letter-spacing:.01em;
+    text-align:center;
+    text-decoration:none;
+    box-shadow:0 4px 0 var(--blue-hover);
+    transition:transform .13s ease, box-shadow .13s ease, background .13s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .agebox__cta:hover{background:#174aa3;color:#fff}
+  .agebox__cta:active{transform:translateY(3px);box-shadow:0 1px 0 var(--blue-hover)}
+  .agebox__cta:focus-visible{outline:3px solid #0b2a5e;outline-offset:3px}
+ 
+  /* two across on tablets and phones - six narrow boxes in one row is unreadable */
+  @media (max-width:720px){
+    .agebox__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:360px){
+    .agebox{padding:18px 14px;border-radius:12px}
+    .agebox__grid{gap:9px}
+    .agebox__btn{min-height:50px;font-size:16px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .agebox__btn,.agebox__cta{transition:none}
+  }
+ 
+  /* demo page only - not part of the section */
+  body{margin:0;background:#fff;font-family:Arial,sans-serif}
+  </style>
+</head>
+
+<body>
+  <!-- ===== EDITORIAL HEADER ===== -->
+
+
+  <main class="wrap">
+    <article>
+      <p class="cat">AUTO INSURANCE</p>
+      <h1>Is Your Car Insurance Company Overcharging You?</h1>
+      <p class="sub">Your renewal notice tells you what you'll pay next. But it doesn't tell you whether another insurer
+        could offer you a better rate.</p>
+      <div class="meta">
+        <span>By Craig Johnson
+</span>
+        <time id="pubdate"></time>
+      </div>
+
+      <!--
+    HERO IMAGE PROMPT:
+    Realistic documentary-style editorial photograph for a US consumer-finance article about rising auto insurance costs.
+    An American man or woman, about 40-50, at a kitchen table in a modest suburban home, reviewing a car insurance
+    renewal document, looking slightly concerned or thoughtful. On the table: smartphone, a few ordinary household bills,
+    coffee mug, car key. Everyday working adult, not a model. Natural morning window light, 35mm/50mm look, realistic skin
+    texture, candid, natural colors. Horizontal 16:9, subject slightly right, breathing room. No text, logos, watermarks,
+    personal information or readable insurer names. Must not look like an insurance advertisement.
+    Save as images/hero.jpg (1280x720, compressed under ~150 KB).
+  -->
+      <figure class="art-pending">
+        <img src="images/hero.jpg" width="1280" height="720" alt="A driver reviewing a car insurance renewal notice at a kitchen table" fetchpriority="high">
+        <figcaption>Illustrative image.</figcaption>
+      </figure>
+
+      <p>For many American drivers, auto insurance has become one more monthly bill putting pressure on the household
+        budget.</p>
+      <p>You renew your policy. Your premium goes up. And you're left wondering:</p>
+      <figure class="compare-fig">
+        <img src="images/compare.jpg"
+           srcset="images/compare.jpg 1x, images/compare-2x.jpg 2x"
+           width="800" height="480" loading="lazy"
+           alt="Example savings: old six-month premium $189.00 a month versus new $39.00 a month">
+        <figcaption>Example savings. Individual rates vary.</figcaption>
+      </figure>
+      <p class="pull">“Am I getting a competitive rate—or simply paying what my current insurer asks?”</p>
+      <p>What many drivers don't realize is that insurance companies calculate rates differently.</p>
+      <p>Your ZIP code, driving history, vehicle, mileage, and coverage can all affect the rate you're quoted.</p>
+      <p>And being loyal to the same insurer for years doesn't necessarily mean you're getting the best available rate.
+      </p>
+      <div class="callout-box">
+        <div class="callout-title">If you've been with the same insurer for more than a year, don't renew until you do
+          this.</div>
+        <p>Enter your ZIP code to see what other insurers would charge you for the same coverage. It's free, it takes
+          about 2 minutes, and there's no obligation.</p>
+        <p><a href="https://globalvisitclub.com/cf/click/1" class="callout-btn">See How Much You Can Save »</a></p>
+      </div>
+      <!-- ===== TESTIMONIAL ===== -->
+      <section class="story" aria-labelledby="alex-h">
+        <p class="label">REAL CUSTOMER EXPERIENCE</p>
+        <h2 id="alex-h">How Alex Found an Extra $120 in His Monthly Budget</h2>
+
+        <div class="story-grid">
+          <!--
+        TESTIMONIAL IMAGE PROMPT:
+        Realistic editorial-style portrait of an ordinary American man, about 40-50, American suburban background,
+        natural daylight, friendly but understated expression, casual everyday clothing, approachable, not polished.
+        Horizontal 4:3. No logos, text or watermarks.
+        IMPORTANT: if you use an AI-generated image, keep the "Illustrative image" caption below. Never present it as the
+        real Alex. If you have Alex's actual approved photo, use it instead and change the caption accordingly.
+        Save as images/alex.jpg (800x600).
+      -->
+          <figure style="margin:0" class="art-pending">
+            <img src="images/alex.jpg" width="800" height="600" alt="Portrait of a man in casual clothing outdoors" loading="lazy">
+            <figcaption>Illustrative image.
+              <!-- Replace with: "Photo: Alex, used with permission." if using his real photo --></figcaption>
+          </figure>
+
+          <div>
+            <h3>Alex's Car Insurance Story</h3>
+            <div class="card" role="group" aria-label="Alex's monthly premium comparison">
+              <div class="row"><span>OLD MONTHLY PREMIUM</span><b>$159/month</b></div>
+              <div class="row"><span>NEW MONTHLY PREMIUM</span><b>$39/month</b></div>
+              <div class="row big"><span>MONTHLY DIFFERENCE</span><b>$120/month</b></div>
+              <div class="row"><span>ANNUALIZED DIFFERENCE*</span><b>$1,440/year</b></div>
+            </div>
+            <p style="font:400 12.5px/1.4 var(--sans);color:var(--muted);margin:8px 0 0">*Assumes the monthly difference
+              continues for 12 months. Not a guarantee of future savings.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:24px">
+          <p>Alex was paying $159 a month for full-coverage auto insurance.</p>
+          <p>Like many drivers, he wanted to keep his insurance costs under control without sacrificing protection.</p>
+          <p>He decided to compare available options.</p>
+          <p>What he found surprised him: an option offering the same coverage for just $39 a month.</p>
+          <p>That's a difference of $120 every month.</p>
+          <p>Instead of spending that extra money on insurance, Alex could put it toward groceries, enjoy an occasional
+            night out, or buy gifts for his family.</p>
+          <p style="margin-bottom:0">Sometimes, finding a better insurance rate can mean having a little more breathing
+            room for the things that matter outside of your bills.</p>
+        </div>
+
+
+      </section>
+
+      <!-- CTA 1: contextual, after the story -->
+      <div class="cta-inline">
+        <a class="btn" href="https://globalvisitclub.com/cf/click/1" data-cta="mid">CHECK YOUR ZIP CODE NOW</a>
+        <p class="cta-note">Curious what options may be available where you live?</p>
+      </div>
+
+      <!-- ===== WHY COMPARE ===== -->
+      <h2>Could Your Current Rate Deserve a Second Look?</h2>
+      <p>It may be worth comparing if:</p>
+      <ul class="read">
+        <li>Your premium increased at your last renewal.</li>
+        <li>You've been with the same insurance company for years.</li>
+        <li>You haven't shopped around recently.</li>
+        <li>You're looking for ways to make your monthly budget go further.</li>
+      </ul>
+      <p><strong>Worried about switching?</strong></p>
+      <p>Comparing quotes doesn't mean you have to change insurers.</p>
+      <p>Just make sure you compare similar coverage limits and deductibles.</p>
+      
+      <!--
+    SECONDARY IMAGE PROMPT:
+    Realistic editorial photograph of an American adult at a kitchen table comparing auto insurance options on a laptop.
+    The laptop screen shows a generic comparison interface with abstract rows and prices only. No real insurer logos or
+    names, no readable personal information, no ratings, no guaranteed-savings claims, no policy documents.
+    Relaxed, focused person. Modern American home, natural daylight, coffee mug, car keys. Candid documentary style,
+    natural colors, 16:9 horizontal. Should support the article, not look like a banner ad.
+    Save as images/compare.jpg (1280x720).
+  -->
+
+
+      <!-- ===== FINAL CTA ===== -->
+      <section class="cta-final" aria-labelledby="cta-h">
+        <h2 id="cta-h">See What Auto Insurance Options May Be Available in Your ZIP Code</h2>
+        <p>Before accepting another renewal, take a moment to explore your options.</p>
+        <p>Your current rate might be competitive. Or you may discover another insurer offering a different price for
+          your situation.</p>
+        <div class="agebox" aria-labelledby="ageboxTitle">
+  <h2 class="agebox__title" id="ageboxTitle">Select your age:</h2>
+ 
+  <div class="agebox__grid">
+    <a class="agebox__btn" href="https://globalvisitclub.com/cf/click/1" data-age="20-29">20-29</a>
+    <a class="agebox__btn" href="https://globalvisitclub.com/cf/click/1" data-age="30-39">30-39</a>
+    <a class="agebox__btn" href="https://globalvisitclub.com/cf/click/1" data-age="40-49">40-49</a>
+    <a class="agebox__btn" href="https://globalvisitclub.com/cf/click/1" data-age="50-59">50-59</a>
+    <a class="agebox__btn" href="https://globalvisitclub.com/cf/click/1" data-age="60-69">60-69</a>
+    <a class="agebox__btn" href="https://globalvisitclub.com/cf/click/1" data-age="70-plus">70+</a>
+  </div>
+ 
+  <p class="agebox__note">Many drivers are shocked to see how much they&rsquo;ve been overpaying&hellip;</p>
+ 
+  <a class="agebox__cta" href="https://globalvisitclub.com/cf/click/1" data-age="cta">CHECK YOUR ZIP CODE NOW</a>
+</div>
+        <p class="cta-note">Compare available auto insurance options and see whether you could qualify for a more
+          competitive rate.</p>
+      </section>
+    </article>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <nav aria-label="Legal">
+        <a href="#" data-legal="privacy"><!-- REPLACE href with real Privacy Policy URL -->Privacy Policy</a>
+        <a href="#" data-legal="terms"><!-- REPLACE href with real Terms URL -->Terms</a>
+      </nav>
+      <p>© <span id="yr"></span> USA Daily Finance | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* =====================================================================
+   CONFIG — edit only this block. Tracking stays separate from content.
+   ===================================================================== */
+var CONFIG = {
+  QUOTE_URL: "https://globalvisitclub.com/cf/click/1",
+  PASS_THROUGH_PARAMS: true,        // forwards UTMs / click IDs from this page's URL to QUOTE_URL
+  META_PIXEL_ID: "4336928033302962",                // e.g. "1234567890" (leave empty to disable)
+  NEWSBREAK_PIXEL_ID: "",           // add NewsBreak pixel snippet in loadNewsBreak() below
+  GA4_ID: "",                       // e.g. "G-XXXXXXX" (leave empty to disable)
+  // What counts as the Meta/NewsBreak conversion event on CTA click. Leave "" to fire none
+  // (recommended if your real conversion happens on the quote flow / via postback).
+  CTA_CLICK_CONVERSION_EVENT: ""
+};
+
+/* ---- Tracking (loads only what is configured; each event fires once) ---- */
+(function(){
+  var fired = {};
+  function once(k, fn){ if(!fired[k]){ fired[k]=1; fn(); } }
+
+  function loadMeta(id){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', id);
+    fbq('track', 'PageView');
+  }
+  function loadGA(id){
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+id; document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[]; window.gtag=function(){dataLayer.push(arguments)};
+    gtag('js', new Date()); gtag('config', id);
+  }
+  function loadNewsBreak(id){
+    /* Paste the official NewsBreak Pixel base code here and initialise it with `id`.
+       Do not invent the snippet; copy it from your NewsBreak Ads Manager. */
+  }
+
+  if(CONFIG.META_PIXEL_ID) loadMeta(CONFIG.META_PIXEL_ID);
+  if(CONFIG.GA4_ID) loadGA(CONFIG.GA4_ID);
+  if(CONFIG.NEWSBREAK_PIXEL_ID) loadNewsBreak(CONFIG.NEWSBREAK_PIXEL_ID);
+
+  window.track = function(name, params){
+    params = params || {};
+    if(window.gtag && CONFIG.GA4_ID) gtag('event', name, params);
+    /* Meta custom events only; standard conversions are controlled via CTA_CLICK_CONVERSION_EVENT */
+    if(window.fbq && CONFIG.META_PIXEL_ID) fbq('trackCustom', name, params);
+  };
+
+  /* ---- Page behaviour ---- */
+  document.getElementById('pubdate').textContent =
+    new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function buildUrl(){
+    var u = CONFIG.QUOTE_URL;
+    if(!CONFIG.PASS_THROUGH_PARAMS || !location.search || u.indexOf('REPLACE_')===0) return u;
+    return u + (u.indexOf('?')>-1 ? '&' : '?') + location.search.slice(1);
+  }
+
+  document.querySelectorAll('[data-cta]').forEach(function(a){
+    a.href = buildUrl();
+    a.rel = 'noopener sponsored';
+    a.addEventListener('click', function(){
+      var pos = a.getAttribute('data-cta');
+      track('cta_click', {position: pos});
+      track('outbound_quote_click', {position: pos});
+      if(CONFIG.CTA_CLICK_CONVERSION_EVENT && window.fbq && CONFIG.META_PIXEL_ID){
+        once('conv', function(){ fbq('track', CONFIG.CTA_CLICK_CONVERSION_EVENT); });
+      }
+    });
+  });
+})();
+  </script>
+</body>
+
+</html>

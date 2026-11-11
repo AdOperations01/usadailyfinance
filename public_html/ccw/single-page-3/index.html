@@ -1,0 +1,186 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>It’s Official: One Permit – 50 States</title>
+<link rel="canonical" href="https://dailypatriotusa.com">
+
+<style>
+/* reuse your existing styles */
+body {margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#000;font-size:18px;line-height:1.5;}
+h1,h2,h3{font-weight:900;line-height:1.2;color:#000;margin-bottom:16px}
+a{color:#0040ff;font-weight:700;text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:800px;margin:0 auto;padding:20px}
+.img-fluid{max-width:100%;height:auto;display:block;margin:0 auto}
+.new_rates{display:block;background:#fdc058;color:#000;text-align:center;font-size:22px;font-weight:700;padding:16px;border-radius:4px;margin:30px 0;text-decoration:none;box-shadow:0 3px 0 #e29003}
+.new_rates:hover{background:#fdb53a}
+.blockquote{font-style:italic;margin:20px 0;padding:10px 15px;border-left:4px solid #ccc;background:#fafafa}
+.footer{background:#1f4888;color:#d6d6d6;font-size:14px;text-align:center;padding:20px}
+.footer a{color:#d6d6d6}
+.header{background:#1f4888;padding:8px 16px;border-bottom:1px solid #e5e5e5}
+.container-logo{display:flex;align-items:center;justify-content:space-between}
+.header-logo img{display:block}
+.notice{color:#e9e9e9;font-size:14px}
+.header-nav{min-width:100px}
+</style>
+<!-- Meta Pixel Code -->
+<script async="" src="js/fbevents.js"></script><script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '973376348951743');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=973376348951743&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style id="cf-cta-anim">
+@keyframes cfPulse{
+  0%,100%{ transform:scale(1);    box-shadow:0 0 0 0 var(--cf-glow,rgba(200,30,30,.55)); }
+  50%    { transform:scale(1.045);box-shadow:0 0 0 16px rgba(0,0,0,0); }
+}
+.cf-pulse{
+  animation:cfPulse 1.5s ease-in-out infinite;
+  will-change:transform; transform-origin:50% 50%;
+}
+.cf-pulse:hover{ animation-play-state:paused; transform:scale(1.05); }
+.cf-pulse:active{ transform:scale(.99); }
+.cf-pulse:focus-visible{ outline:3px solid #111; outline-offset:3px; }
+@media (prefers-reduced-motion:reduce){ .cf-pulse{ animation:none; } }
+.cf-pulse{--cf-glow:rgba(20,90,50,.45);}
+</style>
+</head>
+<body>
+
+<!-- COUNTDOWN BAR -->
+<div id="countdown-bar" style="background:#f5f5f5;border-bottom:2px solid #333;padding:10px 0;position:sticky;top:0;z-index:1000;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 15px;">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 12px;font-family:Georgia,'Times New Roman',Times,serif;text-align:center;">
+      <span style="font-size:10px;font-weight:bold;letter-spacing:2px;color:#333;border:1px solid #333;padding:2px 8px;">OFFICIAL NOTICE</span>
+      <span style="font-size:14px;color:#333;">18 U.S.C. § 926D — Congressional Session Deadline:</span>
+      <span style="font-size:16px;color:#b91c1c;font-weight:bold;">
+        <span id="countdown-days">00</span> days,
+        <span id="countdown-hours">21</span> hrs,
+        <span id="countdown-minutes">36</span> min,
+        <span id="countdown-seconds">51</span> sec
+      </span>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var cd=parseInt(params.get('cd'),10);
+  if(isNaN(cd)||cd<0) cd=0;
+  var nowStr=new Date().toLocaleString('en-US',{timeZone:'America/New_York'});
+  var nowE=new Date(nowStr);
+  var msToMidnight=(24*3600-nowE.getHours()*3600-nowE.getMinutes()*60-nowE.getSeconds())*1000-nowE.getMilliseconds();
+  var target=Date.now()+msToMidnight+cd*86400000;
+  function updateCountdown(){
+    var t=target-Date.now();
+    if(t<=0){document.getElementById('countdown-days').textContent='00';document.getElementById('countdown-hours').textContent='00';document.getElementById('countdown-minutes').textContent='00';document.getElementById('countdown-seconds').textContent='00';return;}
+    document.getElementById('countdown-days').textContent=String(Math.floor(t/86400000)).padStart(2,'0');
+    document.getElementById('countdown-hours').textContent=String(Math.floor((t%86400000)/3600000)).padStart(2,'0');
+    document.getElementById('countdown-minutes').textContent=String(Math.floor((t%3600000)/60000)).padStart(2,'0');
+    document.getElementById('countdown-seconds').textContent=String(Math.floor((t%60000)/1000)).padStart(2,'0');
+  }
+  updateCountdown();setInterval(updateCountdown,1000);
+})();
+</script>
+
+<!-- HEADER FROM ORIGINAL PAGE -->
+<div class="header">
+    <div class="container-logo">
+        <div class="header-logo">
+            <img src="images/dailyp3.png" width="100" alt="Daily Patriot USA">
+        </div>
+        <div class="notice"><small>Advertorial</small></div>
+        <div class="header-nav">&nbsp;</div>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+<div class="container">
+
+    <h1>It's Official: One Permit – 50 States. Claim National Concealed Carry Reciprocity In 2026</h1>
+    <p><em>      <script>
+                        var mydate=new Date,year=mydate.getFullYear(),day=mydate.getDay(),month=mydate.getMonth(),daym=mydate.getDate();
+                        if(daym<10) daym="0"+daym;
+                        var dayarray=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+                            montharray=["January","February","March","April","May","June","July","August","September","October","November","December"];
+                        document.write(dayarray[day]+", "+montharray[month]+" "+daym+", "+year);
+                    </script>Wednesday, September 02, 2026</em></p>
+
+    <p><img class="img-fluid" src="images/signs.jpg" alt="One Permit 50 States"></p>
+
+
+    <p>History has been made. President Donald J. Trump has delivered on his promise to sign <strong>National Concealed Carry Reciprocity</strong> into law.</p>
+
+    <p>For the first time ever, a single concealed carry permit can be recognized across America — from New York to California, Florida to Alaska. <strong>One permit. Fifty states. Your right to carry has never been stronger.</strong></p>
+
+    <p>But here’s the hard reality: <strong>if you don’t already have your permit, you’re at the back of the line.</strong> Millions of gun owners are flooding the system today. Paperwork is piling up. Backlogs are forming by the hour. Permit holders are already armed, already protected, and already carrying anywhere they go.</p>
+
+    <h2>This Is the Moment That Separates the Armed From the Unarmed</h2>
+    <p>Picture yourself traveling with your family. You cross into another state. Yesterday, you would’ve had to lock up your firearm. Today, permit holders simply keep it on their hip — legally, confidently, without hesitation.</p>
+    <p><strong>That’s the difference between acting early and being left behind.</strong></p>
+
+    <h2>Why Acting Now Is Critical</h2>
+    <ul>
+        <li><strong>Skip the panic:</strong> Get your permit secured while everyone else scrambles.</li>
+        <li><strong>Carry coast to coast:</strong> No guesswork. No border confusion. One permit covers it.</li>
+        <li><strong>Lock in your rights:</strong> If lawmakers attempt to tighten standards later, those already permitted will be protected.</li>
+    </ul>
+
+    <h2>The Streamlined Way to Get Your Permit</h2>
+    <p>There’s still a fast, legal path available right now:</p>
+    <ul>
+        <li>Start from home in under 20 minutes</li>
+        <li>No range time required to begin</li>
+        <li>No wasted weekends in classrooms</li>
+        <li>Step-by-step guidance through your state’s application process</li>
+    </ul>
+
+    <p><a href="https://globalvisitclub.com/cf/click/1" target="_blank" class="new_rates cf-pulse">🚨 GET YOUR PERMIT NOW 🚨</a></p>
+
+    <h2>Americans Who Didn’t Wait</h2>
+    <p class="blockquote">“When I heard reciprocity was coming, I didn’t hesitate. I got my permit online, and now I carry anywhere I travel. I feel safe, finally.” — <strong>Ashley C.</strong></p>
+    <p class="blockquote">“The day Trump signed the bill, I was ready. Others are still waiting in line — I’m already carrying coast to coast.” — <strong>Wayne A.</strong></p>
+
+    <h2>Today, Freedom Won. Tomorrow, It Could Be Gone.</h2>
+    <p>National reciprocity is law. Permit holders are crossing state lines today with confidence and protection.</p>
+    <p>Those who hesitated? They’re unarmed, waiting for approval, and praying their number comes up before the next emergency.</p>
+    <p><strong>Don’t be one of them.</strong></p>
+
+    <h2>How to Claim Your Permit Now</h2>
+    <ol>
+        <li>Tap the button below to visit the official site for your state.</li>
+        <li>Enter your zip code and Answer a few quick questions.</li>
+        <li>Receive your permit while it's still fast and easy.</li>
+    </ol>
+
+    <p><a href="https://globalvisitclub.com/cf/click/1" target="_blank" class="new_rates cf-pulse">CLICK HERE: GET YOUR CONCEALED CARRY PERMIT NOW »</a></p>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+         <img src="images/dailyp3.png" width="100" alt="Daily Patriot USA">
+    <p>THIS IS AN ADVERTORIAL AND NOT AN ACTUAL NEWS ARTICLE, BLOG, OR CONSUMER PROTECTION UPDATE. </p>
+    <p>©2026 dailypatriotusa.com<br>
+    <a href="https://dailypatriotusa.com/terms.html">Terms</a> | 
+    <a href="https://dailypatriotusa.com/privacy-policy.html">Privacy</a> | 
+    <a href="https://dailypatriotusa.com/disclaimer.html">Disclaimer</a></p>
+</div>
+
+
+</body></html>

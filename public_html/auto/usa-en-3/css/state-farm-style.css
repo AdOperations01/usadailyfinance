@@ -1,0 +1,539 @@
+:root {
+  --bg: #edf3f9;
+  --bg-top: #f8fbff;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --ink: #0d1b3e;
+  --text: #0f172a;
+  --muted: #475569;
+  --line: #dde6f0;
+  --line-soft: #e9eef5;
+  --brand: #2563eb;
+  --brand-strong: #1d4ed8;
+  --brand-soft: #eaf2ff;
+  --good: #0f766e;
+  --good-soft: #e6f4f1;
+  --sf-red: #e31c23;
+  /* used ONLY for tiny provider accents, never page-dominant */
+  --shadow: 0 12px 30px rgba(15, 23, 42, .08);
+  --shadow-lg: 0 20px 44px rgba(15, 23, 42, .12);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--sans);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 100%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
+}
+
+.shell {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Topbar — unmistakably rateit chrome */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(248, 251, 255, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(221, 230, 240, .9);
+  margin: 0 -16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.brand-store {
+  color: var(--ink);
+}
+
+.brand-tld {
+  color: #5b7fa6;
+  font-weight: 700;
+}
+
+.adv-disc {
+  font-size: .72rem;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* CTA — rateit blue (never State Farm red) */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.04rem;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, .24);
+  transition: background .16s, transform .1s, box-shadow .16s;
+}
+
+.cta:hover {
+  background: var(--brand-strong);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, .3);
+}
+
+.cta:active {
+  transform: translateY(1px);
+}
+
+/* Provider chip — the labeled State Farm mark (this is the ADVERTISER, not the site) */
+.provider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 0 auto 14px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  width: max-content;
+}
+
+.provider .plabel {
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.provider img {
+  height: 20px;
+  width: auto;
+  display: block;
+}
+
+/* Conversion-first hero: value + CTA above the fold, no hero image */
+.hero {
+  background: var(--surface);
+  border: 1px solid rgba(221, 230, 240, .9);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px 22px 24px;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--brand-strong);
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  color: var(--ink);
+  margin: 0 auto 10px;
+  max-width: 15ch;
+}
+
+.hero h1 .amt {
+  color: var(--brand-strong);
+}
+
+.hero .sub {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0 auto;
+  max-width: 42ch;
+}
+
+.hero-cta {
+  margin-top: 20px;
+}
+
+.hero-cta .cta {
+  width: 100%;
+}
+
+.hero-fineprint {
+  margin-top: 10px;
+  font-size: .78rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Reviewer byline — sits at the TOP of the hero so it's clear this is a rateit review */
+.byline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 auto 14px;
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+.byline .ra {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), #60a5fa);
+  color: #fff;
+  font-weight: 800;
+  font-size: .7rem;
+}
+
+.byline strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.byline .sep {
+  color: var(--line);
+}
+
+/* The rateit take — editorial verdict callout (rateit voice, no unapproved SF claims) */
+.take {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid rgba(221, 230, 240, .9);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+  margin-top: 22px;
+}
+
+.take .ra {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), #60a5fa);
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .9rem;
+}
+
+.take h3 {
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+  letter-spacing: -.01em;
+}
+
+.take p {
+  font-size: .95rem;
+  color: var(--text);
+  line-height: 1.62;
+}
+
+.take p+p {
+  margin-top: 8px;
+}
+
+/* Trigger cards ("when it's worth checking your rate") — rateit shopping guidance */
+.vprop.trig .ic {
+  background: var(--brand-soft);
+  color: var(--brand-strong);
+}
+
+/* Good to know — balanced, neutral considerations */
+.notes {
+  max-width: 660px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 8px 24px;
+  list-style: none;
+}
+
+.notes li {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  font-size: .9rem;
+  color: var(--text);
+  line-height: 1.5;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.notes li:last-child {
+  border-bottom: none;
+}
+
+.notes li .ic {
+  flex: none;
+  color: var(--brand-strong);
+  font-weight: 900;
+}
+
+/* Section scaffold */
+.section {
+  padding: 34px 4px;
+}
+
+.section+.section {
+  border-top: 1px solid var(--line-soft);
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -.025em;
+  text-align: center;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.section .sec-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: .96rem;
+  margin-bottom: 24px;
+  max-width: 56ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Value props — every claim is verbatim approved copy */
+.vprops {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.vprop {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: var(--shadow);
+}
+
+.vprop .ic {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--good-soft);
+  color: var(--good);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.vprop h3 {
+  font-size: .98rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 3px;
+  letter-spacing: -.01em;
+}
+
+.vprop p {
+  font-size: .86rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Highlight band — approved savings headline + agent + CTA */
+.band {
+  background: linear-gradient(180deg, #fff, var(--brand-soft));
+  border: 1px solid rgba(221, 230, 240, .9);
+  border-left: 4px solid var(--sf-red);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 26px;
+  margin: 8px 0;
+  text-align: center;
+}
+
+.band h2 {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin: 0 auto 16px;
+  max-width: 34ch;
+}
+
+.band h2 .amt {
+  color: var(--brand-strong);
+}
+
+.band .cta {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* How it works (neutral, procedural — no State Farm claims) */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.step {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.step .n {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--brand-soft);
+  color: var(--brand-strong);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .95rem;
+  margin-bottom: 12px;
+}
+
+.step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -.01em;
+  color: var(--ink);
+}
+
+.step p {
+  font-size: .85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Bottom CTA */
+.bottom {
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid rgba(221, 230, 240, .9);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 24px;
+  margin-bottom: 28px;
+}
+
+.bottom h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -.025em;
+  color: var(--ink);
+  margin-bottom: 18px;
+  max-width: 26ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Legal / footer */
+.legal {
+  padding: 24px 4px 32px;
+  color: var(--muted);
+  font-size: .74rem;
+  line-height: 1.65;
+  border-top: 1px solid var(--line);
+}
+
+.legal a {
+  color: var(--brand-strong);
+  text-decoration: underline;
+}
+
+.legal .disc {
+  margin-bottom: 8px;
+}
+
+.legal strong {
+  color: var(--ink);
+}
+
+.legal .foot-meta {
+  margin-top: 10px;
+  color: #7b8aa0;
+}
+
+@media (max-width:640px) {
+  .hero {
+    padding: 26px 20px;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .vprops {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  * {
+    transition: none !important;
+  }
+}

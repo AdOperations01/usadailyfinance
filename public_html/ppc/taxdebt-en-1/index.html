@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<!-- ===========================================================
+     BUILD 2026-08-18-v3   (congratulations card replaces step 4)
+     This file is SELF-CONTAINED. It does not use js/js.js.
+     Only index.html needs to be uploaded.
+     =========================================================== -->
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Helpline</title>
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;family=Bitter:wght@600;700&amp;display=swap" rel="stylesheet">
+<script async="" src="js/gtm.js"></script><script src="js/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+
+<!-- ===========================================================
+     Congratulations card styles.
+     Inlined on purpose so a cached css/style.css cannot break it.
+     =========================================================== -->
+<style>
+.final { display: none; }
+
+.final {
+  background-color: #ffffff;
+  border: 1px solid #e7ecef;
+  border-top: 5px solid #25b846;
+  border-radius: 16px;
+  padding: 1.9rem 1.35rem 1.6rem;
+  margin-top: .5rem;
+  box-shadow: 0 12px 34px rgba(16,24,40,.09);
+  text-align: center;
+  animation: showup .5s ease-in forwards;
+}
+.final__headline {
+  font-family: "Bitter", Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 1.26;
+  color: #10141c;
+  margin: 0 0 1.15rem;
+  letter-spacing: -.1px;
+}
+.final__appid { font-size: 17px; color: #6b7280; margin-bottom: 1.05rem; }
+.final__appid strong { color: #10141c; font-weight: 700; }
+.final__sub { font-size: 18px; color: #374151; margin-bottom: .95rem; }
+.final__avail {
+  font-size: 16px; font-weight: 700; color: #1f9d47; margin-bottom: 1.05rem;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.final__dot {
+  width: 10px; height: 10px; border-radius: 50%; background-color: #25b846;
+  display: inline-block; flex: 0 0 auto; animation: availpulse 2s ease-out infinite;
+}
+@keyframes availpulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37,184,70,.55); }
+  70%  { box-shadow: 0 0 0 9px rgba(37,184,70,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,184,70,0); }
+}
+.final__cta {
+  display: flex; align-items: center; justify-content: center; gap: 11px;
+  width: 100%; padding: 1.05rem 1rem;
+  font-size: 26px; font-weight: 700; color: #fff; text-decoration: none;
+  background-color: #2e9e4b; border-radius: 11px;
+  box-shadow: 0 4px 0 0 #1f7a38; margin-bottom: 1.15rem;
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+.final__cta:active { transform: translateY(3px); box-shadow: 0 1px 0 0 #1f7a38; }
+.final__cta-icon { width: 23px; height: 23px; flex: 0 0 auto; }
+.final__note { font-size: 16px; line-height: 1.4; color: #6b7280; margin-bottom: 1.15rem; }
+.final__timer {
+  background-color: #fdf2f2; border: 1px solid #f7dcdc; border-radius: 11px;
+  padding: 1.1rem 1rem; max-width: 320px; margin: 0 auto;
+}
+.final__timer-num {
+  font-size: 52px; line-height: 1; font-weight: 700; color: #d15353;
+  font-variant-numeric: tabular-nums; margin-bottom: .4rem;
+}
+.final__timer-label {
+  font-size: 13px; font-weight: 700; letter-spacing: 1.1px;
+  text-transform: uppercase; color: #8a8f98;
+}
+.final__timer.is-expired { background-color: #f3f7f4; border-color: #dfe9e2; }
+.final__timer-expired { font-size: 16px; line-height: 1.4; color: #4b5563; margin-bottom: 0; }
+
+@media (max-width: 420px) {
+  .final { padding: 1.5rem 1rem 1.35rem; }
+  .final__headline { font-size: 22px; }
+  .final__cta { font-size: 22px; }
+  .final__timer-num { font-size: 46px; }
+}
+
+@keyframes geoshimmer { 0% { background-position: -140px 0; } 100% { background-position: 140px 0; } }
+[data-geo]:empty {
+  display: inline-block; min-width: 5.5em; height: .72em; border-radius: 4px;
+  vertical-align: baseline;
+  background: #e6ecf0 linear-gradient(90deg,#e6ecf0 0%,#f4f8fa 50%,#e6ecf0 100%);
+  background-size: 280px 100%; animation: geoshimmer 1.15s linear infinite; opacity: .75;
+}
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NZSHC9V7');</script>
+<!-- End Google Tag Manager -->
+
+</head>
+<body>
+
+    <script>
+        (window._rgba_tags = (window._rgba_tags || [])).push({ type: "User", track_attempted: "yes" });
+          var intervalId = setInterval(() => {
+          if (window.rtkClickID != undefined) {
+           (window._rgba_tags = (window._rgba_tags || [])).push({ type: "User", clickid: window.rtkClickID });
+           if($('#random2').length == 0){
+            $('body').append(`<img src="${window.rtkClickID}" id="random3" />`)
+           }
+           clearInterval(intervalId);
+          }
+        }, 500);
+    </script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZSHC9V7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <nav>
+        <div class="container">
+            <div>
+                <img src="images/TRUEPATH.png" alt="logo" class="logo">
+            </div>
+            <div>
+                <a class="change-phone" href="tel:+18779492573">
+                    <p class="number"><img src="images/phone.svg" class="phone" alt=""><strong>(877) 949-2573</strong> </p>
+                    <p class="gnumber"><strong>(877) 949-2573</strong> </p>
+                    <p class="available"> <span class="gcircle"></span> Mon-Fri 8am-7pm EST</p>
+                    <p class="stitle"> <span class="gcircle"></span> Licensed Agents Available</p>
+                    <p class="gavailable"> <span class="gcircle"></span>  Mon-Fri 9am-7pm EST</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <p data-geo-fallback="&lt;strong&gt;ATTENTION: Seniors Have a Limited Time To Claim Their Life Allowance Benefit&lt;/strong&gt;"><strong>ATTENTION: <span class="state_name" data-geo="state"></span> Seniors Have a Limited Time To Claim Their Life Allowance Benefit</strong></p>
+            <div class="line"></div>
+            <p class="small">Get the help and support you deserve!</p>
+            <p><strong>Check Eligibility for a</strong></p>
+            <h1><span class="subline">$40,000</span> Benefit!</h1>
+
+            <div class="question__container">
+
+                <!-- STEP 1 -->
+                <div class="question__element" id="question_1">
+                    <span class="question__subtitle">Answer the 4 simple questions below to <a href="tel:+18779492573">check your eligibility!</a></span>
+                    <p class="question__title">Ready to claim yours?</p>
+                    <div class="question__options">
+                        <div class="question__option red" data-option="1">NO</div>
+                        <div class="question__option green" data-option="1">YES</div>
+                    </div>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="question__element" id="question_2">
+                    <p class="question__counter">Question 2/4</p>
+                    <p class="question__title" data-geo-fallback="Do you currently live in the United States?">Do you live in <span id="state_name" data-geo="city_state"></span>?</p>
+                    <div class="question__options">
+                        <div class="question__option red" data-option="2">NO</div>
+                        <div class="question__option green" data-option="2">YES</div>
+                    </div>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="question__element" id="question_3">
+                    <p class="question__counter">Question 3/4</p>
+                    <p class="question__title">Do you own a checking account?</p>
+                    <div class="question__options">
+                        <div class="question__option red" data-option="3">No</div>
+                        <div class="question__option green" data-option="3">Yes</div>
+                    </div>
+                </div>
+
+                <!-- STEP 4 -->
+                <div class="question__element" id="question_5">
+                    <p class="question__counter">Question 4/4</p>
+                    <p class="question__title">Have you been declined for life insurance coverage in the past?</p>
+                    <div class="question__options">
+                        <div class="question__option red" data-option="5">Yes</div>
+                        <div class="question__option green" data-option="5">No</div>
+                    </div>
+                </div>
+
+                <!-- ===================================================
+                     STEP 5 - CONGRATULATIONS CARD
+                     The age-range step has been removed entirely.
+                     =================================================== -->
+                <div class="final" id="final">
+                    <h2 class="final__headline">🎉 Congratulations! Based on your answers, you've pre-qualified for an exclusive three-way call with the IRS and a licensed tax expert to see how much of your tax debt you may be able to reduce.</h2>
+
+                    <p class="final__appid">Application #<strong id="application_id">C000000</strong></p>
+
+                    <p class="final__sub">Tap the button below to speak with your assigned tax expert.</p>
+
+                    <p class="final__avail"><span class="final__dot"></span> <span id="agents_available">1</span> licensed expert available now</p>
+
+                    <a href="tel:+18336233133" class="cta cphone final__cta">
+                        <img src="images/phone.svg" alt="" class="final__cta-icon">
+                        <span>Call <span class="cphone2">(833) 623-3133</span></span>
+                    </a>
+
+                    <p class="final__note">We're experiencing high call volume. Your assigned expert is reserved for you for the time shown below — after that, they'll move on to the next caller.</p>
+
+                    <div class="final__timer" id="final_timer">
+                        <div class="final__timer-num" id="timer_seconds">90</div>
+                        <div class="final__timer-label">Seconds Remaining</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review__container">
+                <div class="review__element active" id="review_1">
+                    <div class="review__stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review__text">"The process was very quick and easy. My husband claimed it also."</p>
+                    <p class="review__author">— Jane Davis</p>
+                </div>
+                <div class="review__element" id="review_2">
+                    <div class="review__stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review__text">"Very impressed on how helpful and supportive the agent was!"</p>
+                    <p class="review__author">— John Summerville</p>
+                </div>
+                <div class="review__element" id="review_3">
+                    <div class="review__stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review__text">"I'm really glad I didn't wait! It's worth the peace of mind."</p>
+                    <p class="review__author">— David Miller</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <br><br>
+            <img class="footer-icons" alt="security" src="images/footer-icons.png">
+                <ul>
+                    <li><a href="index.html">Apply</a></li>
+                    <li><a href="https://truepathrelief.com/privacy.html" target="_blank">Privacy Policy</a></li>
+                    <li><a href="https://truepathrelief.com/terms.html" target="_blank">Terms &amp; Conditions</a></li>
+                    <li><a href="index.html" target="_blank">Contact</a></li>
+                </ul>
+            <div class="copyright">
+                <p>© 2026 True Path Relief</p>
+            </div>
+        </div>
+        <form name="random">
+            <input type="hidden" name="ip_address" id="ip_address">
+        </form>
+    </footer>
+
+
+<!-- ===========================================================
+     GEO - city / state injection
+     Tokens:  data-geo="city" | "state" | "city_state" | "state_code"
+     Fallback: data-geo-fallback="..."  (used if every provider fails)
+     QA:      ?city=Austin&state=Texas
+     =========================================================== -->
+<script>
+(function (w, d) {
+  'use strict';
+  var TIMEOUT = 2500, CACHE_KEY = 'lp_geo_v1';
+  var LEGACY = 'https://truepathrelief.com/FEV8/index.php';
+
+  var PROVIDERS = [
+    { n:'ipapi',     u:'https://ipapi.co/json/',              m:function(r){ return r&&!r.error ? {ip:r.ip, city:r.city, state:r.region, state_code:r.region_code} : null; } },
+    { n:'ipwho',     u:'https://ipwho.is/',                   m:function(r){ return r&&r.success!==false ? {ip:r.ip, city:r.city, state:r.region, state_code:r.region_code||''} : null; } },
+    { n:'geojs',     u:'https://get.geojs.io/v1/ip/geo.json', m:function(r){ return r ? {ip:r.ip, city:r.city, state:r.region, state_code:''} : null; } },
+    { n:'freeipapi', u:'https://freeipapi.com/api/json',      m:function(r){ return r ? {ip:r.ipAddress, city:r.cityName, state:r.regionName, state_code:''} : null; } }
+  ];
+
+  function getJSON(url){
+    return new Promise(function(res, rej){
+      var done=false, t=setTimeout(function(){ if(!done){done=true;rej(new Error('timeout'));} }, TIMEOUT);
+      fetch(url,{credentials:'omit',cache:'no-store'})
+        .then(function(r){ return r.ok ? r.json() : Promise.reject(new Error(r.status)); })
+        .then(function(j){ if(done)return; done=true; clearTimeout(t); res(j); })
+        .catch(function(e){ if(done)return; done=true; clearTimeout(t); rej(e); });
+    });
+  }
+  function clean(v){ return (v==null?'':String(v)).replace(/["']/g,'').trim(); }
+  function usable(g){ return !!(g && (clean(g.state) || clean(g.city))); }
+
+  function fromParams(){
+    var p = new URLSearchParams(w.location.search);
+    var s = p.get('state')||p.get('region')||p.get('st'), c = p.get('city');
+    if(!s && !c) return null;
+    return { city: clean(c), state: clean(s), state_code: clean(p.get('state_code')) };
+  }
+
+  function fromLegacy(){
+    return getJSON('https://api.ipify.org?format=json').then(function(r){
+      var ip = clean(r && r.ip);
+      if(!ip) throw new Error('no ip');
+      return fetch(LEGACY + '?ip=' + encodeURIComponent(ip), {cache:'no-store'})
+        .then(function(x){ return x.text(); })
+        .then(function(txt){
+          var st = clean(txt);
+          if(!st) throw new Error('no state');
+          return { ip: ip, city:'', state: st, state_code:'' };
+        });
+    });
+  }
+
+  function chain(i){
+    if(i >= PROVIDERS.length) return fromLegacy().catch(function(){ return null; });
+    var p = PROVIDERS[i];
+    return getJSON(p.u).then(function(j){
+      var g = p.m(j);
+      if(usable(g)){ g._src = p.n; return g; }
+      return chain(i+1);
+    }).catch(function(){ return chain(i+1); });
+  }
+
+  function render(g){
+    var ip = clean(g && g.ip);
+    if(ip){
+      var f = d.getElementById('ip_address');
+      if(f && !f.value) f.value = ip;
+      w.LP_IP = ip;
+    }
+    var city = clean(g && g.city), state = clean(g && g.state), code = clean(g && g.state_code);
+    var ok = !!(city || state);
+    var map = {
+      city: city, state: state, state_code: code,
+      city_state: (city && state) ? (city + ', ' + state) : (state || city)
+    };
+
+    Array.prototype.forEach.call(d.querySelectorAll('[data-geo]'), function(n){
+      var v = map[n.getAttribute('data-geo')];
+      if(v) n.textContent = v;
+    });
+
+    if(!ok){
+      Array.prototype.forEach.call(d.querySelectorAll('[data-geo-fallback]'), function(n){
+        n.innerHTML = n.getAttribute('data-geo-fallback');
+      });
+      Array.prototype.forEach.call(d.querySelectorAll('[data-geo]'), function(n){
+        n.removeAttribute('data-geo'); n.textContent = '';
+      });
+    }
+
+    d.documentElement.setAttribute('data-geo-ready', ok ? 'yes' : 'no');
+    map.resolved = ok; map.source = (g && g._src) || 'none';
+    w.LP_GEO = map;
+  }
+
+  function boot(){
+    var o = fromParams();
+    if(usable(o)){ o._src='url'; render(o); return; }
+    var c = null;
+    try { c = JSON.parse(w.sessionStorage.getItem(CACHE_KEY)); } catch(e){}
+    if(usable(c)){ render(c); return; }
+    chain(0).then(function(g){
+      if(usable(g)){ try { w.sessionStorage.setItem(CACHE_KEY, JSON.stringify(g)); } catch(e){} }
+      render(g);
+    }).catch(function(){ render(null); });
+  }
+
+  if(d.readyState === 'loading') d.addEventListener('DOMContentLoaded', boot); else boot();
+})(window, document);
+</script>
+
+
+<!-- ===========================================================
+     FUNNEL CONTROLLER + CONGRATULATIONS CARD
+     Replaces js/js.js entirely. Do not re-add that script tag.
+     =========================================================== -->
+<script>
+(function (w, d, $) {
+  'use strict';
+
+  var BUILD = '2026-08-18-v3';
+
+  /* ---------------- config ---------------- */
+  var TIMER_SECONDS = 90;      // countdown start
+  var TIMER_PERSIST = true;    // refresh does NOT restart it
+  var APP_PREFIX    = 'C';
+  var APP_DIGITS    = 6;
+  var TIMER_EXPIRED = 'Your expert is still on the line &mdash; tap the button above to connect.';
+
+  var BUCKETS = {
+    approved:    { display:'(877) 949-2573', tel:'+18779492573', ringba:'//b-js.ringba.com/CAd110c34ad27c42dbbec959c91f75727d' },
+    graded:      { display:'(773) 340-8351', tel:'+17733408351', ringba:'//b-js.ringba.com/CAca3b48186a244caab03ec2a74f0fb62b' },
+    nonchecking: { display:'(833) 340-2669', tel:'+18333402669', ringba:'//b-js.ringba.com/CAbefa0a60b5354d52b225d6d8d86e3fcf' }
+  };
+
+  /* ---------------- state ---------------- */
+  var ownChecking = '', declinedBefore = '', finalShown = false;
+
+  var SS = {
+    get: function(k){ try { return w.sessionStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { w.sessionStorage.setItem(k,v); } catch(e){} }
+  };
+
+  function injectScript(src){
+    var s = d.createElement('script');
+    s.type = 'text/javascript';
+    s.src = src;
+    d.body.appendChild(s);
+  }
+
+  function offerl(offer){
+    var u = new URL(w.location.href);
+    $.ajax({
+      url: 'https://eo3t4newqfsdkv.m.pipedream.net',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        clickid: u.searchParams.get('clickid'),
+        full_url: w.location.href,
+        ip_address: $('#ip_address').val(),
+        offer: offer
+      })
+    });
+  }
+
+  /* ---------------- congratulations card ---------------- */
+
+  function applicationId(){
+    var k = 'lp_app_id', c = SS.get(k);
+    if(c) return c;
+    var min = Math.pow(10, APP_DIGITS - 1);
+    var id = APP_PREFIX + Math.floor(min + Math.random() * (min * 9));
+    SS.set(k, id);
+    return id;
+  }
+
+  function startTimer(){
+    var box = d.getElementById('final_timer'), num = d.getElementById('timer_seconds');
+    if(!box || !num) return;
+    var k = 'lp_timer_start';
+    var t0 = TIMER_PERSIST ? parseInt(SS.get(k), 10) : NaN;
+    if(!t0 || isNaN(t0)){ t0 = Date.now(); if(TIMER_PERSIST) SS.set(k, String(t0)); }
+
+    function tick(){
+      var left = TIMER_SECONDS - Math.floor((Date.now() - t0) / 1000);
+      if(left <= 0){
+        clearInterval(iv);
+        box.classList.add('is-expired');
+        box.innerHTML = '<p class="final__timer-expired">' + TIMER_EXPIRED + '</p>';
+        return;
+      }
+      num.textContent = left;
+    }
+    tick();
+    var iv = setInterval(tick, 1000);
+  }
+
+  function goFinal(bucket){
+    if(finalShown) return;
+    finalShown = true;
+
+    var p = BUCKETS[bucket] || BUCKETS.approved;
+
+    $('.question__element').hide();
+    $('.final').show();
+
+    $('.cphone').attr('href', 'tel:' + p.tel);
+    $('.cphone2').text(p.display);
+    $('.gnumber strong').text(p.display);
+    $('.number strong').text(p.display);
+    $('.change-phone').attr('href', 'tel:' + p.tel);
+
+    var idEl = d.getElementById('application_id');
+    if(idEl) idEl.textContent = applicationId();
+    startTimer();
+
+    injectScript(p.ringba);
+    offerl(bucket);
+
+    console.log('[' + BUILD + '] final shown, bucket =', bucket, p.display);
+  }
+
+  function qualifyBucket(){
+    if(ownChecking === 'yes' && declinedBefore === 'no') return 'approved';
+    if(ownChecking === 'no'  && declinedBefore === 'no') return 'nonchecking';
+    return 'graded';
+  }
+
+  /* ---------------- funnel ---------------- */
+
+  $('#question_1').show();
+
+  $('.question__option').on('click', function(){
+    var q = $(this).attr('data-option');
+    var val = $.trim($(this).text()).toLowerCase();
+
+    if(q === '1'){
+      $('#question_1').hide();
+      $('#question_2').show();
+    } else if(q === '2'){
+      $('#question_2').hide();
+      $('#question_3').show();
+    } else if(q === '3'){
+      ownChecking = val;
+      $('#question_3').hide();
+      $('#question_5').show();
+    } else if(q === '5'){
+      declinedBefore = val;
+      $('#question_5').hide();
+      goFinal(qualifyBucket());
+    }
+  });
+
+  /* ---------------- reviews carousel ---------------- */
+
+  $(function(){
+    var r = d.querySelectorAll('.review__element');
+    Array.prototype.forEach.call(r, function(el, i){ el.style.zIndex = r.length - i; });
+
+    setInterval(function(){
+      var active = $('.review__element.active')[0];
+      if(!active) return;
+      var n = parseInt(active.id.charAt(7), 10);
+      $('#review_' + n).addClass('notactive').removeClass('active');
+      n = (n === 3) ? 1 : n + 1;
+      $('#review_' + n).removeClass('notactive').addClass('active');
+    }, 4500);
+  });
+
+  /* ---------------- QA: ?final=1 jumps straight to the card -------------- */
+
+  if(new URLSearchParams(w.location.search).get('final') === '1'){
+    $(function(){ goFinal('approved'); });
+  }
+
+  w.LP_BUILD = BUILD;
+  w.goFinal = goFinal;
+  console.log('%c LP BUILD ' + BUILD + ' ', 'background:#25b846;color:#fff;font-weight:700');
+
+})(window, document, jQuery);
+</script>
+
+<script>
+    $.ajax({
+        url: "https://eo68acif4qbcctc.m.pipedream.net",
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        data: JSON.stringify({ full_url: window.location.href })
+    })
+</script>
+<script type="text/javascript" src="js/track.js"></script>
+
+</body></html>

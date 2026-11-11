@@ -1,0 +1,287 @@
+<!-- ===== CCW GEO TOKEN v3 — city/state personalization ===== -->
+<style>.ccw-city,.ccw-state{font:inherit;color:inherit;letter-spacing:inherit}</style>
+<script>
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------------
+     CONFIG
+     EXCLUDE: states where this offer must NOT show the approved claim.
+     Add 2-letter codes here, e.g. ["CA","NY","NJ"]. Those visitors get
+     the neutral fallback CTA instead.
+  ------------------------------------------------------------------ */
+  var EXCLUDE   = [];
+
+  var CITY_FB   = "your area";
+  var CACHE_KEY = "ccw_geo_v3";
+  var TIMEOUT   = 2500;
+  var ANY_RE    = /\[\[(?:city|state|state_code)\]\]/i;
+  var SKIP      = { SCRIPT:1, STYLE:1, NOSCRIPT:1, TEXTAREA:1, IFRAME:1, TEMPLATE:1, CODE:1, PRE:1 };
+  var DEBUG     = /[?&]ccwdebug=1/.test(location.search);
+
+  var US = {
+    AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",
+    CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",
+    HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",
+    LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",
+    MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",
+    NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",
+    OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",
+    SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",
+    WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"
+  };
+  var BY_NAME = {};
+  for (var k in US) if (US.hasOwnProperty(k)) BY_NAME[US[k].toLowerCase()] = k;
+
+  var geo = { city:"", state:"", code:"", country:"", valid:false };
+  var source = "fallback", observer = null, queued = false;
+
+  function log(){ if (DEBUG) console.log.apply(console, ["[ccw-geo]"].concat([].slice.call(arguments))); }
+
+  /* ---------- value resolution ---------- */
+
+  function cityVal()  { return geo.city ? (geo.code ? geo.city + ", " + geo.code : geo.city) : CITY_FB; }
+  function stateVal() { return geo.valid ? US[geo.code] : ""; }
+  function codeVal()  { return geo.valid ? geo.code : ""; }
+
+  /* Claim is only true when we have a real, non-excluded US state. */
+  function claimOK() { return geo.valid && EXCLUDE.indexOf(geo.code) === -1; }
+
+  function fill(str) {
+    return str.split(/\[\[state_code\]\]/i).join(codeVal())
+              .split(/\[\[state\]\]/i).join(stateVal())
+              .split(/\[\[city\]\]/i).join(cityVal());
+  }
+
+  /* ---------- token wrapping ---------- */
+
+  function wrapTextNode(node) {
+    var raw = node.nodeValue;
+    var frag = document.createDocumentFragment();
+    var re = /\[\[(city|state|state_code)\]\]/gi, last = 0, m, found = false;
+    while ((m = re.exec(raw)) !== null) {
+      found = true;
+      if (m.index > last) frag.appendChild(document.createTextNode(raw.slice(last, m.index)));
+      var kind = m[1].toLowerCase();
+      var s = document.createElement("span");
+      s.className = kind === "city" ? "ccw-city" : "ccw-state";
+      s.setAttribute("data-ccw-kind", kind);
+      s.textContent = kind === "city" ? cityVal() : kind === "state" ? stateVal() : codeVal();
+      frag.appendChild(s);
+      last = m.index + m[0].length;
+    }
+    if (!found) return;
+    if (last < raw.length) frag.appendChild(document.createTextNode(raw.slice(last)));
+    node.parentNode.replaceChild(frag, node);
+  }
+
+  function scanText(root) {
+    if (!root || !document.createTreeWalker) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        if (!n.nodeValue || n.nodeValue.indexOf("[[") === -1) return NodeFilter.FILTER_REJECT;
+        if (n.parentNode && SKIP[n.parentNode.nodeName]) return NodeFilter.FILTER_REJECT;
+        return ANY_RE.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    }, false);
+    var hits = [], n;
+    while ((n = walker.nextNode())) hits.push(n);
+    for (var i = 0; i < hits.length; i++) wrapTextNode(hits[i]);
+    if (hits.length) log("wrapped", hits.length, "node(s)");
+  }
+
+  /* ---------- claim gating ----------
+     <a data-ccw-claim="..[[state]].." data-ccw-fallback="..">
+     Renders the claim ONLY when a real, non-excluded US state resolved.
+  ------------------------------------------------------------------ */
+  function paintClaims(root) {
+    var scope = root || document;
+    var els = scope.querySelectorAll ? scope.querySelectorAll("[data-ccw-claim]") : [];
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i], tpl;
+      if (claimOK()) {
+        tpl = el.getAttribute("data-ccw-claim");                 // US state, offer applies
+      } else if (geo.valid) {
+        tpl = el.getAttribute("data-ccw-fallback")               // US state, but excluded
+              || el.getAttribute("data-ccw-fallback-nogeo");
+      } else {
+        tpl = el.getAttribute("data-ccw-fallback-nogeo")         // no US state at all
+              || el.getAttribute("data-ccw-fallback");
+      }
+      if (!tpl) continue;
+      var next = fill(tpl);
+      if (el.textContent !== next) el.textContent = next;
+    }
+  }
+
+  function repaint() {
+    var spans = document.querySelectorAll(".ccw-city,.ccw-state");
+    for (var i = 0; i < spans.length; i++) {
+      var kind = spans[i].getAttribute("data-ccw-kind");
+      spans[i].textContent = kind === "city" ? cityVal() : kind === "state" ? stateVal() : codeVal();
+    }
+    paintClaims(document);
+    log("repaint", geo, "claim=" + claimOK(), "(" + source + ")");
+  }
+
+  function sweep(root) {
+    root = root || document.body || document.documentElement;
+    scanText(root);
+    repaint();
+  }
+
+  function schedule() {
+    if (queued) return;
+    queued = true;
+    (window.requestAnimationFrame || setTimeout)(function () { queued = false; sweep(); }, 16);
+  }
+
+  /* ---------- geo ---------- */
+
+  function buildGeo(city, region, code, country) {
+    city    = (city || "").toString().trim();
+    region  = (region || "").toString().trim();
+    code    = (code || "").toString().trim().toUpperCase();
+    country = (country || "").toString().trim().toUpperCase();
+
+    if (!US[code]) code = BY_NAME[region.toLowerCase()] || "";
+    var isUS = country ? (country === "US" || country === "USA") : !!code;
+
+    var g = {
+      city: city,
+      state: code ? US[code] : region,
+      code: code,
+      country: country,
+      valid: !!(isUS && code)
+    };
+    return (g.city || g.valid) ? g : null;
+  }
+
+  function setGeo(city, region, code, country) {
+    var g = buildGeo(city, region, code, country);
+    if (g) geo = g;
+    return !!g;
+  }
+
+  /* QA only: ?ccwstate=TX pins a state for the rest of the browser session
+     (survives navigation). ?ccwstate=off clears it. sessionStorage is
+     per-visitor, so this can never affect live traffic other than the
+     tester's own tab. */
+  function qaOverride() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var v = q.get("ccwstate");
+      if (v !== null) {
+        if (/^(off|0|clear|none)$/i.test(v)) { sessionStorage.removeItem("ccw_qa"); return false; }
+        sessionStorage.setItem("ccw_qa", v.toUpperCase());
+      }
+      var code = (sessionStorage.getItem("ccw_qa") || "").toUpperCase();
+      if (code && US[code]) {
+        setGeo(q.get("city") || q.get("ccwcity") || "", US[code], code, "US");
+        if (window.console && console.warn) {
+          console.warn("[ccw-geo] QA OVERRIDE ACTIVE -> " + US[code] +
+                       ". This tab is NOT using real geo. Clear with ?ccwstate=off");
+        }
+        return true;
+      }
+    } catch (e) {}
+    return false;
+  }
+
+  function fromQuery() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var c = q.get("city") || q.get("geo_city") || q.get("cf_city") || q.get("ll_city") || "";
+      var r = q.get("state") || q.get("region") || q.get("geo_region") || q.get("cf_region") || q.get("ll_region") || "";
+      var co = q.get("country") || q.get("geo_country") || q.get("cf_country") || "";
+      if (!c && !r) return false;
+      if (c && !/^[A-Za-z0-9 .'\u00C0-\u024F-]{2,60}$/.test(c)) return false;
+      var code = r.length === 2 ? r.toUpperCase() : "";
+      return setGeo(c, r, code, co || (code && US[code] ? "US" : ""));
+    } catch (e) { return false; }
+  }
+
+  function fromCache() {
+    try {
+      var o = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
+      if (o && o.g && Date.now() - o.t < 30 * 60 * 1000) { geo = o.g; return true; }
+    } catch (e) {}
+    return false;
+  }
+  function toCache() {
+    try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ g: geo, t: Date.now() })); } catch (e) {}
+  }
+
+  var PROVIDERS = [
+    { name:"ipapi", url:"https://ipapi.co/json/",
+      pick:function(d){ return d && !d.error ? buildGeo(d.city, d.region, d.region_code, d.country_code || d.country) : null; } },
+    { name:"ipwho", url:"https://ipwho.is/?fields=success,city,region,region_code,country_code",
+      pick:function(d){ return d && d.success !== false ? buildGeo(d.city, d.region, d.region_code, d.country_code) : null; } },
+    { name:"geojs", url:"https://get.geojs.io/v1/ip/geo.json",
+      pick:function(d){ return d ? buildGeo(d.city, d.region, "", d.country_code) : null; } },
+    { name:"ipapiis", url:"https://ipapi.is/json/",
+      pick:function(d){ return d && d.location ? buildGeo(d.location.city, d.location.state, d.location.state_code, d.location.country_code) : null; } }
+  ];
+
+  function fetchJSON(url) {
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function(){ ctrl && ctrl.abort(); }, TIMEOUT);
+    return fetch(url, { signal: ctrl ? ctrl.signal : undefined, cache:"no-store",
+                        credentials:"omit", headers:{ "Accept":"application/json" } })
+      .then(function(r){ clearTimeout(timer); if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); },
+            function(e){ clearTimeout(timer); throw e; });
+  }
+
+  function resolve(i, best, bestName) {
+    i = i || 0;
+    if (i >= PROVIDERS.length) {
+      if (best) { geo = best; source = bestName; toCache(); repaint(); expose(); }
+      else log("all providers failed");
+      return;
+    }
+    var p = PROVIDERS[i];
+    fetchJSON(p.url).then(function (d) {
+      var g = p.pick(d);
+      if (!g) throw new Error("unusable payload");
+      if (g.valid) {                       // got a real US state - stop here
+        geo = g; source = p.name; toCache(); repaint(); expose();
+        return;
+      }
+      log(p.name, "gave no US state, trying next for one");
+      resolve(i + 1, best || g, bestName || p.name);
+    }).catch(function (e) { log(p.name, "failed:", e.message); resolve(i + 1, best, bestName); });
+  }
+
+  function expose() {
+    window.CCWGeo = { geo: geo, source: source, claim: claimOK(), qa: source === "qa",
+                      city: cityVal(), state: stateVal(), refresh: function(){ sweep(); } };
+  }
+
+  /* ---------- boot ---------- */
+
+  var qa = qaOverride();
+  if (qa)               source = "qa";
+  else if (fromQuery()) source = "query";
+  else if (fromCache()) source = "cache";
+  expose();
+
+  sweep(document.documentElement);
+
+  if (window.MutationObserver) {
+    observer = new MutationObserver(schedule);
+    observer.observe(document.documentElement, { childList:true, subtree:true, characterData:true });
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){ sweep(); }, false);
+  window.addEventListener("load", function () {
+    sweep();
+    setTimeout(sweep, 400);
+    setTimeout(sweep, 1500);
+    setTimeout(function(){ observer && observer.disconnect(); sweep(); }, 15000);
+  }, false);
+
+  if (source === "fallback") resolve(0);
+  else log("seeded from", source, geo);
+})();
+</script>
+<!-- ===== /CCW GEO TOKEN v3 ===== -->

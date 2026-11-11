@@ -1,0 +1,209 @@
+ #didYouKnow_Right_Container {
+     background-image: url("../images/didYouKnow_Right_bg.png");
+     background-repeat: no-repeat;
+     border: 1px solid #000;
+     color: #000;
+     cursor: pointer;
+     font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+     font-weight: bold;
+     height: 448px;
+     overflow: hidden;
+     position: relative;
+     width: 298px;
+ }
+
+ #didYouKnow_Right_Container a {
+     color: #fff !important;
+     text-decoration: none;
+ }
+
+ #didYouKnow_Right_Photo {
+     animation-name: didYouKnow_Right_PhotoAnim;
+     -moz-animation-name: didYouKnow_Right_PhotoAnim;
+     animation-duration: 1000ms;
+     -moz-animation-duration: 1000ms;
+     position: absolute;
+     top: -4px;
+     z-index: 300;
+ }
+
+ @keyframes didYouKnow_Right_PhotoAnim {
+     from {
+         top: -250px;
+     }
+
+     to {
+         top: -4px;
+     }
+ }
+
+ #didYouKnow_Right_Date {
+     font-size: 17px;
+     position: absolute;
+     right: 10px;
+     text-decoration: none;
+     top: 0;
+     z-index: 300;
+ }
+
+ .didYouKnow_Right_Btn {
+     background-color: #4eaee8;
+     border: 2px solid #000;
+     color: #fff;
+     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-size: 20px;
+     font-weight: bold;
+     height: 40px;
+     padding: 3px 0 0;
+     position: absolute;
+     text-align: center;
+     -webkit-transition: -webkit-transform .2s ease-out;
+     -moz-transition: -moz-transform .2s ease-out;
+     -o-transition: -o-transform .2s ease-out;
+     -ms-transition: -ms-transform .2s ease-out;
+     transition: transform .2s ease-out;
+     width: 120px;
+     z-index: 300;
+ }
+
+ .didYouKnow_Right_Btn:hover {
+     -webkit-transform: scale(1.2);
+     -moz-transform: scale(1.2);
+     -o-transform: scale(1.2);
+     transform: scale(1.2);
+ }
+
+ #didYouKnow_Right_Btn1 {
+     animation-delay: 1000ms;
+     -moz-animation-delay: 1000ms;
+     animation-duration: 3s;
+     -moz-animation-duration: 3s;
+     animation-iteration-count: infinite;
+     -moz-animation-iteration-count: infinite;
+     animation-name: didYouKnow_Right_Btn1Anim;
+     -moz-animation-name: didYouKnow_Right_Btn1Anim;
+     left: 25px;
+     top: 271px;
+ }
+
+ @keyframes didYouKnow_Right_Btn1Anim {
+     0% {
+         top: 271px;
+     }
+
+     10% {
+         top: 261px;
+     }
+
+     20% {
+         top: 271px;
+     }
+ }
+
+ #didYouKnow_Right_Btn2 {
+     animation-delay: 1250ms;
+     -moz-animation-delay: 1250ms;
+     animation-duration: 3s;
+     -moz-animation-duration: 3s;
+     animation-iteration-count: infinite;
+     -moz-animation-iteration-count: infinite;
+     animation-name: didYouKnow_Right_Btn2Anim;
+     -moz-animation-name: didYouKnow_Right_Btn2Anim;
+     left: 155px;
+     top: 271px;
+ }
+
+ @keyframes didYouKnow_Right_Btn2Anim {
+     0% {
+         top: 271px;
+     }
+
+     10% {
+         top: 261px;
+     }
+
+     20% {
+         top: 271px;
+     }
+ }
+
+ #didYouKnow_Right_Btn3 {
+     animation-delay: 1500ms;
+     -moz-animation-delay: 1500ms;
+     animation-duration: 3s;
+     -moz-animation-duration: 3s;
+     animation-iteration-count: infinite;
+     -moz-animation-iteration-count: infinite;
+     animation-name: didYouKnow_Right_Btn3Anim;
+     -moz-animation-name: didYouKnow_Right_Btn3Anim;
+     left: 25px;
+     top: 321px;
+ }
+
+ @keyframes didYouKnow_Right_Btn3Anim {
+     0% {
+         top: 321px;
+     }
+
+     10% {
+         top: 311px;
+     }
+
+     20% {
+         top: 321px;
+     }
+ }
+
+ #didYouKnow_Right_Btn4 {
+     animation-delay: 1750ms;
+     -moz-animation-delay: 1750ms;
+     animation-duration: 3s;
+     -moz-animation-duration: 3s;
+     animation-iteration-count: infinite;
+     -moz-animation-iteration-count: infinite;
+     animation-name: didYouKnow_Right_Btn4Anim;
+     -moz-animation-name: didYouKnow_Right_Btn4Anim;
+     left: 155px;
+     top: 321px;
+ }
+
+ @keyframes didYouKnow_Right_Btn4Anim {
+     0% {
+         top: 321px;
+     }
+
+     10% {
+         top: 311px;
+     }
+
+     20% {
+         top: 321px;
+     }
+ }
+
+ #didYouKnow_Right_Btn5 {
+     animation-delay: 2000ms;
+     -moz-animation-delay: 2000ms;
+     animation-duration: 3s;
+     -moz-animation-duration: 3s;
+     animation-iteration-count: infinite;
+     -moz-animation-iteration-count: infinite;
+     animation-name: didYouKnow_Right_Btn5Anim;
+     -moz-animation-name: didYouKnow_Right_Btn5Anim;
+     left: 90px;
+     top: 371px;
+ }
+
+ @keyframes didYouKnow_Right_Btn5Anim {
+     0% {
+         top: 371px;
+     }
+
+     10% {
+         top: 361px;
+     }
+
+     20% {
+         top: 371px;
+     }
+ }

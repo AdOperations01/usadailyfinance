@@ -1,0 +1,459 @@
+<!DOCTYPE html><html lang="en"><head>
+    <style>
+        .dtpcnt {
+            opacity: 0;
+        }
+        ul.steps {
+    list-style: none;
+    text-align: left;
+}
+
+ul.steps li {
+    margin-bottom: 20px;
+}
+    </style>
+   <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1385230839904284');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent');
+  </script>
+
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "wi7360htn4");
+  </script>
+    <script>
+	
+	const urlParams = new URLSearchParams(window.location.search);const fbclid = urlParams.get('fbclid');if (fbclid) {    const fbc = `fb.1.${new Date().getTime()}.${fbclid}`;    const fbp = `fb.1.${new Date().getTime()}.${Math.floor(Math.random() * 1000000000)}`;    const expirationDate = new Date();    expirationDate.setDate(expirationDate.getDate() + 90);    document.cookie = `_fbc=${fbc}; expires=${expirationDate.toUTCString()}; path=/; domain=${window.location.hostname}`;    document.cookie = `_fbp=${fbp}; expires=${expirationDate.toUTCString()}; path=/; domain=${window.location.hostname}`;}
+	
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        function checkAndPost(seconds) {
+            if (!getCookie("_fbc")) {
+                setTimeout(function() {
+                    checkAndPost()
+                }, seconds * 1000);
+            } else {
+                prepare();
+            }
+        }
+
+        async function prepare() {
+            var params = [];
+            params.fbc = getCookie("_fbc");
+            params.fbp = getCookie("_fbp");
+            params.pixel_id = "165100208874003";
+            params.eventname = "Lead";
+            params.clickid = "179084432428604";
+            params.user_agent = navigator.userAgent;
+            params.source_url = "newburialprogram.com%2Fblog%2Flife-insurance%2Ff%2Fseniors-35-85%2Findex.php"
+            var ua = navigator.userAgent;
+            var baseUrl = "https://mslb93hem9.execute-api.us-east-1.amazonaws.com/api/s2s/storePixel";
+
+            try {
+                let ipResponse = await fetch("https://api.ipify.org?format=json");
+                let ipData = await ipResponse.json();
+                params.ip = ipData.ip;  // add user IP
+            } catch (e) {
+                params.ip = "";
+            }
+            
+            var urlparams = [];
+            for (var key in params) {
+                if (params.hasOwnProperty(key)) {
+                    urlparams.push(key + '=' + encodeURIComponent(params[key]));
+                }
+            }
+            var par = urlparams.join('&');
+            finalUrl = baseUrl + "?" + par;
+            if ("sendBeacon" in navigator){
+                var baseUrlPost = "https://mslb93hem9.execute-api.us-east-1.amazonaws.com/api/s2s/storePixelPost";
+				finalUrl = baseUrlPost + "?" + par;
+                navigator.sendBeacon(finalUrl);
+            }else {
+                var req = new XMLHttpRequest;
+                req.open("GET", finalUrl);
+                req.send();
+            }
+        }
+    </script>
+     
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta charset="utf-8">
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Claim $50,000 in Final Expense (Burial Benefit)</title>
+   
+        <script src="js/main.js"></script>
+         <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">   
+
+
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+    
+    <script>                             
+   // Set Ringba Campaign ID Below
+var ringbaCampaign = 'CA0cf842f9be0a4e6d994bfa7434a2c0e2';
+
+function getQueryParams() {
+    var queryString = window.location.search.substring(1);
+    var params = {};
+    var pairs = queryString.split("&");
+
+    for (var i = 0; i < pairs.length; i++) {
+        var pair = pairs[i].split("=");
+        var key = decodeURIComponent(pair[0]);
+        var value = decodeURIComponent(pair[1]);
+
+        // Check if the key is "leadid"
+        if (key === "leadid") {
+            return value; // Return the value if the key matches
+        }
+
+        // Store all query parameters in the params object
+        params[key] = value;
+    }
+
+    // If "leadid" key is not found, you can return null or perform any other action as needed.
+    return null;
+}
+
+function addToQueryString(value) {
+    if (getQueryParams('leadid') == null) {
+        const currentQueryString = window.location.search;
+
+        // Check if the current query string is empty or not
+        const separator = currentQueryString ? '&' : '?';
+
+        // Create the new query string with the "leadid" parameter and its value
+         const newQueryString = `${currentQueryString}${separator}leadid=${encodeURIComponent(value)}&v_page=thanks&event_name=phone_consult`;
+
+        // Get the current URL without the query string
+        const urlWithoutQueryString = window.location.origin + window.location.pathname;
+
+        // Create the final URL with the updated query string
+        const finalUrl = urlWithoutQueryString + newQueryString;
+
+        // Update the browser's address bar
+        window.history.replaceState({}, document.title, finalUrl);
+
+        // Insert Ringba or Retriever Code here -- ex:
+
+        //Ringba Function
+        (function () { var script = document.createElement('script'); script.src = '//b-js.ringba.com/' + ringbaCampaign; script.async = true; document.head.appendChild(script);})(); }
+}
+</script>                              
+
+
+
+
+<script async="" src="js/events.js"></script>	
+<style id="elig-css">
+/* ---- congratulations panel ---- */
+.elig-yes{padding:6px 0 10px;}
+.elig-congrats{
+  color:#ff2015;font-weight:800;line-height:1.1;margin:0 0 14px;
+  font-size:clamp(34px,6vw,56px);letter-spacing:-.01em;
+}
+.elig-lead{
+  color:#111;font-weight:700;line-height:1.35;margin:0 auto 24px;max-width:640px;
+  font-size:clamp(18px,3vw,26px);
+}
+.elig-hl{background:#ffff00;padding:0 4px;}
+.elig-tap{
+  color:#111;font-weight:700;line-height:1.35;margin:0 auto 22px;max-width:640px;
+  font-size:clamp(17px,2.6vw,24px);
+}
+.elig-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:62px;padding:16px 34px;box-sizing:border-box;
+  width:min(100%,430px);
+  background:#4caf50;color:#fff !important;
+  font-size:clamp(18px,2.6vw,24px);font-weight:800;line-height:1.2;
+  text-decoration:none !important;border-radius:8px;
+  box-shadow:0 4px 0 #3a8c3d;
+}
+.elig-cta:hover{background:#43a047;color:#fff !important;}
+.elig-cta:active{transform:translateY(3px);box-shadow:0 1px 0 #3a8c3d;}
+.elig-cta:focus-visible{outline:3px solid #1b5e20;outline-offset:3px;}
+.elig-timer{
+  margin:22px 0 0;color:#ff2015;font-weight:600;
+  font-size:clamp(22px,3.4vw,30px);font-variant-numeric:tabular-nums;
+}
+.elig-timer.is-done{color:#52606d;font-size:clamp(15px,2.2vw,18px);font-weight:500;}
+
+#eligBox{position:relative;}
+.elig-panel[hidden]{display:none;}
+.elig-panel{animation:eligIn .28s ease-out;}
+@keyframes eligIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.elig-badge{font-size:46px;line-height:1;margin-bottom:6px;}
+.elig-badge--muted{opacity:.55;}
+.elig-title{font-size:clamp(24px,4.2vw,34px);font-weight:800;color:#1b7f3b;margin:0 0 10px;}
+.elig-title--muted{color:#52606d;}
+.elig-sub{font-size:clamp(16px,2.6vw,19px);line-height:1.5;margin:0 auto 18px;max-width:560px;}
+.elig-amt{background:#fff46a;padding:0 6px;border-radius:3px;font-weight:800;}
+.elig-cta{display:inline-block;min-width:min(100%,420px);}
+.elig-note{font-size:13px;opacity:.72;margin-top:12px;}
+.elig-back{display:inline-block;margin-top:14px;font-size:14px;color:#52606d;text-decoration:underline;}
+.btn-no{background:#5a6470 !important;}
+.btn-no:hover{background:#49525c !important;}
+@media (prefers-reduced-motion:reduce){.elig-panel{animation:none;}}
+</style>
+</head>
+<body onload="checkAndPost(0.3)">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           <div class="top">
+
+    </div>
+    <div class="container">
+
+        <div>
+            <div class="elementor-widget-container">
+
+                <div class="Slides" style="">
+<!--                    <div class="bg-header">
+                        <div class="slider-wrapper">
+                            <div class="slider-track" style="transform: translateX(-587px);">
+                                <img src="https://d141qqe8qqokhd.cloudfront.net/931d547c334c6248c4cc4bd4199ef54c.png" class="slider-item">
+                                <img src="https://d141qqe8qqokhd.cloudfront.net/255cff5b65933614ee592632bd390364.png" class="slider-item">
+                                <img src="https://d141qqe8qqokhd.cloudfront.net/6b292cb9cbf374b800a8a28b6212002a.png" class="slider-item">
+                            </div>
+                        </div>
+                    </div>
+-->
+
+                    <div class="text-center">
+                        <p>Achieve peace of mind with our trusted Final Expense plan.</p>
+                        <h3>Check Eligibility for up to</h3>
+                        <h1>$50,000 Final Expense Coverage Plan</h1>
+                    </div>
+
+
+                    <div class="main-steps text-center" id="eligBox">
+
+                        <div class="elig-panel" id="eligQuestion">
+                            <h3>Answer Quick Questions Below to Check Eligibility!</h3>
+                            <h2 class="text-center">Are you over 50?</h2>
+                            <p class="btns">
+                                <a class="cta_btn btn_1 btn-yes" data-q="yes" href="https://globalvisitclub.com/cf/click/1">Yes</a>
+                                <a class="cta_btn btn_1 btn-no"  data-q="no"  href="https://globalvisitclub.com/cf/click/1">No</a>
+                            </p>
+                        </div>
+
+                        <div class="elig-panel elig-yes" id="eligYes" hidden>
+                            <h2 class="elig-congrats">Congratulations</h2>
+                            <p class="elig-lead">You&rsquo;ve pre-qualified for up to
+                                <span class="elig-hl">$50,000 FINAL EXPENSE</span> COVERAGE!</p>
+                            <p class="elig-tap">Tap below to get your Final Expense coverage plan &#128071;</p>
+                            <a class="elig-cta" href="https://globalvisitclub.com/cf/click/1">Tap Here to Check Eligibility</a>
+                            <p class="elig-timer"><span id="eligTimer">3:00</span></p>
+                        </div>
+<ul class="steps">
+      <li><b>Step 1:</b> Answer a few quick questions (takes about 60 seconds).</li>
+      <li><b>Step 2:</b> Speak to an expert and get 100% free, no obligation quotes.</li>
+    </ol>
+                        <div class="elig-panel elig-no" id="eligNo" hidden>
+                            <div class="elig-badge elig-badge--muted">&#9432;</div>
+                            <h2 class="elig-title elig-title--muted">Sorry &mdash; you&rsquo;re not eligible</h2>
+                            <p class="elig-sub">This Final Expense plan is only available to applicants
+                                aged 50 and over.</p>
+                            <p class="elig-note">Thanks for checking. You&rsquo;re welcome to come back when
+                                you reach the qualifying age.</p>
+                            <a class="elig-back" href="#" id="eligBack">&larr; Go back</a>
+                        </div>
+
+                    </div>
+                     <p class="fine-note">No Medical Exam. Free to check. No obligation.</p>
+                </div>
+        <br>
+        <br>
+        <br>
+
+                </div>
+            </div>
+    </div>
+    
+
+    <footer>
+        <div class="container">
+            <p> </p> 
+        </div>
+    </footer>
+    <div class="policy center">© 2026 - <a href="#">About Us</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a> </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script>
+        $(document).ready(function () {
+            var box = document.getElementById("eligBox");
+            if (!box) return;
+            var qPanel = document.getElementById("eligQuestion");
+            var yPanel = document.getElementById("eligYes");
+            var nPanel = document.getElementById("eligNo");
+
+            /* short success chime, synthesised - no audio file to ship or 404.
+               Runs inside the click handler, so autoplay policy is satisfied. */
+            function chime() {
+                try {
+                    var AC = window.AudioContext || window.webkitAudioContext;
+                    if (!AC) return;
+                    var ctx = new AC();
+                    if (ctx.state === "suspended" && ctx.resume) ctx.resume();
+                    [[0, 523.25], [0.12, 659.25], [0.24, 783.99]].forEach(function (n) {
+                        var o = ctx.createOscillator(), g = ctx.createGain();
+                        o.type = "sine";
+                        o.frequency.value = n[1];
+                        g.gain.setValueAtTime(0.0001, ctx.currentTime + n[0]);
+                        g.gain.exponentialRampToValueAtTime(0.22, ctx.currentTime + n[0] + 0.03);
+                        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + n[0] + 0.45);
+                        o.connect(g); g.connect(ctx.destination);
+                        o.start(ctx.currentTime + n[0]);
+                        o.stop(ctx.currentTime + n[0] + 0.5);
+                    });
+                } catch (e) {}
+            }
+
+            var tId = null;
+            function startTimer(secs) {
+                var el = document.getElementById("eligTimer");
+                if (!el) return;
+                if (tId) clearInterval(tId);
+                var left = secs;
+                function paint() {
+                    var m = Math.floor(left / 60), s = left % 60;
+                    el.textContent = m + ":" + (s < 10 ? "0" + s : s);
+                }
+                paint();
+                tId = setInterval(function () {
+                    left--;
+                    if (left <= 0) {
+                        clearInterval(tId); tId = null;
+                        el.parentNode.className = "elig-timer is-done";
+                        el.textContent = "Still here? Tap the button above to continue.";
+                        return;
+                    }
+                    paint();
+                }, 1000);
+            }
+
+            function show(panel) {
+                [qPanel, yPanel, nPanel].forEach(function (p) { if (p) p.hidden = (p !== panel); });
+                if (panel === yPanel) startTimer(180);
+                else if (tId) { clearInterval(tId); tId = null; }
+                try { box.scrollIntoView({ behavior: "smooth", block: "center" }); } catch (e) {}
+            }
+
+            $(document).on("click", ".btn_1", function (e) {
+                e.preventDefault();
+                if ($(this).data("q") === "yes") { show(yPanel); chime(); }
+                else { show(nPanel); }
+            });
+
+            $(document).on("click", "#eligBack", function (e) {
+                e.preventDefault();
+                show(qPanel);
+            });
+        })
+
+
+
+
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".slider-item");
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            const slideWidth = slides[0].clientWidth;
+            document.querySelector(".slider-track").style.transform = `translateX(-${index * slideWidth}px)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 2000); // Change slide every 3 seconds
+
+
+
+    </script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+<script type="text/javascript">
+    var date = new Date();
+    var month = new Array(7);
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+    var year = date.getYear();
+    if (year < 2000) { year+=1900; }
+    var currentDate= month[date.getMonth()] + " " + date.getDate() + ", " + year;
+    var x = document.getElementsByClassName("current_date");
+    if(currentDate!=''){
+      for (var i = 0; i < x.length; i++) {
+        x[i].innerHTML = currentDate;
+      }
+    }else{
+       for (var i = 0; i < x.length; i++) {
+        x[i].innerHTML = currentDate;
+      }
+    }
+
+  </script>
+
+ <script id="LeadiDscript" type="text/javascript">
+    function loadLeadiDScript() {
+        // Wait 400ms before loading the script
+        setTimeout(function () {
+            var s = document.createElement('script');
+            s.id = 'LeadiDscript_campaign';
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//create.lidstatic.com/campaign/11536399-98f5-9a89-2a69-051d8af8ed73.js?snippet_version=2&callback=addToQueryString';
+
+            var LeadiDscript = document.getElementById('LeadiDscript');
+            if (LeadiDscript) {
+                LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
+            }
+        }, 400);
+
+        // Optional: call if function exists
+        if (typeof waitingInfo === "function") {
+            waitingInfo();
+        }
+    }
+</script>
+
+
+
+<noscript><img src='//create.leadid.com/noscript.gif?lac=A319B121-2C70-E256-9F53-33B66C68AEFB&lck=11536399-98f5-9a89-2a69-051d8af8ed73&snippet_version=2' /></noscript> <!-- t-51--> <!-- t-468-->
+ 
+
+
+	</body></html>

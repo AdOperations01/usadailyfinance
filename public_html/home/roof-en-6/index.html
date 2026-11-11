@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roofing Options Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@700;800&display=swap">
+<style>
+/* Layout concept: single mobile column. Hero with one CTA, a scalloped shingle-edge divider,
+   a layer-by-layer "what a roofer checks" stack, three real steps, FAQ, legal footer.
+   Colors: slate ink on cool paper, patina (oxidized copper) green as the one accent. */
+:root {
+  --bg: #F3F5F2;
+  --surface: #FFFFFF;
+  --ink: #17212B;
+  --muted: #4F5D6A;
+  --line: #D8DDD7;
+  --accent: #1E6B58;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E1EEE9;
+  --l-shingle: #3B4957;
+  --l-under: #8793A0;
+  --l-deck: #C7A877;
+  --l-flash: #B9C2C9;
+  --l-attic: #9DB3A9;
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E141A;
+    --surface: #161F28;
+    --ink: #E9EEF1;
+    --muted: #9AA9B6;
+    --line: #27333E;
+    --accent: #45B89B;
+    --accent-ink: #06211A;
+    --accent-soft: #15302A;
+    --l-shingle: #5A6E80;
+    --l-under: #74828F;
+    --l-deck: #94784A;
+    --l-flash: #8E9AA4;
+    --l-attic: #4F6E62;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E141A;
+  --surface: #161F28;
+  --ink: #E9EEF1;
+  --muted: #9AA9B6;
+  --line: #27333E;
+  --accent: #45B89B;
+  --accent-ink: #06211A;
+  --accent-soft: #15302A;
+  --l-shingle: #5A6E80;
+  --l-under: #74828F;
+  --l-deck: #94784A;
+  --l-flash: #8E9AA4;
+  --l-attic: #4F6E62;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  padding-inline: 20px;
+  padding-block: 0;
+}
+.wrap { max-width: 560px; margin-inline: auto; }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.12; letter-spacing: -0.01em; }
+p { margin: 0; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+/* Top bar */
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 14px; }
+.brand { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.005em; }
+.ad-tag { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+
+/* Preview switcher (turn off with CONFIG.PREVIEW = false) */
+.preview { background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; font-size: 0.8rem; color: var(--muted); }
+.preview b { color: var(--ink); }
+.preview-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.preview button { font: inherit; font-size: 0.8rem; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+.preview button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+/* Hero */
+.hero { padding-top: 14px; padding-bottom: 26px; display: flex; flex-direction: column; gap: 16px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.eyebrow svg { flex: none; }
+h1 { font-size: clamp(1.85rem, 7.2vw, 2.55rem); font-weight: 800; }
+.sub { color: var(--muted); font-size: 1.08rem; }
+.curiosity { color: var(--accent); font-size: 0.95rem; font-weight: 600; }
+.cta {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; min-height: 58px; padding: 14px 20px;
+  background: var(--accent); color: var(--accent-ink);
+  font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; letter-spacing: 0.005em;
+  border: 0; border-radius: 14px; text-decoration: none; cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.18);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.cta:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+.cta:active { transform: translateY(1px); box-shadow: 0 1px 0 rgba(0,0,0,0.2); }
+.cta-note { font-size: 0.86rem; color: var(--muted); text-align: center; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-size: 0.82rem; background: var(--accent-soft); color: var(--ink); padding: 5px 11px; border-radius: 999px; }
+.setup-msg { background: var(--accent-soft); border-radius: 10px; padding: 10px 12px; font-size: 0.85rem; }
+.hero-img { width: 100%; max-height: 220px; object-fit: cover; border-radius: 14px; display: block; }
+.concern-label { font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+.concern-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.concern-row button { font: inherit; font-size: 0.88rem; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.concern-row button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.testi-list { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-direction: column; gap: 12px; }
+.testi-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.testi-quote { font-size: 0.97rem; }
+.testi-quote::before { content: "\201C"; }
+.testi-quote::after { content: "\201D"; }
+.testi-byline { margin-top: 8px; font-size: 0.85rem; color: var(--muted); }
+
+[hidden] { display: none !important; }
+/* Offer */
+.offer-bar { background: var(--accent); color: var(--accent-ink); text-align: center; font-weight: 600; font-size: 0.9rem; padding: 9px 20px; margin-inline: -20px; }
+.offer-box { border: 2px solid var(--accent); background: var(--accent-soft); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.offer-title { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; line-height: 1.2; }
+.offer-deadline { font-weight: 600; color: var(--accent); font-size: 0.95rem; }
+.offer-cap { font-size: 0.9rem; }
+.offer-terms { font-size: 0.8rem; color: var(--muted); }
+
+/* Shingle-edge divider */
+.edge { height: 12px; margin-inline: -20px; background: radial-gradient(circle at 11px 0, var(--accent-soft) 10px, transparent 10.5px) repeat-x; background-size: 22px 12px; }
+
+/* Sections */
+section { padding-block: 28px; }
+.section-title { font-size: 1.45rem; font-weight: 800; }
+.section-lead { color: var(--muted); margin-top: 8px; }
+
+.points { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-direction: column; gap: 12px; }
+.points li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; }
+.points svg { margin-top: 3px; }
+
+/* Layer stack */
+.stack { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 4px; }
+.layer { display: grid; grid-template-columns: 104px 1fr; gap: 14px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.slab { height: 38px; width: 100%; clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 100%); }
+.slab.shingle { background:
+  repeating-linear-gradient(100deg, transparent 0 17px, rgba(255,255,255,.22) 17px 18.5px), var(--l-shingle); }
+.slab.under { background: var(--l-under); height: 22px; }
+.slab.deck { background: repeating-linear-gradient(90deg, transparent 0 24px, rgba(0,0,0,.18) 24px 25.5px), var(--l-deck); }
+.slab.flash { background: var(--l-flash); height: 14px; }
+.slab.attic { background: var(--l-attic); }
+.layer b { font-family: var(--font-display); font-size: 1.02rem; display: block; }
+.layer span { font-size: 0.93rem; color: var(--muted); display: block; }
+.pitch { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 0.85rem; color: var(--muted); }
+
+/* Steps */
+.steps { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-direction: column; gap: 14px; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: start; counter-increment: s; }
+.steps li::before { content: counter(s); font-family: var(--font-display); font-weight: 800; width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); }
+.steps b { display: block; }
+.steps span { color: var(--muted); font-size: 0.95rem; }
+
+/* FAQ */
+.faq { margin-top: 16px; border-top: 1px solid var(--line); }
+details { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; list-style: none; padding: 16px 28px 16px 0; font-weight: 600; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: ""; position: absolute; right: 4px; top: 50%; width: 9px; height: 9px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: translateY(-70%) rotate(45deg); transition: transform .15s ease; }
+details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+details p { padding: 0 0 16px; color: var(--muted); font-size: 0.97rem; }
+
+/* Footer */
+footer { padding-block: 28px 40px; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--muted); display: flex; flex-direction: column; gap: 10px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* Sticky CTA */
+.sticky { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 20px calc(10px + env(safe-area-inset-bottom, 0px)); background: color-mix(in srgb, var(--bg) 92%, transparent); border-top: 1px solid var(--line); transform: translateY(110%); transition: transform .2s ease; z-index: 5; }
+.sticky.show { transform: translateY(0); }
+.sticky .cta { max-width: 560px; margin-inline: auto; min-height: 54px; }
+body.has-sticky { padding-bottom: 84px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+<!-- Meta Pixel Code -->
+        <script>
+            !(function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function () {
+                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = "2.0";
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s);
+            })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+            fbq("init", "1071362292538053");
+            fbq("track", "PageView");
+            fbq('track', 'ViewContent');
+        </script>
+        <noscript
+            ><img
+                height="1"
+                width="1"
+                style="display: none"
+                src="https://www.facebook.com/tr?id=1605887617799355&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Meta Pixel Code -->
+</head>
+<body>
+<div class="offer-bar" id="offer-bar" hidden><span id="offer-bar-text"></span></div>
+<div class="wrap">
+  <header class="topbar" style="display:none">
+    <span class="brand" id="brand"></span>
+    <span class="ad-tag">Advertisement</span>
+  </header>
+
+  <div class="preview" id="preview" hidden>
+    <b>Preview mode.</b> Pick an angle to see its headline. On your live page the angle comes from the link, for example <b>?a=cost</b>.
+    <div class="preview-row" id="preview-row"></div>
+  </div>
+
+  <main>
+    <div class="hero">
+      <span class="eyebrow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12 12 4l9 8"/><path d="M5.5 10.5V20h13v-9.5"/></svg>
+        <span id="eyebrow"></span>
+      </span>
+      <h1 id="h1"></h1>
+      <p class="sub" id="sub"></p>
+      <p class="curiosity" id="curiosity" hidden></p>
+      <img class="hero-img" id="hero-img" alt="" hidden>
+      <div class="offer-box" id="offer-box" hidden>
+        <p class="offer-title" id="offer-title"></p>
+        <p class="offer-deadline" id="offer-deadline" hidden></p>
+        <p class="offer-cap" id="offer-cap" hidden></p>
+        <p class="offer-terms" id="offer-terms"></p>
+      </div>
+      <div class="chips" id="chips" ></div>
+      <div class="concern" id="concern" hidden>
+        <!--<p class="concern-label" id="concern-label">What's your main concern?</p>-->
+        <div class="concern-row" id="concern-row" style="display:none"></div>
+      </div>
+      <a class="cta" id="cta-hero" href="#">Check My ZIP Code</a>
+      <p class="cta-note" id="cta-note"></p>
+      <p class="setup-msg" id="setup-msg" hidden></p>
+    </div>
+    <!--<div class="edge" aria-hidden="true"></div>-->
+
+    <section aria-labelledby="pts">
+      <h2 class="section-title" id="pts"></h2>
+      <ul class="points" id="points"></ul>
+    </section>
+
+    <section aria-labelledby="stack-h" style="padding-top:8px">
+      <h2 class="section-title" id="stack-h">What a roofer looks at</h2>
+      <p class="section-lead">A roof is a stack of layers. Problems tend to start where two of them meet.</p>
+      <ul class="stack">
+        <li class="layer"><div class="slab shingle" aria-hidden="true"></div><div><b>Shingles</b><span>The outer layer. Look for lifted, cracked or missing pieces.</span></div></li>
+        <li class="layer"><div class="slab under" aria-hidden="true"></div><div><b>Underlayment</b><span>A water barrier under the shingles.</span></div></li>
+        <li class="layer"><div class="slab deck" aria-hidden="true"></div><div><b>Decking</b><span>The boards everything fastens to. Soft or dark spots matter.</span></div></li>
+        <li class="layer"><div class="slab flash" aria-hidden="true"></div><div><b>Flashing</b><span>Metal that seals chimneys, vents and valleys.</span></div></li>
+        <li class="layer"><div class="slab attic" aria-hidden="true"></div><div><b>Attic side</b><span>Damp insulation or stained wood can show water getting in.</span></div></li>
+      </ul>
+      <p class="pitch">
+        <svg width="34" height="20" viewBox="0 0 34 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M2 18 32 18 32 4Z"/></svg>
+        Roofers describe slope as rise over run. A 6:12 pitch rises 6 inches for every 12 across.
+      </p>
+    </section>
+
+    <section aria-labelledby="how-h" style="padding-top:8px">
+      <h2 class="section-title" id="how-h">How it works</h2>
+      <ol class="steps">
+        <li><div><b>Enter your ZIP code</b><span>This checks whether your area is covered.</span></div></li>
+        <li><div><b>Answer a few questions</b><span>Tell us about your roof and the work you have in mind.</span></div></li>
+        <li><div><b>Hear from local professionals</b><span>Participating roofers serving your ZIP code may contact you.</span></div></li>
+      </ol>
+      <div style="margin-top:22px"><a class="cta" id="cta-mid" href="#">Check My ZIP Code</a></div>
+    </section>
+
+    <section aria-labelledby="testi-h" id="testi-section" style="padding-top:8px" hidden>
+      <h2 class="section-title" id="testi-h">What homeowners say</h2>
+      <ul class="testi-list" id="testi-list"></ul>
+    </section>
+
+    <section aria-labelledby="faq-h" style="padding-top:8px">
+      <h2 class="section-title" id="faq-h">Common questions</h2>
+      <div class="faq" id="faq"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p id="legal"></p>
+    <nav aria-label="Legal">
+      <a id="privacy" href="#">Privacy Policy</a>
+      <a id="terms" href="#">Terms of Use</a>
+    </nav>
+    <p id="contact" hidden></p>
+  </footer>
+</div>
+
+<div class="sticky" id="sticky"><a class="cta" id="cta-sticky" href="#">Check My ZIP Code</a></div>
+
+<script>
+/* ---------- Settings: edit these before you publish ---------- */
+const CONFIG = {
+  OFFER_URL: "https://globalvisitclub.com/cf/click/1", // offer network's click link, from usadailyfinance.com/home/roof-en-5
+  BRAND: "",             // TODO: shown top left and in the legal text — replace with your real brand/site name
+  PRIVACY_URL: "#",                           // TODO: required: your real privacy policy
+  TERMS_URL: "#",                             // TODO: required: your real terms
+  CONTACT: "",                                // optional contact line, e.g. an email address
+  FREE_INSPECTION: true,                      // every ad script's CTA is "Request a FREE Roof Inspection" — this is the actual offer being advertised
+  OFFER_TEXT: "Free Roof Inspection — No Cost, No Obligation", // matches what every script promises; "no out-of-pocket cost full replacement" is NOT claimed in any script, so don't promise it here
+  OFFER_TERMS: "", // left blank — add real terms from the network here if/when you have them
+  OFFER_END: "",                                // TODO: add a REAL end date here for genuine "limited time" urgency, e.g. "2026-11-15T23:59:59-05:00" — leave blank rather than faking one
+  CAPACITY_NOTE: "",                            // TODO: scripts don't reference a spot count — only add this back if the network confirms a real, current limit
+  CTA_OFFER_LABEL: "CHECK MY ZIP CODE NOW",
+  PASS_THROUGH: true,                         // forward click IDs and sub IDs from the ad link to the offer
+  PREVIEW: false,                             // shows the angle switcher; set false on the live page
+  MAX_CONTACTS: "",                           // TODO: ask the network — e.g. "up to 4". Leave "" to use a generic FAQ answer instead
+  SHOW_CONCERN_SELECTOR: true,                // shows the "What's your main concern?" chip row above the CTA
+  CURIOSITY_LINE: "Get Your Roof Replacement or Repair at almost no cost.", // small curiosity line shown under the main sub text, not the primary offer claim
+  TESTIMONIALS: [
+    // Add REAL quotes only — from actual customers/reviews you can stand behind, with their permission to use.
+    // Never invent a name, photo or quote: fabricated testimonials attributed to real-sounding people violate
+    // FTC endorsement rules and Meta's misleading-content policy, and are a fast way to get the ad account banned.
+    // Leave this array empty to hide the section entirely until you have real ones to add. Example shape:
+    // { quote: "Exact words the customer said or wrote, kept short.", name: "First L.", location: "City, ST" }
+  ]
+};
+
+/* Angle-agnostic concern options. Selecting one doesn't override the ad's ?a= angle —
+   it's just appended to the offer link as &concern=... so you can see at the offer/network
+   level which self-selected concern converts best, independent of which ad/angle sent the click. */
+const CONCERNS = [
+  { k: "leak", label: "Active leak" },
+  { k: "old", label: "Old / aging roof" },
+  { k: "storm", label: "Storm or hail damage" },
+  { k: "quote", label: "Comparing quotes" },
+  { k: "check", label: "Just checking" }
+];
+let selectedConcern = "";
+
+/* ---------- Copy by angle. Open the page with ?a=cost, ?a=damage ... ---------- */
+const ANGLES = {
+  default: {
+    label: "Default", eyebrow: "Local roofing",
+    img: "REPLACE_WITH_IMAGE_URL_default", // optional: a real photo matching this angle; hidden automatically if left as placeholder
+    h1: "Need Roof Repairs or Replacement? Explore Local Roofing Options",
+    sub: "Check your ZIP code to see local roofing services for repairs, replacements and inspections.",
+    ptsTitle: "Why start with a ZIP code",
+    pts: ["Roofing companies serve specific areas, so location comes first.", "Your answers help point your request to the right kind of work.", "Submitting a request doesn't obligate you to hire anyone."]
+  },
+  cost: {
+    label: "Cost", eyebrow: "Roof quotes",
+    img: "REPLACE_WITH_IMAGE_URL_cost", // optional: a real photo matching this angle; hidden automatically if left as placeholder
+    h1: "Two roofing quotes can be thousands apart. Compare before you decide.",
+    sub: "Materials, scope, tear-off and warranty all change the price. Start by checking roofing options in your area.",
+    ptsTitle: "What changes a roofing quote",
+    pts: ["Roof size, slope and the materials chosen.", "Whether the old roof is removed and how much decking needs repair.", "Warranty terms and what the quote leaves out."]
+  },
+  damage: {
+    label: "Leaks", eyebrow: "Roof leaks",
+    img: "REPLACE_WITH_IMAGE_URL_damage", // optional: a real photo matching this angle; hidden automatically if left as placeholder
+    h1: "A ceiling stain can point to a roof problem. Find out where the water comes from.",
+    sub: "Small leaks can spread into insulation and framing. A roofer can check the flashing, shingles and decking.",
+    ptsTitle: "Why leaks are worth tracing",
+    pts: ["Water can travel before it shows up on a ceiling.", "Painting over a stain doesn't stop the source.", "A repeated repair in the same spot is a reason to look closer."]
+  },
+  winter: {
+    label: "Winter", eyebrow: "Before winter",
+    img: "REPLACE_WITH_IMAGE_URL_winter", // optional: a real photo matching this angle; hidden automatically if left as placeholder
+    h1: "Check your roof before winter weather arrives.",
+    sub: "Loose shingles and small leaks are easier to deal with before cold weather and storms set in.",
+    ptsTitle: "What to look at first",
+    pts: ["Missing or lifted shingles after wind.", "Flashing around chimneys and vents.", "Stains or dampness in the attic or on ceilings."]
+  },
+  local: {
+    label: "Local", eyebrow: "Local roofing",
+    img: "REPLACE_WITH_IMAGE_URL_local", // optional: a real photo matching this angle; hidden automatically if left as placeholder
+    h1: "Find roofing services that cover your ZIP code.",
+    sub: "Enter your ZIP code, answer a few questions and start a roofing request for your area.",
+    ptsTitle: "What you can start with",
+    pts: ["Roof repair, replacement or inspection requests.", "Roofing professionals who serve your area.", "A request that takes a few answers, not a long form."]
+  },
+  edu: {
+    label: "Hiring", eyebrow: "Before you hire",
+    img: "REPLACE_WITH_IMAGE_URL_edu", // optional: a real photo matching this angle; hidden automatically if left as placeholder
+    h1: "What should a roofer actually check? Know before you sign.",
+    sub: "A clear inspection and a written estimate make quotes easier to compare.",
+    ptsTitle: "Five things worth verifying",
+    pts: ["License, where your state requires one.", "Proof of insurance.", "A written estimate that explains the work.", "Materials and warranty terms.", "Recent reviews and references."]
+  },
+  story: {
+    label: "Roof check", eyebrow: "Roof check",
+    img: "REPLACE_WITH_IMAGE_URL_story", // optional: a real photo matching this angle; hidden automatically if left as placeholder
+    h1: "Not sure what condition your roof is in? Start with the facts.",
+    sub: "From the driveway a roof can look fine. Wear shows up close.",
+    ptsTitle: "What close-up wear looks like",
+    pts: ["Curling shingles or granules collecting in gutters.", "Cracked or lifted flashing near vents.", "Exposed nails or soft spots in the decking."]
+  },
+  afford: {
+    label: "Afford", eyebrow: "Roofing on a budget",
+    img: "REPLACE_WITH_IMAGE_URL_afford", // optional: a real photo matching this angle; hidden automatically if left as placeholder
+    h1: "Been putting off a new roof because of the cost?",
+    sub: "A full replacement isn't always the only option. Find out what your roof actually needs before assuming you can't afford it.",
+    ptsTitle: "Why cost shouldn't stop you from checking",
+    pts: ["Repairs may be possible instead of a full replacement.", "Some contractors offer payment or financing options worth asking about.", "A free inspection costs nothing and doesn't commit you to anything."]
+  },
+  trust: {
+    label: "Trust", eyebrow: "Before you start",
+    img: "REPLACE_WITH_IMAGE_URL_trust", // optional: a real photo matching this angle; hidden automatically if left as placeholder
+    h1: "A free roof inspection sounds too good to be true. Here's how it actually works.",
+    sub: "No charge, no obligation to hire anyone. See what's included before you decide.",
+    ptsTitle: "What to know before you request one",
+    pts: ["There's no cost to request an inspection.", "You're not required to move forward with any work.", "Participating roofers in your ZIP code may follow up to schedule it."]
+  }
+};
+
+/* ---------- Page logic ---------- */
+const $ = (id) => document.getElementById(id);
+
+/* Offer state. The deadline is one fixed date for every visitor. It never resets,
+   and once it passes the offer disappears instead of showing a stale deadline. */
+function computeOffer() {
+  const o = { active: false, text: CONFIG.OFFER_TEXT, deadline: "" };
+  if (!CONFIG.OFFER_TEXT) return o;
+  o.active = true;
+  if (CONFIG.OFFER_END) {
+    const end = new Date(CONFIG.OFFER_END);
+    if (!isNaN(end.getTime())) {
+      const ms = end.getTime() - Date.now();
+      if (ms <= 0) { o.active = false; return o; }
+      /* show the calendar date exactly as written in OFFER_END, so every visitor sees the same date */
+      const ymd = String(CONFIG.OFFER_END).slice(0, 10).split("-").map(Number);
+      const when = ymd.length === 3 && ymd[0] ? new Date(ymd[0], ymd[1] - 1, ymd[2]).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : end.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      const days = Math.ceil(ms / 86400000);
+      o.deadline = ms < 86400000 ? "Offer ends today (" + when + ")" : "Offer ends " + when + " · " + days + " days left";
+    }
+  }
+  return o;
+}
+const OFFER = computeOffer();
+
+function renderOffer() {
+  const bar = $("offer-bar"), box = $("offer-box");
+  if (!OFFER.active) { bar.hidden = true; box.hidden = true; return; }
+  $("offer-bar-text").textContent = OFFER.text + (OFFER.deadline ? " · " + OFFER.deadline : "");
+  $("offer-title").textContent = OFFER.text;
+  const dl = $("offer-deadline"); dl.textContent = OFFER.deadline; dl.hidden = !OFFER.deadline;
+  const cap = $("offer-cap"); cap.textContent = CONFIG.CAPACITY_NOTE; cap.hidden = !CONFIG.CAPACITY_NOTE;
+  const tm = $("offer-terms"); tm.textContent = CONFIG.OFFER_TERMS; tm.hidden = !CONFIG.OFFER_TERMS;
+  bar.hidden = false; box.hidden = false;
+  ["cta-hero", "cta-mid", "cta-sticky"].forEach((id) => { $(id).textContent = CONFIG.CTA_OFFER_LABEL; });
+}
+const SVG_CHECK = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--accent)"><circle cx="12" cy="12" r="10" stroke-width="1.8" opacity=".35"/><path d="m7.5 12.5 3 3 6-7"/></svg>';
+
+function pickAngle() {
+  let a = "";
+  try { a = new URLSearchParams(location.search).get("a") || ""; } catch (e) {}
+  if (!a) { try { a = (location.hash || "").replace("#", ""); } catch (e) {} }
+  return ANGLES[a] ? a : "default";
+}
+
+function render(key) {
+  const A = ANGLES[key];
+  $("eyebrow").textContent = A.eyebrow;
+  $("h1").textContent = A.h1;
+  $("sub").textContent = A.sub;
+  const cur = $("curiosity");
+  if (CONFIG.CURIOSITY_LINE) { cur.textContent = CONFIG.CURIOSITY_LINE; cur.hidden = false; } else { cur.hidden = true; }
+  $("pts").textContent = A.ptsTitle;
+  const ul = $("points"); ul.textContent = "";
+  A.pts.forEach((t) => {
+    const li = document.createElement("li");
+    li.innerHTML = SVG_CHECK;
+    const p = document.createElement("p"); p.textContent = t; li.appendChild(p);
+    ul.appendChild(li);
+  });
+  const chips = $("chips"); chips.textContent = "";
+  const chipTexts = ["U.S. property owners", "Covered ZIP codes only"];
+  if (CONFIG.FREE_INSPECTION) chipTexts.unshift("");
+  chipTexts.forEach((t) => { const s = document.createElement("span"); s.className = "chip"; s.textContent = t; chips.appendChild(s); });
+  $("cta-note").textContent = (OFFER.active ? "Next step: enter your ZIP code. The offer is available in covered ZIP codes. " : "Next step: enter your ZIP code. ") + "Submitting a request doesn't obligate you to hire anyone.";
+  document.querySelectorAll("#preview-row button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === key ? "true" : "false"));
+
+  /* Hero image: each angle can carry its own img so the photo matches whichever
+     ad hook sent the click. If an angle has no img set (or it's still the
+     placeholder), the image is hidden rather than showing a broken/mismatched photo. */
+  const img = $("hero-img");
+  if (A.img && !/^REPLACE/.test(A.img)) { img.src = A.img; img.alt = A.h1; img.hidden = false; }
+  else { img.hidden = true; }
+}
+
+function buildConcernSelector() {
+  const wrap = $("concern");
+  if (!CONFIG.SHOW_CONCERN_SELECTOR) { wrap.hidden = true; return; }
+  wrap.hidden = false;
+  const row = $("concern-row"); row.textContent = "";
+  CONCERNS.forEach((c) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = c.label; b.dataset.k = c.k;
+    b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", () => {
+      selectedConcern = selectedConcern === c.k ? "" : c.k;
+      row.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x.dataset.k === selectedConcern ? "true" : "false"));
+      try { if (window.fbq) window.fbq("trackCustom", "ConcernSelected", { concern: selectedConcern }); } catch (e) {}
+      ["cta-hero", "cta-mid", "cta-sticky"].forEach((id) => { $(id).href = offerHref(); });
+    });
+    row.appendChild(b);
+  });
+}
+
+function buildFaq() {
+  const free = CONFIG.FREE_INSPECTION;
+  const items = [
+    ["Who will contact me, and how many calls should I expect?",
+      CONFIG.MAX_CONTACTS
+        ? "Participating roofing professionals serving your ZIP code may contact you by phone, text or email — " + CONFIG.MAX_CONTACTS + " — using the details you submit, as described in the consent terms on the next page."
+        : "Participating roofing professionals serving your ZIP code may contact you by phone, text or email using the details you submit, as described in the consent terms on the next page."],
+    ["Does it cost anything to submit a request?",
+      free ? "There's no charge to submit a request, and the roof inspection offered through this page is free. You're not obligated to hire anyone."
+           : "There's no charge to submit a request, and submitting one doesn't obligate you to hire anyone. Any work or fees are agreed directly with a contractor."],
+    ["Do I need to own my home?", "This service is for U.S. property owners in covered ZIP codes. If you rent, roof work is handled by your landlord or property manager."],
+    ["What happens after I enter my ZIP code?", "You'll answer a few questions about your roof and the work you're considering, so your request can be directed to the right professionals."]
+  ];
+  if (OFFER.active) items.unshift(["How does the offer work?", OFFER.text + ". " + (CONFIG.OFFER_TERMS ? CONFIG.OFFER_TERMS + " " : "") + "Ask the roofing professional to confirm the details before you agree to any work."]);
+  const faq = $("faq"); faq.textContent = "";
+  items.forEach(([q, a]) => {
+    const d = document.createElement("details");
+    const s = document.createElement("summary"); s.textContent = q;
+    const p = document.createElement("p"); p.textContent = a;
+    d.appendChild(s); d.appendChild(p); faq.appendChild(d);
+  });
+}
+
+function buildTestimonials() {
+  const section = $("testi-section");
+  const list = CONFIG.TESTIMONIALS || [];
+  if (!list.length) { section.hidden = true; return; } // nothing real supplied yet — stay hidden rather than show placeholders
+  section.hidden = false;
+  const ul = $("testi-list"); ul.textContent = "";
+  list.forEach((t) => {
+    const li = document.createElement("li"); li.className = "testi-card";
+    const q = document.createElement("p"); q.className = "testi-quote"; q.textContent = t.quote;
+    const by = document.createElement("p"); by.className = "testi-byline"; by.textContent = [t.name, t.location].filter(Boolean).join(" · ");
+    li.appendChild(q); li.appendChild(by); ul.appendChild(li);
+  });
+}
+
+function offerHref() {
+  let url = CONFIG.OFFER_URL;
+  if (CONFIG.PASS_THROUGH) {
+    try {
+      const qs = new URLSearchParams(location.search); qs.delete("a");
+      if (selectedConcern) qs.set("concern", selectedConcern);
+      const extra = qs.toString();
+      if (extra) url += (url.indexOf("?") > -1 ? "&" : "?") + extra;
+    } catch (e) {}
+  }
+  return url;
+}
+
+function wireCtas() {
+  const ready = !/^REPLACE/.test(CONFIG.OFFER_URL);
+  ["cta-hero", "cta-mid", "cta-sticky"].forEach((id) => {
+    const el = $(id);
+    el.href = ready ? offerHref() : "#";
+    el.addEventListener("click", (ev) => {
+      try { if (window.fbq) window.fbq("trackCustom", "PrelanderClick"); } catch (e) {}
+      if (!ready) {
+        ev.preventDefault();
+        const m = $("setup-msg");
+        m.textContent = "Setup step: replace OFFER_URL in the settings at the top of the script with your offer link. The button then sends visitors there.";
+        m.hidden = false;
+      }
+    });
+  });
+}
+
+function wireSticky() {
+  document.body.classList.add("has-sticky");
+  const st = $("sticky"), hero = $("cta-hero");
+  if (!("IntersectionObserver" in window)) { st.classList.add("show"); return; }
+  new IntersectionObserver((es) => {
+    es.forEach((e) => st.classList.toggle("show", !e.isIntersecting && e.boundingClientRect.top < 0));
+  }, { threshold: 0 }).observe(hero);
+}
+
+function buildPreview() {
+  if (!CONFIG.PREVIEW) return;
+  $("preview").hidden = false;
+  const row = $("preview-row");
+  Object.keys(ANGLES).forEach((k) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = ANGLES[k].label; b.dataset.k = k;
+    b.addEventListener("click", () => render(k));
+    row.appendChild(b);
+  });
+}
+
+$("brand").textContent = CONFIG.BRAND;
+$("privacy").href = CONFIG.PRIVACY_URL;
+$("terms").href = CONFIG.TERMS_URL;
+$("legal").textContent = "";
+if (CONFIG.CONTACT) { $("contact").textContent = "Contact: " + CONFIG.CONTACT; $("contact").hidden = false; }
+if (OFFER.active) $("legal").textContent += " Offer: " + OFFER.text + "." + (CONFIG.OFFER_TERMS ? " " + CONFIG.OFFER_TERMS : "");
+renderOffer(); buildFaq(); buildTestimonials(); buildPreview(); buildConcernSelector(); render(pickAngle()); wireCtas(); wireSticky();
+</script>
+
+</body>
+</html>

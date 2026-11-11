@@ -1,0 +1,1511 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1748568772839830');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1748568772839830&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Meta Pixel: outbound CTA -> Lead (delegated, fires once per pageview) -->
+<script>
+(function(){
+  var OFFER_HOSTS = ['https://globalvisitclub.com/cf/click/1'];
+  var fired = false;
+  function evId(){
+    return 'lead.' + Date.now().toString(36) + '.' +
+           Math.random().toString(36).slice(2, 10);
+  }
+  document.addEventListener('click', function(e){
+    if (fired || !e.target || !e.target.closest) return;
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var host;
+    try { host = new URL(a.href, location.href).hostname.replace(/^www\./, ''); }
+    catch (err) { return; }
+    if (OFFER_HOSTS.indexOf(host) === -1) return;
+    fired = true;
+    var id = evId();
+    a.setAttribute('data-fb-event-id', id);
+    if (window.fbq) fbq('track', 'Lead', {
+      content_name: document.title,
+      content_category: 'ccw-lander'
+    }, { eventID: id });
+  }, true);
+})();
+</script>
+<!-- End Meta Pixel CTA tracking -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXCLUSIVE: New Bill Passes — Online Concealed Carry</title>
+  <meta name="description" content="A new federal bill makes your concealed carry permit valid in all 50 states. See if you qualify online in under 25 minutes.">
+
+
+<!-- Google Fonts: Anton (heavy condensed sans, closest match to reference headline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <!-- VTurb / ConverteAI fast-load: perf marker, preload player + first segment, DNS prefetch -->
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+  <link rel="preload" href="https://scripts.converteai.net/ac4c985d-30dd-4997-8a10-91a26b03effb/players/6a2836973297d110aa6c01d6/v4/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="preload" href="https://cdn.converteai.net/ac4c985d-30dd-4997-8a10-91a26b03effb/6a2836751bc96b19a568e7a2/main.m3u8" as="fetch">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://license.vturb.com">
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== CUSTOM PROPERTIES ===== */
+    :root {
+      --navy:   #1a1f35;
+      --red:    #cc0000;
+      --orange: #f5a623;
+      --white:  #ffffff;
+      --gray:   #888888;
+      --light-gray: #f4f4f4;
+      --border-gray: #ddd;
+      --comment-bg: #f0f2f5;
+      --blue-link: #1877f2;
+      --text: #111111;
+      --max-content: 940px;
+      --max-article: 900px;
+      --max-video: 640px;
+    }
+
+    /* ===== BASE ===== */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===== NEWS CHROME ===== */
+    .news-chrome {
+      width: 100%;
+      background: var(--navy);
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .news-chrome::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--red);
+    }
+
+    .news-logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .news-logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .news-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .news-nav span {
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .news-nav span:hover {
+      color: #ccc;
+    }
+
+    .nav-live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-live-dot::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+    }
+
+    .news-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-login {
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.6);
+      background: transparent;
+      padding: 5px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      border-radius: 2px;
+      font-family: Arial, sans-serif;
+    }
+
+    .nav-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .nav-avatar svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--white);
+    }
+
+    .nav-menu-dots {
+      color: var(--white);
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ===== HEADLINE BLOCK ===== */
+    .headline-block {
+      background: var(--white);
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .headline-block-inner {
+      max-width: var(--max-article);
+      margin: 0 auto;
+    }
+
+    .headline-h1 {
+      font-family: 'Anton', 'Arial Black', Arial, sans-serif;
+      font-size: 56px;
+      font-weight: 400; /* Anton is inherently heavy */
+      line-height: 1.08;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 36px;
+      letter-spacing: 0.5px;
+    }
+
+    .headline-h1 .exclusive {
+      color: var(--red);
+    }
+
+    .headline-h1 .rest {
+      color: var(--text);
+    }
+
+    .headline-sub {
+      font-family: 'Anton', 'Arial Black', Arial, sans-serif;
+      font-size: 32px;
+      font-weight: 400; /* Anton is inherently heavy */
+      color: var(--red);
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 36px;
+      letter-spacing: 0.3px;
+    }
+
+    .byline {
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.8;
+      text-align: left;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .byline-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .byline-source {
+      font-weight: 600;
+      color: #555;
+    }
+
+    .byline-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .byline-clock {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .byline-clock svg {
+      width: 13px;
+      height: 13px;
+      fill: var(--gray);
+    }
+
+    /* ===== VIDEO REGION ===== */
+    .video-section {
+      background: var(--white);
+      padding: 10px 20px 30px;
+    }
+
+    .video-region {
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
+      display: block;
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #1a1a2e;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-frame img.video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Orange overlay CTA */
+    .video-overlay-cta {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--orange);
+      padding: 12px 22px;
+      text-align: center;
+      border-radius: 4px;
+      min-width: 180px;
+    }
+
+    .video-overlay-label {
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 400;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .video-overlay-icon {
+      font-size: 24px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .video-overlay-click {
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      display: block;
+    }
+
+    /* Lower-third caption */
+    .video-lower-third {
+      position: absolute;
+      bottom: 36px;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.82);
+      padding: 10px 14px;
+    }
+
+    .video-lower-third-text {
+      color: var(--white);
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+
+    /* Chyron */
+    .video-chyron {
+      background: var(--navy);
+      padding: 5px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chyron-label {
+      color: #f5c842;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .chyron-sep {
+      color: rgba(255,255,255,0.4);
+      font-size: 11px;
+    }
+
+    .chyron-breaking {
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Apply Now CTA under video */
+    .apply-now-cta {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 16px auto 0;
+      background: #16a34a;
+      color: var(--white);
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      text-align: center;
+      padding: 16px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      animation: ctaPulse 1.5s ease-in-out infinite;
+    }
+
+    .apply-now-cta:hover { background: #15803d; }
+
+    .bottom-cta-section {
+      padding: 0 20px 40px;
+    }
+
+    @keyframes ctaPulse {
+      0%   { transform: scale(1);    box-shadow: 0 0 0 0 rgba(22,163,74,0.55); }
+      70%  { transform: scale(1.03); box-shadow: 0 0 0 14px rgba(22,163,74,0); }
+      100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(22,163,74,0); }
+    }
+
+    /* ===== SHARE BAR ===== */
+    .share-bar-wrapper {
+      max-width: var(--max-content);
+      margin: 30px auto 0;
+      padding: 0 20px;
+    }
+
+    .share-bar-rule {
+      height: 2px;
+      background: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .share-bar-text {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .share-bar-rule-bottom {
+      height: 2px;
+      background: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1.5px solid #333;
+      border-radius: 50px;
+      padding: 8px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      cursor: pointer;
+      background: transparent;
+      white-space: nowrap;
+    }
+
+    .share-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ===== COMMENT WALL ===== */
+    .comment-wall-wrapper {
+      max-width: var(--max-content);
+      margin: 30px auto 0;
+      padding: 0 20px 40px;
+    }
+
+    .comment-wall {
+      border: 1px solid var(--border-gray);
+      border-radius: 4px;
+      padding: 20px 20px 10px;
+    }
+
+    .comment-wall-header {
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    .comment-card {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .comment-card:last-child {
+      border-bottom: none;
+      margin-bottom: 6px;
+    }
+
+    .comment-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #ddd;
+    }
+
+    .comment-body {
+      flex: 1;
+    }
+
+    .comment-name {
+      color: var(--blue-link);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .comment-bubble {
+      background: var(--comment-bg);
+      border-radius: 8px;
+      padding: 10px 13px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.55;
+      margin-bottom: 6px;
+    }
+
+    .comment-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .comment-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comment-action {
+      font-size: 12px;
+      color: var(--gray);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .comment-action:hover {
+      color: #555;
+    }
+
+    .comment-time {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .comment-reactions {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .reactions-bubble {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--white);
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      padding: 3px 8px;
+      font-size: 13px;
+    }
+
+    .reaction-emojis {
+      font-size: 14px;
+    }
+
+    .reaction-count {
+      font-size: 13px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--white);
+      border-top: 1px solid #eee;
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: var(--max-content);
+      margin: 0 auto;
+    }
+
+    .footer-disclaimer {
+      font-size: 10px;
+      color: #bbb;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      font-size: 10px;
+      color: #bbb;
+      text-decoration: underline;
+    }
+
+    /* ===== MODAL OVERLAY ===== */
+    #offer-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.72);
+      align-items: center;
+      justify-content: center;
+    }
+
+    #offer-modal.visible {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--white);
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      border-top: 5px solid #aed6f1;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      padding: 36px 36px 30px;
+      text-align: center;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 30px;
+      height: 30px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .modal-only-today {
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    .modal-image {
+      max-width: 220px;
+      margin: 0 auto 22px;
+      display: block;
+    }
+
+    .modal-subline {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.45;
+      margin-bottom: 22px;
+      font-weight: 600;
+    }
+
+    .btn-cta-modal {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      padding: 16px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .btn-cta-modal:hover {
+      background: #e0921a;
+    }
+
+    .modal-sub {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .headline-h1 {
+        font-size: 36px;
+      }
+      .headline-sub {
+        font-size: 22px;
+      }
+      .news-nav {
+        display: none;
+      }
+      .modal-card {
+        padding: 28px 20px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .headline-h1 {
+        font-size: 28px;
+      }
+      .headline-sub {
+        font-size: 18px;
+      }
+    }
+
+    /* ===== MOBILE RESPONSIVE (390px phones) ===== */
+    @media (max-width: 600px) {
+      /* Nav: hide center links, keep logo + actions */
+      .news-nav {
+        display: none;
+      }
+      .news-chrome {
+        padding: 0 14px;
+        height: 26px;
+      }
+      .btn-login {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+
+      /* Headline */
+      .headline-block {
+        padding: 28px 14px 18px;
+      }
+      .headline-h1 {
+        font-size: 28px;
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+      .headline-sub {
+        font-size: 18px;
+        margin-bottom: 24px;
+      }
+      .byline-meta {
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+      }
+
+      /* Video region — full-width, fluid 16:9 */
+      .video-section {
+        padding: 6px 0 16px;
+      }
+      .video-region {
+        max-width: 100%;
+        width: 100%;
+        display: block;
+      }
+      .video-lower-third {
+        bottom: 28px;
+        padding: 8px 10px;
+      }
+      .video-lower-third-text {
+        font-size: 11px;
+      }
+      .video-overlay-cta {
+        padding: 8px 14px;
+        min-width: 140px;
+      }
+      .video-overlay-label {
+        font-size: 11px;
+      }
+      .video-overlay-icon {
+        font-size: 18px;
+      }
+      .video-overlay-click {
+        font-size: 13px;
+      }
+      .video-chyron {
+        padding: 4px 10px;
+      }
+
+      /* Share bar */
+      .share-bar-wrapper {
+        padding: 0 14px;
+      }
+      .share-buttons {
+        gap: 8px;
+      }
+      .share-btn {
+        padding: 7px 14px;
+        font-size: 13px;
+      }
+
+      /* Comment wall */
+      .comment-wall-wrapper {
+        padding: 0 10px 30px;
+      }
+      .comment-wall {
+        padding: 14px 12px 8px;
+      }
+      .comment-bubble {
+        font-size: 13px;
+      }
+      .comment-name {
+        font-size: 13px;
+      }
+      .comment-action,
+      .comment-time {
+        font-size: 11px;
+      }
+      .reaction-count {
+        font-size: 12px;
+      }
+
+      /* Modal — fits 390px viewport */
+      .modal-card {
+        width: 92vw;
+        padding: 24px 16px 20px;
+        max-width: 92vw;
+      }
+      .modal-only-today {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+      .modal-image {
+        max-width: 160px;
+        margin-bottom: 14px;
+      }
+      .modal-subline {
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+      .btn-cta-modal {
+        font-size: 15px;
+        padding: 14px 16px;
+        max-width: 100%;
+        width: 100%;
+        display: block;
+      }
+
+      /* Prevent horizontal overflow */
+      body {
+        overflow-x: hidden;
+      }
+    }
+    video {
+    width: 100%;
+    height: 100%;
+}
+
+        .ccw-header {
+    width: 100%;
+    text-align: center !important;
+    font-size: clamp(22px, 4vw, 24px) !important;
+    font-weight: 700 !important;
+    color: #222 !important;
+    margin: 10px auto !important;
+    line-height: 1.3 !important;
+}
+.ccw-location-btn {
+    display: block;
+    width: fit-content;
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 16px 28px;
+
+    background: #ffd400;
+    color: #111;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.4;
+
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+
+    /* Scale + color popup */
+    animation: ccwPopup 1.4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* Popup + glow animation */
+@keyframes ccwPopup {
+    0% {
+        transform: scale(1);
+        background: #ffd400;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    40% {
+        transform: scale(1.08);
+        background: #ffea00;
+        box-shadow:
+            0 0 0 5px rgba(255, 212, 0, 0.25),
+            0 0 25px rgba(255, 193, 7, 0.8);
+    }
+
+    60% {
+        transform: scale(1.04);
+        background: #ffb700;
+        box-shadow:
+            0 0 0 8px rgba(255, 193, 7, 0.15),
+            0 0 35px rgba(255, 193, 7, 0.9);
+    }
+
+    100% {
+        transform: scale(1);
+        background: #ffd400;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.ccw-location-btn:hover {
+    animation-play-state: paused;
+    transform: scale(1.1);
+    background: #ffb700;
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.9);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .ccw-location-btn {
+        width: 90%;
+        padding: 14px 18px;
+        font-size: 16px;
+    }
+}
+  </style>
+<script src="js/player.js" async=""></script>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wi7360htn4");
+</script>
+<!-- ===== CCW GEO TOKEN v3 — city/state personalization ===== -->
+<style>.ccw-city,.ccw-state,.ccw-date{font:inherit;color:inherit;letter-spacing:inherit}</style>
+<script>
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------------
+     CONFIG
+     EXCLUDE: states where this offer must NOT show the approved claim.
+     Add 2-letter codes here, e.g. ["CA","NY","NJ"]. Those visitors get
+     the neutral fallback CTA instead.
+  ------------------------------------------------------------------ */
+  var EXCLUDE   = [];
+
+  var CITY_FB   = "your area";
+  var CACHE_KEY = "ccw_geo_v3";
+  var TIMEOUT   = 2500;
+  var ANY_RE    = /\[\[(?:city|state|state_code|month|year)\]\]/i;
+  var SKIP      = { SCRIPT:1, STYLE:1, NOSCRIPT:1, TEXTAREA:1, IFRAME:1, TEMPLATE:1, CODE:1, PRE:1 };
+  var DEBUG     = /[?&]ccwdebug=1/.test(location.search);
+
+  var US = {
+    AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",
+    CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",
+    HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",
+    LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",
+    MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",
+    NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",
+    OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",
+    SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",
+    WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"
+  };
+  var BY_NAME = {};
+  for (var k in US) if (US.hasOwnProperty(k)) BY_NAME[US[k].toLowerCase()] = k;
+
+  var geo = { city:"", state:"", code:"", country:"", valid:false };
+  var source = "fallback", observer = null, queued = false;
+
+  function log(){ if (DEBUG) console.log.apply(console, ["[ccw-geo]"].concat([].slice.call(arguments))); }
+
+  /* ---------- value resolution ---------- */
+
+  var MONTHS = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+  function monthVal() { return MONTHS[new Date().getMonth()]; }
+  function yearVal()  { return String(new Date().getFullYear()); }
+
+  function cityVal()  { return geo.city ? (geo.code ? geo.city + ", " + geo.code : geo.city) : CITY_FB; }
+  function stateVal() { return geo.valid ? US[geo.code] : ""; }
+  function codeVal()  { return geo.valid ? geo.code : ""; }
+
+  /* Claim is only true when we have a real, non-excluded US state. */
+  function claimOK() { return geo.valid && EXCLUDE.indexOf(geo.code) === -1; }
+
+  function fill(str) {
+    return str.split(/\[\[state_code\]\]/i).join(codeVal())
+              .split(/\[\[state\]\]/i).join(stateVal())
+              .split(/\[\[city\]\]/i).join(cityVal())
+              .split(/\[\[month\]\]/i).join(monthVal())
+              .split(/\[\[year\]\]/i).join(yearVal());
+  }
+
+    function valueFor(kind) {
+    if (kind === "city")  return cityVal();
+    if (kind === "state") return stateVal();
+    if (kind === "month") return monthVal();
+    if (kind === "year")  return yearVal();
+    return codeVal();
+  }
+
+  /* ---------- token wrapping ---------- */
+
+  function wrapTextNode(node) {
+    var raw = node.nodeValue;
+    var frag = document.createDocumentFragment();
+    var re = /\[\[(city|state|state_code|month|year)\]\]/gi, last = 0, m, found = false;
+    while ((m = re.exec(raw)) !== null) {
+      found = true;
+      if (m.index > last) frag.appendChild(document.createTextNode(raw.slice(last, m.index)));
+      var kind = m[1].toLowerCase();
+      var s = document.createElement("span");
+      s.className = (kind === "city") ? "ccw-city"
+                  : (kind === "month" || kind === "year") ? "ccw-date" : "ccw-state";
+      s.setAttribute("data-ccw-kind", kind);
+      s.textContent = valueFor(kind);
+      frag.appendChild(s);
+      last = m.index + m[0].length;
+    }
+    if (!found) return;
+    if (last < raw.length) frag.appendChild(document.createTextNode(raw.slice(last)));
+    node.parentNode.replaceChild(frag, node);
+  }
+
+  function scanText(root) {
+    if (!root || !document.createTreeWalker) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        if (!n.nodeValue || n.nodeValue.indexOf("[[") === -1) return NodeFilter.FILTER_REJECT;
+        if (n.parentNode && SKIP[n.parentNode.nodeName]) return NodeFilter.FILTER_REJECT;
+        return ANY_RE.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    }, false);
+    var hits = [], n;
+    while ((n = walker.nextNode())) hits.push(n);
+    for (var i = 0; i < hits.length; i++) wrapTextNode(hits[i]);
+    if (hits.length) log("wrapped", hits.length, "node(s)");
+  }
+
+  /* ---------- claim gating ----------
+     <a data-ccw-claim="..[[state]].." data-ccw-fallback="..">
+     Renders the claim ONLY when a real, non-excluded US state resolved.
+  ------------------------------------------------------------------ */
+  function paintClaims(root) {
+    var scope = root || document;
+    var els = scope.querySelectorAll ? scope.querySelectorAll("[data-ccw-claim]") : [];
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i], tpl;
+      if (claimOK()) {
+        tpl = el.getAttribute("data-ccw-claim");                 // US state, offer applies
+      } else if (geo.valid) {
+        tpl = el.getAttribute("data-ccw-fallback")               // US state, but excluded
+              || el.getAttribute("data-ccw-fallback-nogeo");
+      } else {
+        tpl = el.getAttribute("data-ccw-fallback-nogeo")         // no US state at all
+              || el.getAttribute("data-ccw-fallback");
+      }
+      if (!tpl) continue;
+      var next = fill(tpl);
+      if (el.textContent !== next) el.textContent = next;
+    }
+  }
+
+  function repaint() {
+    var spans = document.querySelectorAll(".ccw-city,.ccw-state,.ccw-date");
+    for (var i = 0; i < spans.length; i++) {
+      spans[i].textContent = valueFor(spans[i].getAttribute("data-ccw-kind"));
+    }
+    paintClaims(document);
+    log("repaint", geo, "claim=" + claimOK(), "(" + source + ")");
+  }
+
+  function sweep(root) {
+    root = root || document.body || document.documentElement;
+    scanText(root);
+    repaint();
+  }
+
+  function schedule() {
+    if (queued) return;
+    queued = true;
+    (window.requestAnimationFrame || setTimeout)(function () { queued = false; sweep(); }, 16);
+  }
+
+  /* ---------- geo ---------- */
+
+  function buildGeo(city, region, code, country) {
+    city    = (city || "").toString().trim();
+    region  = (region || "").toString().trim();
+    code    = (code || "").toString().trim().toUpperCase();
+    country = (country || "").toString().trim().toUpperCase();
+
+    if (!US[code]) code = BY_NAME[region.toLowerCase()] || "";
+    var isUS = country ? (country === "US" || country === "USA") : !!code;
+
+    var g = {
+      city: city,
+      state: code ? US[code] : region,
+      code: code,
+      country: country,
+      valid: !!(isUS && code)
+    };
+    return (g.city || g.valid) ? g : null;
+  }
+
+  function setGeo(city, region, code, country) {
+    var g = buildGeo(city, region, code, country);
+    if (g) geo = g;
+    return !!g;
+  }
+
+  /* QA only: ?ccwstate=TX pins a state for the rest of the browser session
+     (survives navigation). ?ccwstate=off clears it. sessionStorage is
+     per-visitor, so this can never affect live traffic other than the
+     tester's own tab. */
+  function qaOverride() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var v = q.get("ccwstate");
+      if (v !== null) {
+        if (/^(off|0|clear|none)$/i.test(v)) { sessionStorage.removeItem("ccw_qa"); return false; }
+        sessionStorage.setItem("ccw_qa", v.toUpperCase());
+      }
+      var code = (sessionStorage.getItem("ccw_qa") || "").toUpperCase();
+      if (code && US[code]) {
+        setGeo(q.get("city") || q.get("ccwcity") || "", US[code], code, "US");
+        if (window.console && console.warn) {
+          console.warn("[ccw-geo] QA OVERRIDE ACTIVE -> " + US[code] +
+                       ". This tab is NOT using real geo. Clear with ?ccwstate=off");
+        }
+        return true;
+      }
+    } catch (e) {}
+    return false;
+  }
+
+  function fromQuery() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var c = q.get("city") || q.get("geo_city") || q.get("cf_city") || q.get("ll_city") || "";
+      var r = q.get("state") || q.get("region") || q.get("geo_region") || q.get("cf_region") || q.get("ll_region") || "";
+      var co = q.get("country") || q.get("geo_country") || q.get("cf_country") || "";
+      if (!c && !r) return false;
+      if (c && !/^[A-Za-z0-9 .'\u00C0-\u024F-]{2,60}$/.test(c)) return false;
+      var code = r.length === 2 ? r.toUpperCase() : "";
+      return setGeo(c, r, code, co || (code && US[code] ? "US" : ""));
+    } catch (e) { return false; }
+  }
+
+  function fromCache() {
+    try {
+      var o = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
+      if (o && o.g && Date.now() - o.t < 30 * 60 * 1000) { geo = o.g; return true; }
+    } catch (e) {}
+    return false;
+  }
+  function toCache() {
+    try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ g: geo, t: Date.now() })); } catch (e) {}
+  }
+
+  var PROVIDERS = [
+    { name:"ipapi", url:"https://ipapi.co/json/",
+      pick:function(d){ return d && !d.error ? buildGeo(d.city, d.region, d.region_code, d.country_code || d.country) : null; } },
+    { name:"ipwho", url:"https://ipwho.is/?fields=success,city,region,region_code,country_code",
+      pick:function(d){ return d && d.success !== false ? buildGeo(d.city, d.region, d.region_code, d.country_code) : null; } },
+    { name:"geojs", url:"https://get.geojs.io/v1/ip/geo.json",
+      pick:function(d){ return d ? buildGeo(d.city, d.region, "", d.country_code) : null; } },
+    { name:"ipapiis", url:"https://ipapi.is/json/",
+      pick:function(d){ return d && d.location ? buildGeo(d.location.city, d.location.state, d.location.state_code, d.location.country_code) : null; } }
+  ];
+
+  function fetchJSON(url) {
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function(){ ctrl && ctrl.abort(); }, TIMEOUT);
+    return fetch(url, { signal: ctrl ? ctrl.signal : undefined, cache:"no-store",
+                        credentials:"omit", headers:{ "Accept":"application/json" } })
+      .then(function(r){ clearTimeout(timer); if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); },
+            function(e){ clearTimeout(timer); throw e; });
+  }
+
+  function resolve(i, best, bestName) {
+    i = i || 0;
+    if (i >= PROVIDERS.length) {
+      if (best) { geo = best; source = bestName; toCache(); repaint(); expose(); }
+      else log("all providers failed");
+      return;
+    }
+    var p = PROVIDERS[i];
+    fetchJSON(p.url).then(function (d) {
+      var g = p.pick(d);
+      if (!g) throw new Error("unusable payload");
+      if (g.valid) {                       // got a real US state - stop here
+        geo = g; source = p.name; toCache(); repaint(); expose();
+        return;
+      }
+      log(p.name, "gave no US state, trying next for one");
+      resolve(i + 1, best || g, bestName || p.name);
+    }).catch(function (e) { log(p.name, "failed:", e.message); resolve(i + 1, best, bestName); });
+  }
+
+  function expose() {
+    window.CCWGeo = { geo: geo, source: source, claim: claimOK(), qa: source === "qa",
+                      city: cityVal(), state: stateVal(), refresh: function(){ sweep(); } };
+  }
+
+  /* ---------- boot ---------- */
+
+  var qa = qaOverride();
+  if (qa)               source = "qa";
+  else if (fromQuery()) source = "query";
+  else if (fromCache()) source = "cache";
+  expose();
+
+  sweep(document.documentElement);
+
+  if (window.MutationObserver) {
+    observer = new MutationObserver(schedule);
+    observer.observe(document.documentElement, { childList:true, subtree:true, characterData:true });
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){ sweep(); }, false);
+  window.addEventListener("load", function () {
+    sweep();
+    setTimeout(sweep, 400);
+    setTimeout(sweep, 1500);
+    setTimeout(function(){ observer && observer.disconnect(); sweep(); }, 15000);
+  }, false);
+
+  if (source === "fallback") resolve(0);
+  else log("seeded from", source, geo);
+})();
+</script>
+<!-- ===== /CCW GEO TOKEN v3 ===== -->
+</head>
+<body>
+ <h2 class="ccw-header">CCW Permit Valid Across the U.S.</h2>
+  <!-- ======================== SECTION 1: NEWS CHROME ======================== -->
+  <nav class="news-chrome" aria-label="Site navigation"></nav>
+
+  <!-- ======================== SECTION 2: HEADLINE BLOCK ======================== -->
+  <section class="headline-block">
+    <div class="headline-block-inner">
+      <h1 class="headline-h1">
+        <span class="exclusive">EXCLUSIVE:</span>
+        <span class="rest"> NEW BILL MAKES CONCEALED CARRY VALID FOR RESIDENTS OF ALL 50 STATES</span>
+      </h1>
+
+      <p class="headline-sub">
+        THE ANTI-GUN LOBBY SPENT MILLIONS TO KEEP THIS QUIET — HERE'S HOW AMERICANS ARE QUALIFYING ONLINE IN MINUTES, BEFORE THE ENROLLMENT WINDOW CLOSES.
+      </p>
+  <a href="https://globalvisitclub.com/cf/click/1" class="ccw-location-btn">
+    ✅ CCW Approved State: [[city]]
+</a>
+      <div class="byline-row">
+        <span class="byline-source"></span>
+        <div class="byline-meta">
+          <span id="byline-updated">Updated 8:14 AM EST 08.11.2026</span>
+          <script>
+          (function(){
+            var el = document.getElementById('byline-updated');
+            if (!el) return;
+            var d = new Date();
+            // Randomly show today's or yesterday's date
+            if (Math.random() < 0.5) d.setDate(d.getDate() - 1);
+            var parts = new Intl.DateTimeFormat('en-US', {
+              timeZone: 'America/New_York',
+              month: '2-digit', day: '2-digit', year: 'numeric'
+            }).formatToParts(d).reduce(function(a,p){a[p.type]=p.value;return a;},{});
+            el.textContent = 'Updated 8:14 AM EST ' + parts.month + '.' + parts.day + '.' + parts.year;
+          })();
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SECTION 3: VIDEO REGION ======================== -->
+  <section class="video-section">
+    <div class="video-region">
+      <!-- VTurb / ConverteAI smart player -->
+ <video width="320" height="240" controls autoplay muted loop playsinline>
+  <source src="images/ad-video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+      <!-- Claim Now CTA -->
+      <a class="apply-now-cta cta-link" href="https://globalvisitclub.com/cf/click/1">Claim Now</a>
+    </div>
+  </section>
+
+  <!-- ======================== SECTION 6: COMMENT WALL ======================== -->
+  <div class="comment-wall-wrapper">
+    <div class="comment-wall">
+      <div class="comment-wall-header">Comments</div>
+
+      <!-- Comment 1: Wayne A. — commenter-1.jpg -->
+      <div class="comment-card">
+        <img class="comment-avatar" src="images/commenter-1.jpg" alt="Wayne A.">
+        <div class="comment-body">
+          <div class="comment-name">Wayne A.</div>
+          <div class="comment-bubble">"Did mine in about 20 minutes on my lunch break. Got the confirmation the same day. Wish I'd known it was this easy years ago."</div>
+        </div>
+      </div>
+
+      <!-- Comment 2: Ashley C. — user-2.jpg -->
+      <div class="comment-card">
+        <img class="comment-avatar" src="images/user-2.jpg" alt="Ashley C.">
+        <div class="comment-body">
+          <div class="comment-name">Ashley C.</div>
+          <div class="comment-bubble">"My husband and I both qualified last week. We drive to see family in three different states — finally don't have to leave anything behind."</div>
+        </div>
+      </div>
+
+      <!-- Comment 3: Robert M. — commenter-3.jpg -->
+      <div class="comment-card">
+        <img class="comment-avatar" src="images/commenter-3.jpg" alt="Robert M.">
+        <div class="comment-body">
+          <div class="comment-name">Robert M.</div>
+          <div class="comment-bubble">"Thought there had to be a catch. There wasn't. Answered the questions, qualified, done."</div>
+        </div>
+      </div>
+
+      <!-- Comment 4: Linda K. — quote-person-1.jpg -->
+      <div class="comment-card">
+        <img class="comment-avatar" src="images/quote-person-1.jpg" alt="Linda K.">
+        <div class="comment-body">
+          <div class="comment-name">Linda K.</div>
+          <div class="comment-bubble">"I'm 58 and not great with technology. Still finished the whole thing on my phone with no help."</div>
+        </div>
+      </div>
+
+      <!-- Comment 5: James T. — commenter-5.jpg -->
+      <div class="comment-card">
+        <img class="comment-avatar" src="images/commenter-5.jpg" alt="James T.">
+        <div class="comment-body">
+          <div class="comment-name">James T.</div>
+          <div class="comment-bubble">"Shared this with my whole hunting group. Four of us are already approved."</div>
+        </div>
+      </div>
+
+      <!-- Comment 6: Patricia H. — user-3.jpg -->
+      <div class="comment-card">
+        <img class="comment-avatar" src="images/user-3.jpg" alt="Patricia H.">
+        <div class="comment-body">
+          <div class="comment-name">Patricia H.</div>
+          <div class="comment-bubble">"The backlog they mention is real. My neighbor waited months going the old way. This took me one afternoon."</div>
+        </div>
+      </div>
+
+      <!-- Comment 7: Susan R. — quote-person-2.jpg -->
+      <div class="comment-card">
+        <img class="comment-avatar" src="images/quote-person-2.jpg" alt="Susan R.">
+        <div class="comment-body">
+          <div class="comment-name">Susan R.</div>
+          <div class="comment-bubble">"Was skeptical because of where I live, but I still qualified. Check before you assume you can't."</div>
+        </div>
+      </div>
+
+      <!-- Comment 8: Karen B. — user-1.jpg -->
+      <div class="comment-card">
+        <img class="comment-avatar" src="images/user-1.jpg" alt="Karen B.">
+        <div class="comment-body">
+          <div class="comment-name">Karen B.</div>
+          <div class="comment-bubble">"Just told my sister. If you've been putting this off, do it before the rules change again."</div>
+        </div>
+      </div>
+
+    </div><!-- /.comment-wall -->
+  </div><!-- /.comment-wall-wrapper -->
+
+  <!-- Bottom CTA -->
+  <section class="bottom-cta-section">
+    <a class="apply-now-cta cta-link" href="https://globalvisitclub.com/cf/click/1">Check Eligibility Now</a>
+  </section>
+
+  <!-- ======================== SECTION 7: FOOTER ======================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-disclaimer"></p>
+      <div class="footer-links">
+        <a href="#" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="#" target="_blank" rel="noopener">Terms</a>
+      </div>
+      <p>Copyright © 2026 USA Daily Finance. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ======================== SECTION 8: SCROLL-TRIGGERED MODAL ======================== -->
+  <div id="offer-modal" role="dialog" aria-modal="true" aria-label="Special offer">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close offer">×</button>
+
+      <p class="modal-only-today">URGENT:</p>
+
+      <img class="modal-image" src="images/eagle_v3_new.png" alt="50-State Concealed Carry Permit" loading="lazy">
+
+      <p class="modal-subline">Your Concealed Carry Permit — Qualify Online In Under 15 Minutes</p>
+
+      <a class="btn-cta-modal cta-link" href="https://globalvisitclub.com/cf/click/1">Get Your CCW Permit Now</a>
+
+      <p class="modal-sub">*Includes a gun owners kits and carry guide</p>
+    </div>
+  </div>
+
+  <!-- ======================== MODAL JS ======================== -->
+  <script>
+    (function () {
+      var modal = document.getElementById('offer-modal');
+      var closeBtn = document.getElementById('modal-close-btn');
+      var shown = false;
+      var enabled = false; // popup disabled for now — set to true to re-enable
+
+      function showModal() {
+        if (shown || !enabled) return;
+        shown = true;
+        modal.classList.add('visible');
+      }
+
+      function hideModal() {
+        modal.classList.remove('visible');
+      }
+
+      // Show when user scrolls past 60% of page height
+      window.addEventListener('scroll', function () {
+        if (shown) return;
+        var scrolled = window.scrollY + window.innerHeight;
+        var total = document.body.scrollHeight;
+        if (scrolled / total >= 0.60) {
+          showModal();
+        }
+      }, { passive: true });
+
+      // X button closes
+      closeBtn.addEventListener('click', hideModal);
+
+      // Clicking the dark overlay closes
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          hideModal();
+        }
+      });
+    })();
+  </script>
+
+
+
+</body></html>

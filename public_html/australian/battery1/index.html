@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You Already Have Solar Panels. So Why Are You Still Paying High Electricity Bills?</title>
+<meta name="description" content="Your panels could be doing more for you. Check whether your home may be suitable for solar battery storage.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  /* ---- solar3 design system ---- */
+  :root{
+    --ink:#1d2a33;
+    --muted:#5b6b75;
+    --bg:#fbfaf6;
+    --panel:#ffffff;
+    --line:#e3e0d6;
+    --sun:#f2a900;
+    --sun-dark:#c98a00;
+    --sky:#1f5f7a;
+    --sky-soft:#e8f1f4;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:19px;line-height:1.7;
+  }
+  header.site{
+    background:var(--panel);border-bottom:1px solid var(--line);
+    font-family:Arial,Helvetica,sans-serif;
+  }
+  header.site .inner{
+    max-width:760px;margin:0 auto;padding:14px 20px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .brand{font-weight:700;font-size:18px;color:var(--sky)}
+  .brand img{display:block;height:36px;width:auto;max-width:200px}
+  .tag{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:3px 8px;border-radius:3px}
+  main{max-width:760px;margin:0 auto;padding:36px 20px 60px}
+  h1{
+    font-size:clamp(28px,5vw,40px);line-height:1.2;margin:0 0 16px;
+    letter-spacing:-.01em;
+  }
+  h2{font-size:26px;line-height:1.3;margin:40px 0 12px}
+  h3{font-family:Arial,Helvetica,sans-serif;font-size:18px;margin:0 0 4px}
+  p{margin:0 0 18px}
+  .lede{
+    font-family:Arial,Helvetica,sans-serif;font-size:17px;color:var(--muted);
+    line-height:1.6;margin-bottom:26px;padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero{
+    margin:0 0 28px;border-radius:6px;overflow:hidden;
+    background:var(--sky-soft);aspect-ratio:16/8;position:relative;
+  }
+  .hero svg{width:100%;height:100%;display:block}
+  figcaption{
+    font-family:Arial,Helvetica,sans-serif;font-size:12px;color:var(--muted);
+    margin-top:-18px;margin-bottom:28px;
+  }
+  /* pull-quote - same treatment solar3 gives .question */
+  .question{
+    background:var(--sky-soft);border-left:5px solid var(--sky);
+    padding:16px 20px;margin:26px 0;border-radius:0 6px 6px 0;
+    font-style:italic;
+  }
+  .question p{margin:0}
+  /* rate comparison - built from the same panel + line tokens */
+  .rates{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+  .rate{
+    background:var(--panel);border:1px solid var(--line);border-radius:8px;
+    padding:18px 20px;font-family:Arial,Helvetica,sans-serif;
+  }
+  .rate b{display:block;font-family:Georgia,serif;font-size:40px;line-height:1.1}
+  .rate span{color:var(--muted);font-size:14px;line-height:1.45;display:block;margin-top:4px}
+  .rate.sell{border-top:4px solid var(--sun)}
+  .rate.sell b{color:var(--sun-dark)}
+  .rate.buy{border-top:4px solid var(--sky)}
+  .rate.buy b{color:var(--sky)}
+  /* day/evening/night steps - numbered dots in the solar3 palette */
+  .timeline{
+    list-style:none;margin:24px 0;padding:0 0 0 24px;
+    border-left:3px solid var(--line);
+  }
+  .timeline li{position:relative;padding:0 0 20px 0}
+  .timeline li:last-child{padding-bottom:0}
+  .timeline li::before{
+    content:"";position:absolute;left:-33px;top:7px;
+    width:16px;height:16px;border-radius:50%;
+    background:var(--sun);border:3px solid var(--bg);
+  }
+  .timeline li.eve::before{background:var(--sky)}
+  .timeline li.night::before{background:var(--ink)}
+  .timeline p{margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:var(--muted)}
+  /* eligibility list - solar3 .criteria, tick circles and all */
+  .criteria{
+    background:var(--panel);border:1px solid var(--line);border-radius:8px;
+    padding:22px 24px;margin:24px 0;
+  }
+  .criteria h3{font-family:Arial,Helvetica,sans-serif;font-size:18px;margin:0 0 14px}
+  .criteria ul{list-style:none;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5}
+  .criteria li{display:flex;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+  .criteria li:first-child{border-top:0}
+  .criteria li::before{
+    content:"✓";flex:none;width:24px;height:24px;border-radius:50%;
+    background:var(--sky);color:#fff;font-size:14px;
+    display:grid;place-items:center;margin-top:1px;
+  }
+  .criteria b{color:var(--sky)}
+  .cta-box{
+    text-align:center;margin:40px 0 20px;padding:32px 22px;
+    background:#e9f7ee;border:2px solid #1fa34a;border-radius:10px;
+    font-family:Arial,Helvetica,sans-serif;
+  }
+  .cta-box h2{margin:0 0 8px;font-family:Georgia,serif;font-size:26px}
+  .cta-box p{color:var(--muted);font-size:16px}
+  .btn{
+    display:inline-block;background:#1fa34a;color:#fff;
+    font-weight:700;font-size:18px;text-decoration:none;
+    padding:16px 30px;border-radius:6px;margin-top:6px;
+    box-shadow:0 3px 0 #157a36;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:hover{background:#22b052;transform:translateY(2px);box-shadow:0 1px 0 #157a36}
+  .btn:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+  .disclaimer{
+    font-family:Arial,Helvetica,sans-serif;font-size:12px;color:var(--muted);
+    line-height:1.5;margin-top:22px;
+  }
+  footer{
+    border-top:1px solid var(--line);background:var(--panel);
+    font-family:Arial,Helvetica,sans-serif;font-size:12px;color:var(--muted);
+    text-align:center;padding:24px 20px;line-height:1.6;
+  }
+  footer a{color:var(--muted);margin:0 8px}
+  .sticky{
+    display:none;position:fixed;left:0;right:0;bottom:0;z-index:10;
+    background:#fff;border-top:1px solid var(--line);padding:10px 14px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    text-align:center;font-family:Arial,Helvetica,sans-serif;
+  }
+  .sticky .btn{display:block;padding:13px 16px;margin:0;font-size:clamp(14px,4vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  @media (max-width:640px){
+    body{font-size:18px}
+    .rates{grid-template-columns:1fr}
+    .sticky{display:block}
+    footer{padding-bottom:90px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1590984399156195');
+fbq('track', 'page view');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1590984399156195&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+
+</head>
+<body>
+
+<header class="site">
+  <div class="inner">
+    <div class="brand"><img src="logo-optimal-transnational2.svg" alt="Solar Australia" height="36"></div>
+    <div class="tag">Advertorial</div>
+  </div>
+</header>
+
+<main>
+
+  <h1>You Already Have Solar Panels. So Why Are You Still Paying High Electricity Bills?</h1>
+  <p class="lede">Your panels could be doing more for you. The answer may come down to what happens to the energy your home generates during the day.</p>
+
+  <figure style="margin:0">
+     <div class="hero">
+    <img src="Imagesolar.png?1" alt="Australian home with rooftop solar panels" width="800" height="400">
+  </div>
+  </figure>
+  <figcaption>Battery storage is something many solar homeowners are now weighing up.</figcaption>
+
+  <p>You installed solar panels to make better use of the sun and reduce your electricity costs. But if you are still receiving high electricity bills, there may be another factor worth looking at: <strong>what happens to the solar energy your home generates during the day?</strong></p>
+
+  <p>Many solar households generate more electricity than they use while the sun is shining. Depending on the electricity plan, excess energy may be exported to the grid in exchange for a feed-in tariff. Later, when the sun goes down and household energy use continues, they may need to buy electricity from the grid at a higher rate.</p>
+
+  <div class="question">
+    <p><strong>The result? You could be selling excess solar energy during the day and buying electricity back at night.</strong></p>
+  </div>
+
+  <h2>The problem: selling solar energy cheap and buying it back at a higher rate</h2>
+  <p>During daylight hours, your rooftop solar system generates electricity for your home. When production exceeds what your household needs at that moment, the surplus may be exported to the grid.</p>
+  <p>The feed-in tariff you receive for that exported electricity may be much lower than the retail rate you pay when importing electricity from the grid. For example:</p>
+
+  <div class="rates" aria-label="Example rates">
+    <div class="rate sell"><b>5c</b><span>per kWh you are paid for exported solar</span></div>
+    <div class="rate buy"><b>25c</b><span>per kWh you pay to buy electricity back</span></div>
+  </div>
+
+  <p>At those example rates, you receive five times less for each exported unit than you pay for a unit bought back. Your actual rates will depend on your retailer, electricity plan and location.</p>
+
+  <h2>The solution: store your excess solar energy in a battery</h2>
+  <p>Instead of exporting all your excess daytime solar generation to the grid, a compatible battery can store some of that energy for use later. You can then use the stored electricity in the evening or at night, potentially reducing how much you need to buy from the grid.</p>
+
+  <h3 style="margin-top:28px">How solar battery storage works</h3>
+  <ul class="timeline">
+    <li><h3>During the day</h3><p>Your panels generate electricity for your home. Excess energy can charge your battery.</p></li>
+    <li class="eve"><h3>In the evening</h3><p>Your home can use stored solar energy when your panels are producing little or no electricity.</p></li>
+    <li class="night"><h3>At night</h3><p>Your battery may help power selected appliances, depending on its capacity, your energy use and its remaining charge.</p></li>
+  </ul>
+  <p>The result could be greater use of the solar energy you already generate.</p>
+
+  <h2>Could a solar battery help you reduce your electricity bills?</h2>
+  <p>Adding battery storage may help eligible homeowners make better use of their existing solar systems. Depending on your household's energy usage, battery size, electricity rates, system configuration and applicable incentives, potential savings can vary significantly.</p>
+  <p>Some offers may advertise savings of up to 80%, but this is not guaranteed and may not apply to every household. Your actual savings will depend on your individual circumstances.</p>
+  <p>Before buying a battery, it is worth checking your home's suitability and whether any current incentives or installation offers are available.</p>
+
+  <h2>Before you continue, make sure you're a good fit</h2>
+  <p>This eligibility check is intended for Australian homeowners who meet the following criteria:</p>
+
+  <div class="criteria">
+    <h3>Eligibility criteria</h3>
+    <ul>
+      <li><span><b>Age:</b> You are 45 years old or above.</span></li>
+      <li><span><b>Homeowner:</b> You own the property where the solar panels are installed.</span></li>
+      <li><span><b>Existing solar panels:</b> Your home already has a solar panel system installed.</span></li>
+      <li><span><b>No existing battery:</b> You have not yet installed a solar battery.</span></li>
+      <li><span><b>Ready to act:</b> You are seriously considering buying or installing a solar battery within the next 20 days.</span></li>
+      <li><span><b>Ready to provide details:</b> You are willing to share your electricity bill and basic property and solar system information for the assessment.</span></li>
+    </ul>
+  </div>
+
+  <p>If these points describe your situation, you can take the next step to see whether your home may qualify for available battery incentives or installation options.</p>
+
+  <section class="cta-box" id="cta">
+    <h2>Could you get more value from the solar panels you already own?</h2>
+    <p>You have already taken the first step. Battery storage may let you use more of the energy your system generates, instead of relying as heavily on the grid after sunset.</p>
+    <a class="btn" href="https://globalvisitclub.com/cf/click/1" id="main-cta" rel="sponsored noopener">CHECK MY SOLAR BATTERY ELIGIBILITY →</a>
+    <p class="disclaimer" style="margin-top:16px">Find out whether your existing solar system and property may qualify for available battery incentives or installation options.</p>
+  </section>
+
+  <p class="disclaimer">Eligibility, incentives, financing and installation are subject to the relevant program and provider requirements. Savings are not guaranteed and depend on your energy usage, electricity plan, solar system and battery configuration.</p>
+
+</main>
+
+<div class="sticky">
+  <a class="btn" href="https://globalvisitclub.com/cf/click/1" id="sticky-cta" rel="sponsored noopener">CHECK MY ELIGIBILITY →</a>
+</div>
+
+<footer>
+  <p>This page is an advertisement and does not constitute financial, legal or energy advice.<br>
+  Results vary by property and provider. &copy; 2026 Optimal Transnational. All rights reserved.</p>
+  <p><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a><a href="#">Contact</a></p>
+</footer>
+
+<script>
+// Offer URL. Any UTM / click-ID params on the page URL are passed through.
+var OFFER_URL = "https://globalvisitclub.com/cf/click/1";
+
+(function(){
+  var url = OFFER_URL;
+  try {
+    var qs = window.location.search;
+    if (qs) url += (OFFER_URL.indexOf("?") > -1 ? "&" : "?") + qs.slice(1);
+  } catch(e){}
+  ["main-cta","sticky-cta"].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.setAttribute("href", url);
+  });
+})();
+</script>
+
+</body>
+</html>
