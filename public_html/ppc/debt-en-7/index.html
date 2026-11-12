@@ -2310,8 +2310,9 @@ src="https://www.facebook.com/tr?id=2862053604126930&ev=PageView&noscript=1"/>
   border:5px solid var(--ll-color-primary-light,#e8f5ee);
   border-top-color:var(--ll-color-primary,#1B6B3A);
   animation:lpSpin .85s linear infinite;}
-.lp-loading__text{margin:0 0 16px;font-size:16px;font-weight:600;line-height:1.4;
-  color:var(--ll-color-text-primary,#1a1a2e);min-height:22px;}
+.lp-loading__text{margin:0 0 16px;font-size:17px;font-weight:700;line-height:1.4;
+  color:var(--ll-color-text-primary,#1a1a2e);min-height:48px;
+  display:flex;align-items:center;justify-content:center;}
 .lp-loading__bar{height:6px;border-radius:99px;overflow:hidden;
   background:var(--ll-color-primary-light,#e8f5ee);}
 .lp-loading__bar > span{display:block;height:100%;width:0;border-radius:99px;
@@ -2346,19 +2347,20 @@ body.lp-loading-lock{overflow:hidden;}
   var PHONE_TEL     = '+18773480120';     // <-- and the tel: version
   
   /* --- loading state shown between the tap and the box --- */
-  var LOADING_MS    = 0;                  // 0 = disable, box opens instantly
-  var LOADING_STEPS = [                   // cycled while the loader runs
-    'One moment\u2026',
+  var LOADING_MS    = 3000;               // 0 = disable, box opens instantly
+  var LOADING_STEPS = [                   // shown one after another (same as debt-en-11)
+    'Checking your answers\u2026',
+    'Reviewing your eligibility\u2026',
     'Preparing your results\u2026'
   ];
 
-    var TIMER_SECONDS = 90;
+  var TIMER_SECONDS = 90;
   var TIMER_PERSIST = true;               // refresh does NOT restart the countdown
-  var HIDE_ON_SHOW  = '#iuumbmi';         // "SELECT THE DEBT AMOUNT..." + the 3 buttons
+  var HIDE_ON_SHOW  = '#iuumbmi, #q7';    // amount block + step questions (questions stay under the loader until the box opens)
   var APP_PREFIX    = 'C';
   var APP_DIGITS    = 6;
   var TIMER_EXPIRED = 'Your specialist is still on the line &mdash; tap the button above to connect.';
-  var BUILD         = 'debt-en-7-v2-loader';
+  var BUILD         = 'debt-en-7-v3-loader3s';
   /* ====================================================== */
 
   var shown = false;
@@ -2453,8 +2455,10 @@ body.lp-loading-lock{overflow:hidden;}
   function runLoader(amount) {
     var ov = d.getElementById('lp-loading');
     if (!ov || !(LOADING_MS > 0)) { showFinal(amount); return; }
+    if (loading || shown) return;          /* never start a second loader */
 
     loading = true;
+    loadFont();                            /* fetch the headline font while the loader runs */
     var txt   = d.getElementById('lp-loading-text');
     var steps = (LOADING_STEPS && LOADING_STEPS.length) ? LOADING_STEPS : ['One moment…'];
 
@@ -2616,11 +2620,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  /* the congrats controller exposes showFinal(); fall back to clicking the
-     hidden [data-congrats] anchor only if it isn't there */
+  /* the congrats controller exposes runLoader() (loading screen, then the box)
+     and showFinal(); fall back to clicking the hidden [data-congrats] anchor
+     only if neither is there. The controller hides the questions when the box opens. */
   function showCongrats() {
     var amt = answers.debtValue || "";
-    quiz.style.display = "none";
+    if (typeof window.runLoader === "function") {
+      try { window.runLoader(amt); return; } catch (e) {}
+    }
     if (typeof window.showFinal === "function") {
       try { window.showFinal(amt); return; } catch (e) {}
     }

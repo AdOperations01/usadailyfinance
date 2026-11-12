@@ -2,6 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+<script>
+/* NO AUDIO on this lander. Blocks every sound file (<audio> tags and
+   new Audio(...)), including ones added by the host or a tag manager,
+   e.g. congratulation_audio.mp3 on the final step. Must stay first in <head>. */
+(function (w, d) {
+  "use strict";
+  var M = w.HTMLMediaElement, A = w.HTMLAudioElement;
+  if (!M || !A) return;
+  function hush(el) {
+    try { el.autoplay = false; el.removeAttribute("autoplay"); el.muted = true; el.pause(); } catch (e) {}
+  }
+  var play = M.prototype.play;
+  M.prototype.play = function () {
+    if (this instanceof A) {
+      hush(this);
+      return w.Promise ? w.Promise.resolve() : undefined;
+    }
+    return play.apply(this, arguments);
+  };
+  d.addEventListener("play", function (e) { if (e.target instanceof A) hush(e.target); }, true);
+  function sweep(n) {
+    if (!n || n.nodeType !== 1) return;
+    if (n instanceof A) hush(n);
+    if (n.querySelectorAll) Array.prototype.forEach.call(n.querySelectorAll("audio"), hush);
+  }
+  new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++) for (var j = 0; j < ms[i].addedNodes.length; j++) sweep(ms[i].addedNodes[j]);
+  }).observe(d.documentElement, { childList: true, subtree: true });
+})(window, document);
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply before Sep 16</title>
   <meta name="description" content="See if you qualify for relief">
@@ -53,6 +83,8 @@
     .page{font-family:Arial,sans-serif;background:#fff;min-height:100vh;color:#1a1a1a}
     .topbar{background:#cc0000;height:8px}
     .wrap{max-width:1100px;margin:0 auto;padding:24px 20px 40px}
+    .brand{width:190px;margin:0 auto 20px}
+    @media (max-width:600px){.brand{width:150px;margin-bottom:16px}}
 
     .headline{font-size:clamp(28px,5vw,44px);font-weight:bold;line-height:1.2;margin-bottom:20px}
     .hero{width:100%;margin-bottom:24px}
@@ -75,6 +107,8 @@
       text-transform:uppercase;box-shadow:0 4px 12px rgba(0,0,0,.3);
       transition:transform .15s ease,box-shadow .15s ease;
     }
+    /* CHECK NOW is a <button> now (it opens the questions instead of leaving the page) */
+    button.cta-btn{width:100%;font-family:inherit;line-height:inherit;cursor:pointer;border-radius:0;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent}
     .cta-btn:hover{color:#fff;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.4)}
     /* CTA button blinks to draw the tap; stops while hovered */
     .cta-blink{animation:ctaBlink 1.1s ease-in-out infinite}
@@ -91,6 +125,149 @@
     }
     .enroll-label{font-size:16px;color:#fff;margin-bottom:4px}
     .enroll-date{font-size:20px;font-weight:bold;color:#ff4444;margin-bottom:0;min-height:1.7em}
+
+    /* step questions - same 3 questions as ppc/debt-en-7, shown when CHECK NOW is tapped */
+    .q11{max-width:620px;margin:0 auto 20px;text-align:center}
+    .q11__progress{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    .q11__back{
+      flex:0 0 auto;background:none;border:0;padding:4px 2px;cursor:pointer;
+      font:inherit;font-size:13px;color:rgba(255,255,255,.9);text-decoration:underline;
+    }
+    .q11__back.is-hidden{visibility:hidden}
+    .q11__bar{flex:1 1 auto;height:7px;background:rgba(255,255,255,.28);border-radius:999px;overflow:hidden}
+    .q11__fill{height:100%;background:#55A835;border-radius:999px;transition:width .3s ease}
+    .q11__count{flex:0 0 auto;font-size:12px;color:rgba(255,255,255,.85);white-space:nowrap}
+    .q11__step.is-hidden{display:none}
+    .q11__q{font-size:clamp(20px,2.6vw,27px);font-weight:700;line-height:1.3;margin:0 0 18px;color:#fff}
+    .q11__btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:460px;margin:0 auto}
+    .q11__opt{
+      min-height:58px;padding:14px 16px;cursor:pointer;
+      background:#f7f9fb;color:#1A2B47;border:0;border-radius:8px;
+      font:inherit;font-size:clamp(16px,1.8vw,19px);font-weight:700;line-height:1.25;
+      box-shadow:0 4px 0 rgba(0,0,0,.25);
+      transition:transform .12s ease,box-shadow .12s ease,background .12s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .q11__opt:hover{background:#fff}
+    .q11__opt:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.25)}
+    .q11__opt:focus-visible{outline:3px solid #55A835;outline-offset:3px}
+    @media (max-width:420px){
+      .q11__btns{grid-template-columns:1fr}
+      .q11__count{display:none}
+    }
+
+    /* congratulations + call box (copied from ppc/debt-en-7) */
+    .final{display:none}
+    .final.is-visible{display:block}
+    .final{
+      max-width:560px;margin:6px auto;
+      background:#fff;
+      border:1px solid rgba(255,255,255,.35);
+      border-top:5px solid #25b846;
+      border-radius:16px;
+      padding:28px 22px 24px;
+      text-align:center;
+      color:#1a1a2e;
+      box-shadow:0 20px 46px rgba(0,0,0,.32);
+      animation:finalIn .45s ease-out both;
+      scroll-margin-top:28px; /* scrollIntoView runs mid fade-in (translateY 16px) - keep the top edge visible */
+    }
+    @keyframes finalIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+    .final__headline{
+      font-family:"Bitter",Georgia,"Times New Roman",serif;
+      font-weight:700;font-size:24px;line-height:1.27;
+      color:#12161f;margin:0 0 16px;letter-spacing:-.1px;
+    }
+    .final__amount{font-size:16px;color:#5a5a78;margin:0 0 6px}
+    .final__amount strong{
+      color:#145230;font-weight:700;
+      background:#e8f5ee;border-radius:6px;padding:2px 9px;display:inline-block;
+    }
+    .final__appid{font-size:16px;color:#5a5a78;margin:0 0 15px}
+    .final__appid strong{color:#12161f;font-weight:700}
+    .final__sub{font-size:17px;color:#3a4150;margin:0 0 13px}
+    .final__avail{
+      font-size:15px;font-weight:700;color:#1B6B3A;margin:0 0 15px;
+      display:flex;align-items:center;justify-content:center;gap:8px;
+    }
+    .final__dot{
+      width:10px;height:10px;border-radius:50%;background:#25b846;
+      display:inline-block;flex:0 0 auto;animation:finalPulse 2s ease-out infinite;
+    }
+    @keyframes finalPulse{
+      0%{box-shadow:0 0 0 0 rgba(37,184,70,.55)}
+      70%{box-shadow:0 0 0 9px rgba(37,184,70,0)}
+      100%{box-shadow:0 0 0 0 rgba(37,184,70,0)}
+    }
+    .final__cta{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      width:100%;padding:16px 12px;
+      font-size:25px;font-weight:800;line-height:1.1;
+      color:#fff;text-decoration:none;
+      background:#1d7d43;border-radius:10px;
+      box-shadow:0 4px 0 0 #145230;
+      margin:0 0 16px;
+      transition:transform .08s ease,box-shadow .08s ease;
+      animation:finalCtaBlink 1.1s ease-in-out infinite; /* call button blinks to draw the tap */
+    }
+    @keyframes finalCtaBlink{
+      0%,100%{opacity:1}
+      50%{opacity:.45}
+    }
+    .final__cta:hover{color:#fff;text-decoration:none;animation-play-state:paused;opacity:1}
+    .final__cta:active{transform:translateY(3px);box-shadow:0 1px 0 0 #145230}
+    .final__cta-icon{width:23px;height:23px;flex:0 0 auto}
+    .final__note{font-size:15px;line-height:1.45;color:#5a5a78;margin:0 0 16px}
+    .final__timer{
+      background:#fdf2f2;border:1px solid #f5d9d9;border-radius:11px;
+      padding:16px 14px;max-width:300px;margin:0 auto;
+    }
+    .final__timer-num{
+      font-size:50px;line-height:1;font-weight:800;color:#d15353;
+      font-variant-numeric:tabular-nums;margin-bottom:6px;
+    }
+    .final__timer-label{
+      font-size:12px;font-weight:700;letter-spacing:1.1px;
+      text-transform:uppercase;color:#8a8f98;
+    }
+    .final__timer.is-expired{background:#eef7f1;border-color:#d6e8dd}
+    .final__timer-expired{font-size:15px;line-height:1.45;color:#3a4150;margin:0}
+    @media (max-width:600px){
+      .final{padding:22px 16px 20px}
+      .final__headline{font-size:21px}
+      .final__cta{font-size:21px}
+      .final__timer-num{font-size:44px}
+    }
+    /* loading screen shown for a few seconds between the last answer and the
+       congratulations box (ported from debt-en-7's loader, recoloured) */
+    .lp-loading[hidden]{display:none}
+    .lp-loading{
+      position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;
+      padding:24px;background:rgba(16,27,46,.78);
+      -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:lpFade .18s ease-out;
+    }
+    .lp-loading__card{
+      width:100%;max-width:340px;padding:30px 26px 26px;background:#fff;border-radius:16px;
+      text-align:center;box-shadow:0 22px 60px rgba(0,0,0,.34);font-family:Arial,sans-serif;
+    }
+    .lp-loading__spinner{
+      width:52px;height:52px;margin:0 auto 18px;border-radius:50%;
+      border:5px solid #e6f2e0;border-top-color:#55A835;animation:lpSpin .85s linear infinite;
+    }
+    .lp-loading__text{margin:0 0 16px;font-size:17px;font-weight:700;line-height:1.4;color:#1A2B47;min-height:48px;display:flex;align-items:center;justify-content:center}
+    .lp-loading__bar{height:6px;border-radius:99px;overflow:hidden;background:#e6f2e0}
+    .lp-loading__bar > span{display:block;height:100%;width:0;border-radius:99px;background:#55A835;animation:lpBar var(--lp-dur,3000ms) linear forwards}
+    body.lp-loading-lock{overflow:hidden}
+    @keyframes lpFade{from{opacity:0}to{opacity:1}}
+    @keyframes lpSpin{to{transform:rotate(360deg)}}
+    @keyframes lpBar{from{width:0}to{width:100%}}
+
+    @media (prefers-reduced-motion:reduce){
+      .lp-loading{animation:none}
+      .lp-loading__spinner{animation:none}
+      .q11__fill,.q11__opt{transition:none}
+      .final,.final__cta,.final__dot{animation:none}
+    }
 
     /* trust row */
     .trust{text-align:center;background:#fff;padding:20px 20px 40px;border-top:1px solid #eee;display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;margin-bottom:32px}
@@ -119,6 +296,8 @@
   <div class="topbar"></div>
 
   <div class="wrap">
+    <img class="brand" src="images/national-debt-relief-logo.png" width="256" height="190" alt="National Debt Relief">
+
     <h1 class="headline">Private Debt Program Helps Americans With $10,000+ in Debt. Thousands Are Checking Daily To See If They Qualify</h1>
 
     <img class="hero"
@@ -148,9 +327,67 @@
     <p class="states">Alabama, Alaska, Arizona, Arkansas, California, Colorado, Delaware, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Virginia, Washington, Wyoming</p>
     <p class="eligible">If your combined debt exceeds $10k+, you may be eligible for financial relief...</p>
 
-    <div class="cta-box">
+    <div class="cta-box" id="cta_box">
       <div class="spots">⚠ Only 23 spots left in your state</div>
-      <a href="https://globalvisitclub.com/cf/click/1" id="cta_main" class="cta-btn cta-blink">CHECK NOW »</a>
+      <button type="button" id="cta_main" class="cta-btn cta-blink">CHECK NOW »</button>
+
+      <!-- step questions (hidden until CHECK NOW is tapped) - same as ppc/debt-en-7 -->
+      <div class="q11" id="q11" hidden>
+        <div class="q11__progress">
+          <button type="button" class="q11__back is-hidden" id="q11Back">&larr; Go back</button>
+          <div class="q11__bar"><div class="q11__fill" id="q11Fill" style="width:33.33%"></div></div>
+          <span class="q11__count" id="q11Count">Question 1 of 3</span>
+        </div>
+
+        <div class="q11__step" data-step="debtValue">
+          <h2 class="q11__q">Select the debt amount you owe to see if you qualify</h2>
+          <div class="q11__btns">
+            <button type="button" class="q11__opt" data-value="$10,000 - $15,000">$10,000 - $15,000</button>
+            <button type="button" class="q11__opt" data-value="$15,000+">$15,000+</button>
+          </div>
+        </div>
+
+        <div class="q11__step is-hidden" data-step="livingStatus">
+          <h2 class="q11__q">Do you live in <span class="geodata-state">the United States</span>?</h2>
+          <div class="q11__btns">
+            <button type="button" class="q11__opt" data-value="Yes">Yes</button>
+            <button type="button" class="q11__opt" data-value="No">No</button>
+          </div>
+        </div>
+
+        <div class="q11__step is-hidden" data-step="debtPayments">
+          <h2 class="q11__q">Are you making minimum payments?</h2>
+          <div class="q11__btns">
+            <button type="button" class="q11__opt" data-value="Yes">Yes</button>
+            <button type="button" class="q11__opt" data-value="No">No</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- congratulations + call box (hidden until the last question is answered) - same as ppc/debt-en-7 -->
+      <section class="final" id="final">
+        <h2 class="final__headline">🎉 Congratulations! To get your debt partially or completely waived off, call our licensed Debt Relief Specialist right away.</h2>
+
+        <p class="final__amount">Debt amount: <strong id="selected_amount">&mdash;</strong></p>
+        <p class="final__appid">Application #<strong id="application_id">C000000</strong></p>
+
+        <p class="final__sub">Tap the button below to speak with your assigned specialist.</p>
+
+        <p class="final__avail"><span class="final__dot"></span><span id="agents_available">1</span> licensed specialist available now</p>
+
+        <a href="tel:+18773480120" class="final__cta" id="final_call">
+          <svg class="final__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+          <span>Call <span class="final__phone">(877) 348-0120</span></span>
+        </a>
+
+        <p class="final__note">We're experiencing high call volume. Your assigned specialist is reserved for you for the time shown below &mdash; after that, they'll move on to the next caller.</p>
+
+        <div class="final__timer" id="final_timer">
+          <div class="final__timer-num" id="timer_seconds">90</div>
+          <div class="final__timer-label">Seconds Remaining</div>
+        </div>
+      </section>
+
       <div class="enroll-label">2026 Enrollment Ends:</div>
       <div class="enroll-date" id="enrollEnds"></div>
     </div>
@@ -186,6 +423,15 @@
   </div>
 </div>
 
+<!-- loading screen between the last answer and the congratulations box -->
+<div class="lp-loading" id="lp-loading" hidden role="status" aria-live="polite">
+  <div class="lp-loading__card">
+    <div class="lp-loading__spinner" aria-hidden="true"></div>
+    <p class="lp-loading__text" id="lp-loading-text">Checking your answers&hellip;</p>
+    <div class="lp-loading__bar" aria-hidden="true"><span></span></div>
+  </div>
+</div>
+
 <script>
 /* "2026 Enrollment Ends:" shows today's date (M/D/YYYY), same as the Base44 original */
 (function () {
@@ -198,6 +444,220 @@
     el.textContent = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
   }
 })();
+</script>
+
+<script>
+/* CHECK NOW -> 3 step questions -> congratulations + call box.
+   Same questions, copy, phone number, application id and 90s timer as
+   ppc/debt-en-7. QA params: ?final=1 opens the call box straight away,
+   ?geostate=Texas forces the state shown in question 2. */
+(function (w, d) {
+  "use strict";
+
+  /* ======================= CONFIG ======================= */
+  var PHONE_DISPLAY = "(877) 348-0120";
+  var PHONE_TEL     = "+18773480120";
+  var TIMER_SECONDS = 90;
+  var TIMER_PERSIST = true;               /* refresh does NOT restart the countdown */
+  var APP_PREFIX    = "C";
+  var APP_DIGITS    = 6;
+  var TIMER_EXPIRED = "Your specialist is still on the line &mdash; tap the button above to connect.";
+  /* loading screen before the congratulations box */
+  var LOADING_MS    = 3000;               /* 0 = no loader, box opens instantly */
+  var LOADING_STEPS = [                   /* shown one after another while it loads */
+    "Checking your answers…",
+    "Reviewing your eligibility…",
+    "Preparing your results…"
+  ];
+  /* own storage keys so debt-en-7's timer/app id in the same tab don't carry over */
+  var KEY_APP = "d11_app_id", KEY_TIMER = "d11_timer_start", KEY_STATE = "d11_state";
+  /* ====================================================== */
+
+  var cta   = d.getElementById("cta_main");
+  var box   = d.getElementById("cta_box");
+  var quiz  = d.getElementById("q11");
+  var card  = d.getElementById("final");
+  if (!cta || !box || !quiz || !card) return;
+
+  var steps = quiz.querySelectorAll(".q11__step");
+  var fill  = d.getElementById("q11Fill");
+  var count = d.getElementById("q11Count");
+  var back  = d.getElementById("q11Back");
+  var at = 0, answers = {}, shown = false, loading = false;
+
+  var SS = {
+    get: function (k) { try { return w.sessionStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { w.sessionStorage.setItem(k, v); } catch (e) {} }
+  };
+
+  function scrollToEl(el, block) {
+    try { el.scrollIntoView({ behavior: "smooth", block: block }); }
+    catch (e) { try { el.scrollIntoView(); } catch (e2) {} }
+  }
+
+  function hideAll(sel) {
+    Array.prototype.forEach.call(box.querySelectorAll(sel), function (n) { n.style.display = "none"; });
+  }
+
+  /* ---------------- questions ---------------- */
+  function paint() {
+    for (var i = 0; i < steps.length; i++) steps[i].classList.toggle("is-hidden", i !== at);
+    fill.style.width = ((at + 1) * 100 / steps.length) + "%";
+    count.textContent = "Question " + (at + 1) + " of " + steps.length;
+    back.classList.toggle("is-hidden", at === 0);
+  }
+
+  cta.addEventListener("click", function (e) {
+    e.preventDefault();
+    cta.style.display = "none";
+    quiz.hidden = false;
+    at = 0;
+    paint();
+    scrollToEl(quiz, "center");
+  });
+
+  quiz.addEventListener("click", function (e) {
+    var btn = e.target.closest ? e.target.closest(".q11__opt") : null;
+    if (!btn || loading) return;
+    var key = btn.closest(".q11__step").getAttribute("data-step");
+    var val = btn.getAttribute("data-value");
+    answers[key] = val;
+    if (typeof w.fbq === "function") w.fbq("trackCustom", "LP_Quiz_Step", { step: key, answer: val });
+    if (at + 1 >= steps.length) runLoader(answers.debtValue);
+    else { at++; paint(); }
+  });
+
+  back.addEventListener("click", function () {
+    if (at > 0) { at--; paint(); }
+  });
+
+  /* ---------------- congratulations box ---------------- */
+  function applicationId() {
+    var c = SS.get(KEY_APP);
+    if (c) return c;
+    var min = Math.pow(10, APP_DIGITS - 1);
+    var id = APP_PREFIX + Math.floor(min + Math.random() * (min * 9));
+    SS.set(KEY_APP, id);
+    return id;
+  }
+
+  function startTimer() {
+    var tbox = d.getElementById("final_timer"), num = d.getElementById("timer_seconds");
+    if (!tbox || !num) return;
+    var t0 = TIMER_PERSIST ? parseInt(SS.get(KEY_TIMER), 10) : NaN;
+    if (!t0 || isNaN(t0)) { t0 = Date.now(); if (TIMER_PERSIST) SS.set(KEY_TIMER, String(t0)); }
+    var iv;
+    function tick() {
+      var left = TIMER_SECONDS - Math.floor((Date.now() - t0) / 1000);
+      if (left <= 0) {
+        clearInterval(iv);
+        tbox.className = "final__timer is-expired";
+        tbox.innerHTML = '<p class="final__timer-expired">' + TIMER_EXPIRED + "</p>";
+        return;
+      }
+      num.textContent = left;
+    }
+    tick();
+    iv = setInterval(tick, 1000);
+  }
+
+  function loadFont() {
+    if (d.getElementById("final_font")) return;
+    var l = d.createElement("link");
+    l.id = "final_font"; l.rel = "stylesheet";
+    l.href = "https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&display=swap";
+    d.head.appendChild(l);
+  }
+
+  function showFinal(amount) {
+    if (shown) { scrollToEl(card, "start"); return; }
+    shown = true;
+    loadFont();
+
+    cta.style.display = "none";
+    quiz.hidden = true;
+    hideAll(".spots, .enroll-label, .enroll-date");
+
+    var amtEl = d.getElementById("selected_amount");
+    if (amount) amtEl.textContent = amount;
+    else amtEl.parentNode.style.display = "none";
+
+    card.querySelector(".final__phone").textContent = PHONE_DISPLAY;
+    d.getElementById("final_call").setAttribute("href", "tel:" + PHONE_TEL);
+    d.getElementById("application_id").textContent = applicationId();
+
+    card.classList.add("is-visible");
+    startTimer();
+    /* the box can open below the fold - bring it into view */
+    scrollToEl(card, "start");
+  }
+
+  /* ---------------- loading screen ---------------- */
+  function runLoader(amount) {
+    var ov = d.getElementById("lp-loading");
+    if (!ov || !(LOADING_MS > 0)) { showFinal(amount); return; }
+    if (loading || shown) return;
+    loading = true;
+    loadFont();                            /* fetch the headline font while the loader runs */
+
+    var txt = d.getElementById("lp-loading-text");
+    var msgs = LOADING_STEPS.length ? LOADING_STEPS : ["One moment…"];
+    var per = Math.floor(LOADING_MS / msgs.length);
+
+    ov.style.setProperty("--lp-dur", LOADING_MS + "ms");
+    if (txt) txt.textContent = msgs[0];
+    ov.hidden = false;
+    d.body.classList.add("lp-loading-lock");
+
+    for (var i = 1; i < msgs.length; i++) {
+      (function (m, n) { setTimeout(function () { if (txt) txt.textContent = m; }, per * n); })(msgs[i], i);
+    }
+
+    setTimeout(function () {
+      ov.hidden = true;
+      d.body.classList.remove("lp-loading-lock");
+      loading = false;
+      showFinal(amount);
+    }, LOADING_MS);
+  }
+
+  /* call taps count as AddToCart, same as debt-en-7 */
+  d.getElementById("final_call").addEventListener("click", function () {
+    if (typeof w.fbq === "function") w.fbq("track", "AddToCart");
+  });
+
+  /* ---------------- state name for "Do you live in ...?" ---------------- */
+  (function () {
+    var el = quiz.querySelector(".geodata-state");
+    if (!el) return;
+    var forced = "";
+    try { forced = new URLSearchParams(w.location.search).get("geostate") || ""; } catch (e) {}
+    if (forced) { el.textContent = forced; return; }
+    var c = SS.get(KEY_STATE);
+    if (c) { el.textContent = c; return; }
+    if (!w.fetch) return;
+    var ctrl = w.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 3000);
+    w.fetch("https://get.geojs.io/v1/ip/geo.json", { signal: ctrl ? ctrl.signal : undefined, cache: "no-store" })
+      .then(function (r) {
+        clearTimeout(timer);
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (g) {
+        var v = (g && (g.region || g.city) || "").trim();
+        if (!v) return;
+        el.textContent = v;
+        SS.set(KEY_STATE, v);
+      })
+      .catch(function () { clearTimeout(timer); });
+  })();
+
+  /* QA: ?final=1 opens the box straight away */
+  try { if (new URLSearchParams(w.location.search).get("final") === "1") showFinal("$15,000+"); } catch (e) {}
+
+  w.q11Answers = answers;
+})(window, document);
 </script>
 </body>
 </html>
