@@ -67,45 +67,11 @@
 
 				$('#agentBlock4 .agent-chat').prepend(typingEffect());
 				$('#msg11').addClass('hidden');
-				$('#userBlock3b').removeClass('hidden');
 
-
-				if(buttonValue == 'Yes'){
-					$('#msg12yess').removeClass('hidden');
-					$('#hdnAgeApproved').val('Yes');
-					$('#hdnApprovalStatus').val('No');
-					console.log("click yes");
-
-				} else {
-					$('#msg12-over55').removeClass('hidden');
-
-					$('#hdnAgeApproved').val('No');
-					$('#hdnApprovalStatus').val('No');   /* No must take the disapproved path */
-				}
-				scrollToBottom();
-
-				if($('#hdnApprovalStatus').val() == 'No'){
-					console.log("click 2");
-//downsell
-					/* no downsell number exists on this page, so do not reveal the
-					   call button - show the not-eligible ending instead */
-					$('#PrimaryNumber').addClass('hidden');
-					$('#msg14disapproved').removeClass('hidden');
-					$('#msg16disapproved').removeClass('hidden');
-					
-
-
-				} else {
-//Primary
-					console.log("click 3");
-					$('#PrimaryNumber').removeClass('hidden');
-					$('#msg14approved').removeClass('hidden');
-					$('#msg16approved').removeClass('hidden');
-
-				}
-
-				var isAgeVerified = $('#hdnAgeApproved').val();
-
+				/* Medicaid/Medicare/VA/Tricare answer: Yes and No both go to the
+				   congratulations messages and the call button */
+				$('#userBlock3').removeClass('hidden');
+				$(buttonValue == 'Yes' ? '#msg12yes' : '#msg12no').removeClass('hidden');
 				scrollToBottom();
 
 				setTimeout(function(){
@@ -121,19 +87,14 @@
 							scrollToBottom();
 							setTimeout(function(){
 								$('.temp-typing').remove();
-								$('#msg15').removeClass('hidden').after(typingEffect());
+								$('#msg16').removeClass('hidden').after(typingEffect());
 								scrollToBottom();
 								setTimeout(function(){
 									$('.temp-typing').remove();
-									$('#msg16').removeClass('hidden').after(typingEffect());
+									$('#msg17').removeClass('hidden');
 									scrollToBottom();
-									setTimeout(function(){
-										$('.temp-typing').remove();
-										$('#msg17').removeClass('hidden');
-										scrollToBottom();
-									}, 0);
-								}, 2250);
-							}, 1250);
+								}, 0);
+							}, 2250);
 						}, 1750);
 					}, 1250);
 				}, 250);

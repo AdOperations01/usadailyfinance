@@ -100,7 +100,7 @@ src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscrip
       <div class="mpa-badge">⭐ Over 350,000+ Americans Helped</div>
       <h1 id="mpa-title">Low Income? You May Qualify For A $0/Month Health Subsidy &amp; Extra Benefits</h1>
       <p class="mpa-lead">
-        This site has helped hundreds of thousands of people claim their subsidy! Due to recent updates, Americans with low or moderate income now qualify for a <strong>massive 2026 premium tax credit</strong> that drops monthly bills to <strong>$0</strong>. Enter your ZIP code to self-enroll and check eligibility instantly.
+        We have helped hundreds of <b>thousands of people claim their subsidy of $6400</b>! Post mid-term elections, Americans with low or moderate income now qualify for a <strong>massive 2026 premium tax credit</strong> that drops monthly bills to <strong>$0</strong>. Enter your ZIP code to self-enroll and check eligibility instantly.
       </p>
 
       <div class="mpa-highlight">
@@ -120,8 +120,8 @@ src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscrip
 
     <section class="mpa-body">
       <div class="mpa-progress-copy">
-        <span>Step 1: Zip Code Verification</span>
-        <span id="mpaStepText">1 of 2</span>
+        <span id="mpaStepLabel">Step 1: Zip Code Verification</span>
+        <span id="mpaStepText">1 of 3</span>
       </div>
       <div class="mpa-progress" aria-hidden="true"><div id="mpaProgressBar"></div></div>
 
@@ -145,18 +145,28 @@ src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscrip
           <p>Select the option that best describes your needs so we can route your self-enrollment.</p>
 
           <div class="mpa-options">
-            <button type="button" onclick="mpaComplete('zero-premium')">
+            <button type="button" onclick="mpaGoal('zero-premium')">
               <b>Get a $0/Month Health Plan</b>
               <span>Check for maximum subsidy vouchers</span>
             </button>
-            <button type="button" onclick="mpaComplete('extra-benefits')">
-              <b>Claim Extra Benefits</b>
+            <button type="button" onclick="mpaGoal('extra-benefits')">
+              <b>Claim $6400 Govt. Benefits</b>
               <span>Look for extra dental, vision, or rx coverage</span>
             </button>
-            <button type="button" onclick="mpaComplete('lower-costs')">
+            <button type="button" onclick="mpaGoal('lower-costs')">
               <b>Lower My Current Monthly Bill</b>
               <span>Apply new 2026 subsidies to my current plan</span>
             </button>
+          </div>
+        </section>
+
+        <section class="mpa-step" data-step="3">
+          <div class="mpa-step-number">3</div>
+          <h2>Are you available to talk to our Expert now to Enroll?</h2>
+
+          <div class="mpa-options mpa-options--yn">
+            <button type="button" onclick="mpaComplete('yes')"><b>YES</b></button>
+            <button type="button" onclick="mpaComplete('no')"><b>NO</b></button>
           </div>
         </section>
       </div>
@@ -169,8 +179,8 @@ src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscrip
           Your ZIP code is verified. Click below to view your $0 coverage options, claim your health insurance subsidy, and finish your self-enrollment right now.
         </p>
 
-        <a id="mpaPortalLink" class="mpa-primary pulse-btn" style="text-decoration: none; display: block; font-size: 22px; padding: 24px;" href="tel:+18335610968">
-          CLICK HERE TO CLAIM YOUR SUBSIDY &amp; ENROLL
+        <a id="mpaPortalLink" class="mpa-primary pulse-btn" style="text-decoration: none; display: block; font-size: clamp(18px, 4.6vw, 22px); padding: 24px;" href="tel:+18335610968">
+          CALL OUR SUBSIDY EXPERT AND TALK FOR 2 MINUTES TO CLAIM YOUR BENEFITS
         </a>
 
         <div class="mpa-next-list">
@@ -181,7 +191,7 @@ src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscrip
       </section>
 
       <aside class="mpa-disclosure">
-        This platform is a private service and is not affiliated with or endorsed by the U.S. government, HealthCare.gov, or any state Marketplace. This site has helped hundreds of thousands of people find coverage. Terms like "subsidy voucher" refer to Affordable Care Act premium tax credits. Eligibility, premium tax credits, $0 premium availability, additional benefits, and enrollment are not guaranteed and depend on household, income, location, age, tax, residency, enrollment-period, and Marketplace requirements. Plan availability varies by area.
+        This platform is a private service and is not affiliated with or endorsed by the U.S. government, HealthCare.gov, or any state Marketplace. We have helped hundreds of thousands of people find coverage. Terms like "subsidy voucher" refer to Affordable Care Act premium tax credits. Eligibility, premium tax credits, $0 premium availability, additional benefits, and enrollment are not guaranteed and depend on household, income, location, age, tax, residency, enrollment-period, and Marketplace requirements. Plan availability varies by area.
       </aside>
     </section>
   </main>
@@ -279,7 +289,7 @@ src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscrip
   .mpa-body { padding:30px 24px;background:#f9fafb;border-top:2px solid var(--mpa-line); }
   .mpa-progress-copy { display:flex;justify-content:space-between;margin-bottom:12px;font-size:15px;font-weight:900;color:var(--mpa-navy);text-transform:uppercase; }
   .mpa-progress { height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin-bottom:28px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);}
-  #mpaProgressBar { width:50%;height:100%;background:var(--mpa-green);transition:width .4s ease-in-out; }
+  #mpaProgressBar { width:33%;height:100%;background:var(--mpa-green);transition:width .4s ease-in-out; }
   .mpa-step,.mpa-result {
     display:none;padding:32px 24px;background:#fff;border:3px solid #e5e7eb;border-radius:12px;
     box-shadow:0 15px 30px rgba(0,0,0,.08);
@@ -341,6 +351,10 @@ src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscrip
   }
   .mpa-options button:hover::after { opacity: 1; }
   .mpa-options b { display:block;font-size:20px;font-weight:900;line-height:1.3; }
+  .mpa-options--yn { grid-template-columns:1fr 1fr; margin-top:24px; }
+  .mpa-options--yn button { text-align:center; padding:22px 12px; }
+  .mpa-options--yn button::after { content:none; }
+  .mpa-options--yn b { font-size:24px; }
   .mpa-options span { display:block;margin-top:6px;font-size:15px;color:var(--mpa-muted); font-weight: 500;}
   .mpa-result { text-align:center; }
   .mpa-result-check { width:80px;height:80px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center;background:#dcfce7;color:var(--mpa-green);font-size:40px;font-weight:900; box-shadow: 0 0 0 10px rgba(22, 163, 74, 0.1); }
@@ -383,13 +397,29 @@ src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscrip
     }
     error.style.display = 'none';
     track('MPAZipSubmitted', {zip:zip});
-    document.querySelector('.mpa-step[data-step="1"]').classList.remove('is-active');
-    document.querySelector('.mpa-step[data-step="2"]').classList.add('is-active');
-    document.getElementById('mpaProgressBar').style.width = '100%';
-    document.getElementById('mpaStepText').textContent = 'Step 2 of 2';
+    showStep(2, 'Step 2: Your Goal', '67%');
   };
 
-  window.mpaComplete = function(answer){
+  var goal = '';
+
+  function showStep(n, label, width){
+    var steps = document.querySelectorAll('.mpa-step');
+    for (var i = 0; i < steps.length; i++) {
+      steps[i].classList.toggle('is-active', steps[i].getAttribute('data-step') === String(n));
+    }
+    document.getElementById('mpaStepLabel').textContent = label;
+    document.getElementById('mpaStepText').textContent = n + ' of 3';
+    document.getElementById('mpaProgressBar').style.width = width;
+  }
+
+  window.mpaGoal = function(answer){
+    goal = answer;
+    track('MPAGoalSelected', {goal:answer});
+    showStep(3, 'Step 3: Talk To An Expert', '100%');
+  };
+
+  window.mpaComplete = function(available){
+    var answer = goal;
     var zip = (document.getElementById('mpaZip').value || '').trim();
     var destination = portalBase; // tel: links cannot carry query params
     document.getElementById('mpaQuiz').style.display = 'none';
@@ -397,7 +427,7 @@ src="https://www.facebook.com/tr?id=4336928033302962&amp;ev=PageView&amp;noscrip
     document.querySelector('.mpa-progress').style.display = 'none';
     document.getElementById('mpaPortalLink').href = destination;
     document.getElementById('mpaResult').classList.add('is-active');
-    track('MPAEligibilityReviewCompleted', {zip:zip,review:answer});
+    track('MPAEligibilityReviewCompleted', {zip:zip,review:answer,available:available});
     document.getElementById('mpaResult').scrollIntoView({behavior:'smooth',block:'start'});
   };
 
